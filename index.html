@@ -10,17 +10,28 @@
 <style>
 
   :root{
-    --ink:#14213A;
-    --ink-2:#1C2F52;
-    --brass:#B4883B;
-    --brass-deep:#8F6A28;
-    --brass-tint:#EFE3C8;
-    --paper:#FBF9F4;
-    --paper-2:#F3EEE1;
-    --line:#E2DBC7;
-    --text:#242B38;
-    --muted:#6C7484;
-    --sidebar-w:272px;
+    /* Nova Paleta de Cores */
+    --p-violet: #7400B8;
+    --p-indigo: #6930C3;
+    --p-slate: #5E60CE;
+    --p-sky-dark: #5390D9;
+    --p-sky-fresh: #4EA8DE;
+    --p-sky-surge: #48BFE3;
+    --p-aqua: #64DFDF;
+    --p-turquoise: #72EFDD;
+    --p-aquamarine: #80FFDB;
+
+    /* Mapeamento Funcional */
+    --ink: var(--p-violet);
+    --ink-2: var(--p-slate);
+    --accent: var(--p-aqua);
+    --accent-deep: var(--p-sky-dark);
+    --accent-tint: var(--p-aquamarine);
+    --paper: #F8FAFC;
+    --text: #1E293B;
+    --muted: #64748B;
+    --line: #E2E8F0;
+    --sidebar-w: 272px;
   }
 
   *{ box-sizing:border-box; }
@@ -53,11 +64,12 @@
     font-size:.72rem;
     letter-spacing:.16em;
     text-transform:uppercase;
-    color:var(--brass-deep);
+    color:var(--p-indigo);
     display:flex;
     align-items:center;
     gap:.6rem;
     margin-bottom:.9rem;
+    font-weight: 600;
   }
 
   .numeral{
@@ -66,10 +78,10 @@
     justify-content:center;
     width:26px;
     height:26px;
-    border:1px solid var(--brass);
+    background: var(--p-violet);
     border-radius:50%;
     font-size:.7rem;
-    color:var(--brass-deep);
+    color: white;
   }
 
   /* ---------- Sidebar ---------- */
@@ -79,23 +91,24 @@
     left:0; top:0;
     height:100vh;
     width:var(--sidebar-w);
-    background:linear-gradient(180deg,var(--ink),var(--ink-2));
+    background: linear-gradient(180deg, var(--p-violet), var(--p-indigo));
     color:#EDEFF5;
     padding:32px 26px;
     overflow-y:auto;
     z-index:50;
-    border-right:1px solid rgba(180,136,59,.35);
+    border-right:1px solid rgba(255,255,255,0.1);
   }
 
   .brand{ font-family:"Fraunces", serif; font-size:1.05rem; font-weight:600; letter-spacing:.02em; display:block; margin-bottom:4px; }
-  .brand-sub{ font-family:"IBM Plex Mono", monospace; font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--brass); opacity:.9; }
+  .brand-sub{ font-family:"IBM Plex Mono", monospace; font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--p-aquamarine); opacity:.9; }
   .sidebar hr{ border:none; border-top:1px solid rgba(255,255,255,.14); margin:22px 0; }
   .nav-group-label{ font-family:"IBM Plex Mono", monospace; font-size:.63rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(237,239,245,.4); margin:18px 0 8px 2px; }
-  .navlink{ display:flex; align-items:center; gap:.65rem; color:rgba(237,239,245,.82); text-decoration:none; font-size:.9rem; padding:8px 8px; border-radius:8px; margin-bottom:2px; transition:background .15s ease, color .15s ease; }
-  .navlink:hover{ background:rgba(255,255,255,.06); color:#fff; }
-  .navlink.active{ background:rgba(180,136,59,.18); color:#fff; }
+  
+  .navlink{ display:flex; align-items:center; gap:.65rem; color:rgba(237,239,245,.82); text-decoration:none; font-size:.9rem; padding:8px 8px; border-radius:8px; margin-bottom:2px; transition:all .15s ease; }
+  .navlink:hover{ background:rgba(255,255,255,.1); color:#fff; }
+  .navlink.active{ background:var(--p-slate); color:#fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
   .navlink-mark{ flex:0 0 auto; width:22px; height:22px; border-radius:50%; border:1px solid rgba(255,255,255,.3); display:flex; align-items:center; justify-content:center; font-family:"IBM Plex Mono", monospace; font-size:.62rem; }
-  .navlink-dot{ flex:0 0 auto; width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.35); margin:0 8px 0 2px; }
+  .navlink-dot{ flex:0 0 auto; width:6px; height:6px; border-radius:50%; background:var(--p-aquamarine); margin:0 8px 0 2px; }
 
   /* ---------- Layout ---------- */
   .content{ margin-left:var(--sidebar-w); }
@@ -103,76 +116,87 @@
 
   /* ---------- Hero ---------- */
   .hero-wrap{ padding:56px 56px 40px; max-width:1080px; }
-  .hero{ padding:76px 60px; background: radial-gradient(circle at 85% 12%, rgba(180,136,59,.35), transparent 45%), linear-gradient(135deg,var(--ink),var(--ink-2)); color:#F4F1E8; border-radius:6px; position:relative; overflow:hidden; border:1px solid rgba(180,136,59,.4); }
+  .hero{ 
+    padding:76px 60px; 
+    background: 
+      radial-gradient(circle at 90% 10%, var(--p-aquamarine), transparent 40%),
+      linear-gradient(135deg, var(--p-violet), var(--p-slate)); 
+    color:#fff; 
+    border-radius:16px; 
+    position:relative; 
+    overflow:hidden;
+    box-shadow: 0 20px 40px rgba(116, 0, 184, 0.2);
+  }
   .hero h1{ color:#fff; font-size:clamp(2rem, 4vw, 3rem); font-weight:600; max-width:14ch; margin-bottom:.4em; }
-  .hero .lead{ font-size:1.1rem; max-width:52ch; color:rgba(244,241,232,.85); margin-bottom:1.6rem; }
+  .hero .lead{ font-size:1.1rem; max-width:52ch; color:rgba(255,255,255,0.9); margin-bottom:1.6rem; }
   .tag-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:2.4rem; }
-  .tag{ font-family:"IBM Plex Mono", monospace; font-size:.72rem; padding:6px 12px; border:1px solid rgba(244,241,232,.3); border-radius:100px; color:rgba(244,241,232,.9); }
+  .tag{ font-family:"IBM Plex Mono", monospace; font-size:.72rem; padding:6px 12px; border:1px solid rgba(255,255,255,.3); border-radius:100px; color:#fff; background: rgba(255,255,255,0.1); }
 
   /* ---------- Cards ---------- */
   .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px; }
   .grid-2{ grid-template-columns:1fr 1fr; }
   .grid-4{ grid-template-columns:repeat(4, 1fr); }
   
-  .card{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:28px 26px; position:relative; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .card::before{ content:""; position:absolute; top:0; left:26px; width:34px; height:3px; background:var(--brass); }
+  .card{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:28px 26px; position:relative; transition: all 0.3s ease; }
+  .card::before{ content:""; position:absolute; top:0; left:26px; width:34px; height:4px; background:var(--p-sky-surge); border-radius: 0 0 4px 4px; }
   .card.clickable{ cursor:pointer; }
-  .card.clickable:hover{ transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); border-color: var(--brass); }
+  .card.clickable:hover{ transform: translateY(-5px); box-shadow: 0 12px 30px rgba(94, 96, 206, 0.15); border-color: var(--p-sky-surge); }
   .card p{ color:var(--muted); font-size:.94rem; margin:0; }
 
   .card-list{ list-style:none; padding:0; margin:15px 0 0 0; }
-  .card-list li{ margin-bottom:8px; display:flex; align-items:center; gap:8px; font-size:0.9rem; font-weight:500; color:var(--ink); cursor:pointer; transition: color 0.2s; }
-  .card-list li:hover{ color:var(--brass-deep); }
-  .card-list li::before{ content:"→"; color:var(--brass); font-weight:bold; }
+  .card-list li{ margin-bottom:10px; display:flex; align-items:center; gap:10px; font-size:0.9rem; font-weight:600; color:var(--p-indigo); cursor:pointer; }
+  .card-list li:hover{ color:var(--p-sky-surge); }
+  .card-list li::before{ content:"→"; color:var(--p-aqua); font-weight:bold; }
 
   /* ---------- Modals ---------- */
-  .modal-overlay{ position:fixed; inset:0; background:rgba(20, 33, 58, 0.85); backdrop-filter:blur(4px); z-index:1000; display:none; align-items:center; justify-content:center; padding:20px; }
+  .modal-overlay{ position:fixed; inset:0; background:rgba(20, 20, 45, 0.85); backdrop-filter:blur(8px); z-index:1000; display:none; align-items:center; justify-content:center; padding:20px; }
   .modal-overlay.active{ display:flex; }
-  .modal-content{ background:var(--paper); width:100%; max-width:700px; border-radius:12px; position:relative; overflow:hidden; border:1px solid var(--brass); box-shadow:0 20px 50px rgba(0,0,0,0.3); }
-  .modal-header{ background:var(--ink); color:white; padding:20px 30px; display:flex; justify-content:space-between; align-items:center; }
-  .modal-header h4{ margin:0; color:var(--brass-tint); font-family: "Fraunces", serif; }
-  .close-modal{ background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; opacity:0.7; }
+  .modal-content{ background:#fff; width:100%; max-width:700px; border-radius:20px; position:relative; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,0.4); }
+  .modal-header{ background: linear-gradient(90deg, var(--p-violet), var(--p-indigo)); color:white; padding:24px 32px; display:flex; justify-content:space-between; align-items:center; }
+  .modal-header h4{ margin:0; color:var(--p-aquamarine); font-family: "Fraunces", serif; }
+  .close-modal{ background:none; border:none; color:white; font-size:1.8rem; cursor:pointer; opacity:0.7; }
   .close-modal:hover{ opacity:1; }
-  .modal-body{ padding:30px; max-height:70vh; overflow-y:auto; }
-  .prompt-display{ background:white; border-left:4px solid var(--brass); padding:22px; font-family:"IBM Plex Mono", monospace; font-size:0.92rem; white-space:pre-wrap; color:var(--ink-2); line-height:1.7; }
-  .btn-copy-modal{ margin-top:20px; background:var(--brass); color:var(--ink); border:none; padding:12px 24px; border-radius:8px; font-weight:600; cursor:pointer; transition: background 0.2s; }
-  .btn-copy-modal:hover{ background: var(--brass-deep); color: white; }
+  .modal-body{ padding:32px; max-height:70vh; overflow-y:auto; }
+  .prompt-display{ background:var(--paper); border-left:5px solid var(--p-aqua); padding:24px; font-family:"IBM Plex Mono", monospace; font-size:0.92rem; white-space:pre-wrap; color:var(--text); line-height:1.7; border-radius: 0 8px 8px 0; }
+  .btn-copy-modal{ margin-top:24px; background:var(--p-sky-surge); color:white; border:none; padding:14px 28px; border-radius:10px; font-weight:700; cursor:pointer; transition: all 0.2s; width: 100%; }
+  .btn-copy-modal:hover{ background: var(--p-indigo); transform: scale(1.02); }
 
   /* ---------- Bloom staircase ---------- */
-  .bloom-card{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:30px; margin-top:36px; }
+  .bloom-card{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:30px; margin-top:36px; }
   .bloom-list{ list-style:none; margin:20px 0 0; padding:0; }
-  .bloom-list li{ display:flex; align-items:center; gap:14px; padding:11px 14px; border-radius:8px; margin-bottom:6px; font-family:"IBM Plex Mono", monospace; font-size:.88rem; color:var(--ink); }
-  .bloom-list li span.lvl{ font-size:.68rem; color:var(--brass-deep); width:20px; }
-  .bloom-list li:nth-child(1){ background:#F4EEDD; width:64%; }
-  .bloom-list li:nth-child(2){ background:#F0E6CC; width:72%; }
-  .bloom-list li:nth-child(3){ background:#ECDFBC; width:80%; }
-  .bloom-list li:nth-child(4){ background:#E8D8A9; width:88%; }
-  .bloom-list li:nth-child(5){ background:#E3D096; width:94%; }
-  .bloom-list li:nth-child(6){ background:var(--brass-tint); width:100%; font-weight:600; }
+  .bloom-list li{ display:flex; align-items:center; gap:14px; padding:12px 16px; border-radius:8px; margin-bottom:8px; font-family:"IBM Plex Mono", monospace; font-size:.88rem; color:#fff; font-weight: 500; }
+  .bloom-list li span.lvl{ font-size:.68rem; color:rgba(255,255,255,0.8); width:20px; font-weight: bold; }
+  
+  /* Cores da Escada Bloom baseadas na nova paleta */
+  .bloom-list li:nth-child(1){ background: var(--p-indigo); width:50%; }
+  .bloom-list li:nth-child(2){ background: var(--p-slate); width:60%; }
+  .bloom-list li:nth-child(3){ background: var(--p-sky-dark); width:70%; }
+  .bloom-list li:nth-child(4){ background: var(--p-sky-fresh); width:80%; }
+  .bloom-list li:nth-child(5){ background: var(--p-sky-surge); width:90%; }
+  .bloom-list li:nth-child(6){ background: var(--p-aqua); width:100%; color: var(--p-violet); font-weight:700; }
 
   /* ---------- Table Extra ---------- */
-  .extra-table-wrap{ overflow-x:auto; margin-top:32px; background:white; border-radius:10px; border:1px solid var(--line); }
+  .extra-table-wrap{ overflow-x:auto; margin-top:32px; background:white; border-radius:12px; border:1px solid var(--line); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
   table{ width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem; }
-  th{ background:var(--ink); color:white; padding:16px; font-family:"IBM Plex Mono", monospace; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; }
-  td{ padding:16px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th{ background:var(--p-indigo); color:white; padding:18px; font-family:"IBM Plex Mono", monospace; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; }
+  td{ padding:18px; border-bottom:1px solid var(--line); vertical-align:top; }
   tr:last-child td{ border-bottom:none; }
-  .tool-name{ font-weight:700; color:var(--brass-deep); }
+  .tool-name{ font-weight:700; color:var(--p-indigo); }
 
   /* ---------- Sobre / Facilitadora ---------- */
-  .about-card{ display:flex; gap:34px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:10px; padding:32px; margin-top:32px; }
-  .about-photo{ flex:0 0 auto; width:132px; height:132px; border-radius:50%; overflow:hidden; background:var(--brass-tint); border:3px solid var(--brass); display:flex; align-items:center; justify-content:center; }
-  .about-photo .initials{ font-family:"Fraunces", serif; font-size:2.4rem; color:var(--brass-deep); }
-  .about-role{ font-family:"IBM Plex Mono", monospace; font-size:.78rem; color:var(--brass-deep); margin-bottom:14px; line-height:1.7; }
+  .about-card{ display:flex; gap:34px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:16px; padding:40px; margin-top:32px; box-shadow: 0 10px 25px rgba(116, 0, 184, 0.05); }
+  .about-photo{ flex:0 0 auto; width:132px; height:132px; border-radius:50%; overflow:hidden; background:var(--p-aquamarine); border:4px solid var(--p-turquoise); display:flex; align-items:center; justify-content:center; }
+  .about-photo .initials{ font-family:"Fraunces", serif; font-size:2.8rem; color:var(--p-violet); font-weight: 700; }
+  .about-role{ font-family:"IBM Plex Mono", monospace; font-size:.78rem; color:var(--p-slate); margin-bottom:14px; line-height:1.7; font-weight: 600; }
   .about-contacts{ display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; }
-  .contact-pill{ display:inline-flex; align-items:center; gap:8px; font-family:"Inter", sans-serif; font-size:.86rem; font-weight:500; padding:9px 16px; border-radius:100px; border:1px solid var(--line); color:var(--text); transition: all 0.15s ease; }
-  .contact-pill:hover{ border-color:var(--brass); background:var(--brass-tint); }
-  .contact-pill.disabled{ color:var(--muted); border-style:dashed; cursor:default; }
+  .contact-pill{ display:inline-flex; align-items:center; gap:8px; font-family:"Inter", sans-serif; font-size:.86rem; font-weight:600; padding:10px 20px; border-radius:100px; border:1.5px solid var(--p-sky-surge); color:var(--p-indigo); transition: all 0.2s ease; background: #fff; }
+  .contact-pill:hover{ background:var(--p-sky-surge); color:#fff; transform: translateY(-2px); }
 
   /* ---------- Footer & Misc ---------- */
-  .btn-brass{ background:var(--brass); color:var(--ink); font-weight:600; padding:13px 26px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition: transform 0.2s; }
-  .btn-brass:hover{ transform: translateY(-2px); box-shadow: 0 5px 15px rgba(180,136,59,0.3); }
-  footer{ padding:50px 56px 60px; text-align:center; border-top:1px solid var(--line); }
-  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease; }
+  .btn-accent{ background:var(--p-aqua); color:var(--p-violet); font-weight:700; padding:14px 30px; border-radius:12px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  .btn-accent:hover{ transform: scale(1.05); box-shadow: 0 10px 20px rgba(100, 223, 223, 0.4); }
+  footer{ padding:60px 56px; text-align:center; border-top:1px solid var(--line); background: #fff; }
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
   .reveal.in{ opacity:1; transform:translateY(0); }
 
   @media (max-width:900px){
@@ -211,41 +235,40 @@
 
   <section id="inicio" class="hero-wrap">
     <div class="hero">
-      <div class="hero-eyebrow">Formação Continuada · TRT4</div>
       <h1>Inteligência Artificial e Metodologias Ativas na Docência Corporativa</h1>
-      <p class="lead">Um percurso prático para levar IA generativa e metodologias ativas ao planejamento de cursos internos — do diagnóstico do público ao design das atividades.</p>
+      <p class="lead">Design instrucional inteligente: leve a potência da IA generativa para o planejamento de cursos internos, do diagnóstico ao design de atividades.</p>
       <div class="tag-row">
         <span class="tag">Google Gemini</span>
         <span class="tag">NotebookLM</span>
         <span class="tag">Andragogia</span>
         <span class="tag">Taxonomia de Bloom</span>
       </div>
-      <a href="#bloco1" class="btn-brass">Começar a formação →</a>
+      <a href="#bloco1" class="btn-accent">Iniciar Jornada →</a>
     </div>
   </section>
 
   <section class="section reveal" id="bloco1">
-    <div class="eyebrow"><span class="numeral">I</span>Bloco 1</div>
+    <div class="eyebrow"><span class="numeral">1</span>Bloco 1</div>
     <h2>Fundamentos da Aprendizagem Corporativa</h2>
-    <p style="color:var(--muted); max-width:60ch;">Estruture a base do seu curso. Clique nos cards para acessar modelos de prompts prontos para uso.</p>
+    <p style="color:var(--muted); max-width:60ch;">A base de um curso bem-sucedido. Clique nos cards abaixo para explorar os modelos de prompts.</p>
 
     <div class="grid">
       <!-- ANDRAGOGIA -->
       <div class="card clickable" onclick="openPromptModal('andragogia')">
         <h5>Andragogia</h5>
-        <p>Ajuste seu conteúdo para o adulto aprendiz: foco na experiência, autonomia e aplicação imediata. <strong>(Ver Prompt)</strong></p>
+        <p>Ajuste seu conteúdo para o adulto aprendiz: foco na experiência prévia e na utilidade prática imediata. <strong>(Ver Prompt)</strong></p>
       </div>
 
       <!-- DIAGNÓSTICO -->
       <div class="card clickable" onclick="openPromptModal('diagnostico')">
         <h5>Diagnóstico</h5>
-        <p>Mapeie competências e lacunas de aprendizagem específicas para o público do TRT4. <strong>(Ver Prompt)</strong></p>
+        <p>Utilize IA para mapear competências e identificar lacunas específicas no público do tribunal. <strong>(Ver Prompt)</strong></p>
       </div>
 
       <!-- PLANEJAMENTO -->
       <div class="card">
         <h5>Planejamento</h5>
-        <p>Gere materiais estruturados selecionando uma das categorias abaixo:</p>
+        <p>Selecione uma categoria para gerar materiais adaptados ao seu público:</p>
         <ul class="card-list">
           <li onclick="openPromptModal('plano-aula')">Plano de Aula</li>
           <li onclick="openPromptModal('rubricas')">Rubricas de Avaliação</li>
@@ -256,13 +279,13 @@
   </section>
 
   <section class="section reveal" id="bloco2">
-    <div class="eyebrow"><span class="numeral">II</span>Bloco 2</div>
+    <div class="eyebrow"><span class="numeral">2</span>Bloco 2</div>
     <h2>Engenharia de Cursos e Bloom</h2>
-    <p style="color:var(--muted); max-width:60ch;">Defina objetivos de aprendizagem claros. Use o NotebookLM para garantir que a IA trabalhe sobre fontes institucionais seguras.</p>
+    <p style="color:var(--muted); max-width:60ch;">Estruture objetivos de aprendizagem sólidos e utilize o NotebookLM como sua base de conhecimento institucional segura.</p>
 
     <div class="grid grid-2">
       <div class="bloom-card">
-        <h4>Taxonomia de Bloom</h4>
+        <h4>Taxonomia de Bloom Digital</h4>
         <ul class="bloom-list">
           <li><span class="lvl">01</span>Lembrar</li>
           <li><span class="lvl">02</span>Compreender</li>
@@ -272,42 +295,42 @@
           <li><span class="lvl">06</span>Criar</li>
         </ul>
       </div>
-      <div class="card" style="display:flex; flex-direction:column; justify-content:center; background:var(--ink); color:white;">
-        <h4 style="color:var(--brass)">NotebookLM</h4>
-        <p style="color:rgba(255,255,255,0.85)">Transforme PDFs de manuais e resoluções em uma base de conhecimento privada. Ideal para evitar alucinações da IA sobre normas do tribunal.</p>
+      <div class="card" style="display:flex; flex-direction:column; justify-content:center; background: linear-gradient(135deg, var(--p-violet), var(--p-indigo)); color:white; border:none;">
+        <h4 style="color:var(--p-aquamarine)">NotebookLM</h4>
+        <p style="color:rgba(255,255,255,0.9)">A ferramenta definitiva para criar cursos baseados em documentos reais do TRT4, garantindo respostas ancoradas em fontes oficiais e seguras.</p>
       </div>
     </div>
   </section>
 
   <section class="section reveal" id="bloco3">
-    <div class="eyebrow"><span class="numeral">III</span>Bloco 3</div>
+    <div class="eyebrow"><span class="numeral">3</span>Bloco 3</div>
     <h2>Produção de Materiais Didáticos</h2>
-    <p style="color:var(--muted); max-width:60ch;">Da avaliação à síntese visual: formatos para materializar o conteúdo planejado.</p>
+    <p style="color:var(--muted); max-width:60ch;">Quatro formatos essenciais para transformar conhecimento técnico em materiais engajadores.</p>
 
     <div class="grid grid-4">
       <div class="card">
         <h5>Rubricas</h5>
-        <p>Critérios claros para mensurar a aprendizagem.</p>
+        <p>Critérios transparentes para mensurar o desenvolvimento.</p>
       </div>
       <div class="card">
         <h5>Questionários</h5>
-        <p>Testes de fixação baseados em problemas.</p>
+        <p>Testes de fixação focados em resolução de problemas.</p>
       </div>
       <div class="card">
         <h5>Podcast</h5>
-        <p>Roteiros para pílulas de áudio educativo.</p>
+        <p>Roteiros para pílulas de áudio para reforço de conteúdo.</p>
       </div>
       <div class="card">
         <h5>Infográfico</h5>
-        <p>Estrutura visual para processos complexos.</p>
+        <p>Estrutura visual para síntese de fluxos e processos.</p>
       </div>
     </div>
   </section>
 
   <section class="section reveal" id="extras">
     <div class="eyebrow">Aprofundamento</div>
-    <h2>Conteúdo Extra: Canivete Suíço de IA</h2>
-    <p style="color:var(--muted); max-width:60ch;">Ferramentas complementares para potencializar sua produtividade na docência.</p>
+    <h2>Conteúdo Extra: Ferramentas de IA</h2>
+    <p style="color:var(--muted); max-width:60ch;">Expanda suas possibilidades para além do Workspace com estas IAs especializadas.</p>
 
     <div class="extra-table-wrap">
       <table>
@@ -315,29 +338,29 @@
           <tr>
             <th>Ferramenta</th>
             <th>Uso na Docência Corporativa</th>
-            <th>Diferencial</th>
+            <th>Diferencial Técnico</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><span class="tool-name">Claude.ai</span></td>
-            <td>Escrita de materiais didáticos e e-mails.</td>
-            <td>Melhor nuance textual e escrita humana.</td>
+            <td>Escrita de manuais e e-mails didáticos.</td>
+            <td>Raciocínio lógico superior e escrita fluida.</td>
           </tr>
           <tr>
             <td><span class="tool-name">Perplexity</span></td>
             <td>Pesquisa rápida com citação de fontes.</td>
-            <td>Acesso em tempo real à internet com fontes.</td>
+            <td>Acesso direto à web com links de referência.</td>
           </tr>
           <tr>
             <td><span class="tool-name">Gamma.app</span></td>
-            <td>Apresentações e sites de curso.</td>
-            <td>Cria slides completos a partir de um prompt.</td>
+            <td>Apresentações e microsites de aula.</td>
+            <td>Geração de design visual a partir de texto.</td>
           </tr>
           <tr>
             <td><span class="tool-name">ElevenLabs</span></td>
             <td>Narração de tutoriais e vídeos.</td>
-            <td>Vozes sintetizadas extremamente realistas.</td>
+            <td>As vozes sintetizadas mais realistas do mercado.</td>
           </tr>
         </tbody>
       </table>
@@ -356,18 +379,16 @@
       <div class="about-body">
         <h4>Fernanda Tostes</h4>
         <div class="about-role">
-          Consultora de IA na Educação<br>
-          Designer Instrucional na FGV<br>
-          Mestranda em Informática na UNIRIO
+          Consultora de IA na Educação | Designer Instrucional FGV | Mestranda UNIRIO
         </div>
-        <p style="color:var(--muted); margin:0; max-width:52ch;">Especialista na interseção entre inteligência artificial generativa, design de aprendizagem e formação corporativa de alto impacto.</p>
+        <p style="color:var(--muted); margin:0; max-width:52ch;">Especialista em metodologias ativas e IA generativa, focada em transformar a prática docente através de tecnologias emergentes e design de aprendizagem.</p>
 
         <div class="about-contacts">
           <a class="contact-pill" href="https://wa.me/5521979234890" target="_blank" rel="noopener">
-            <span class="contact-icon">💬</span>WhatsApp · (21) 97923-4890
+            <span>💬</span> WhatsApp · (21) 97923-4890
           </a>
-          <a class="contact-pill" href="#" style="border-style: dashed; color: var(--muted);">
-            <span class="contact-icon">in</span>LinkedIn · em breve
+          <a class="contact-pill disabled" title="Em breve">
+            <span>in</span> LinkedIn
           </a>
         </div>
       </div>
@@ -375,8 +396,8 @@
   </section>
 
   <footer>
-    <p style="font-family:Fraunces; font-weight:600; color:var(--ink);">Formação TRT4 · 2026</p>
-    <p style="font-family:IBM Plex Mono; font-size:0.72rem; color:var(--muted); text-transform:uppercase; letter-spacing: 0.1em;">Inteligência Artificial e Metodologias Ativas</p>
+    <p style="font-family:Fraunces; font-weight:700; color:var(--p-violet); font-size: 1.2rem;">Formação TRT4 · 2026</p>
+    <p style="font-family:IBM Plex Mono; font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing: 0.15em;">Inteligência Artificial e Metodologias Ativas</p>
   </footer>
 
 </div>
@@ -392,7 +413,7 @@
       <div class="prompt-display" id="modalPromptText">
         Texto do prompt aqui...
       </div>
-      <button class="btn-copy-modal" onclick="copyModalPrompt()">Copiar Prompt</button>
+      <button class="btn-copy-modal" onclick="copyModalPrompt()">Copiar Prompt para Área de Transferência</button>
     </div>
   </div>
 </div>
@@ -401,64 +422,59 @@
   // BANCO DE PROMPTS
   const promptData = {
     'andragogia': {
-      title: 'Prompt: Perfil Adulto Aprendiz',
+      title: 'Estratégia Andragógica',
       text: `Atue como um designer instrucional especialista em Andragogia. 
 
-Considere o tema [TEMA DO CURSO] e sugira estratégias de ensino para servidores públicos adultos.
-Aplique os pressupostos de Malcolm Knowles:
-1. Necessidade de saber: Explique o "porquê" por trás do conteúdo.
-2. Autoconceito: Como dar autonomia ao servidor?
-3. Papel da experiência: Como aproveitar o que eles já sabem?
-4. Prontidão para aprender: Como vincular ao dia a dia no TRT4?
+Analise o tema [TEMA DO CURSO] e sugira como abordá-lo para servidores adultos do TRT4 seguindo os pilares de Knowles:
+1. Autoconceito: Como oferecer autonomia na trilha?
+2. Experiência: Como validar o conhecimento prévio dos servidores?
+3. Prontidão: Como conectar com as demandas reais de trabalho?
+4. Orientação: Como focar na resolução de problemas práticos?
 
-Gere 3 ideias de atividades práticas.`
+Gere 3 estratégias de engajamento.`
     },
     'diagnostico': {
-      title: 'Prompt: Mapeamento de Competências',
-      text: `Com base no público de servidores do TRT4, realize um diagnóstico para o curso de [TEMA].
+      title: 'Diagnóstico de Competências com IA',
+      text: `Com base no perfil de servidores do tribunal, realize um mapeamento para o curso [TEMA].
 
 Mapeie:
-- 3 competências técnicas (Hard Skills) essenciais.
-- 2 competências comportamentais (Soft Skills) transversais.
-- Identifique possíveis lacunas (gaps) de conhecimento que geram erros comuns no setor de [NOME DO SETOR].
-- Proponha uma pergunta de 'situação-problema' para um pré-teste.`
+- 3 competências técnicas (Hard Skills) prioritárias.
+- 2 competências comportamentais (Soft Skills) de apoio.
+- Liste 3 possíveis lacunas (gaps) de conhecimento que geram retrabalho hoje.
+- Crie 1 cenário de 'situação-problema' para testar o nível inicial da turma.`
     },
     'plano-aula': {
-      title: 'Prompt: Plano de Aula (Bloom)',
-      text: `Crie um plano de aula completo para uma oficina de [TEMPO DE DURAÇÃO].
+      title: 'Plano de Aula Dinâmico (Taxonomia de Bloom)',
+      text: `Elabore um plano de aula para uma oficina de [TEMPO].
 Tema: [TEMA]
-Público: [DESCREVER PÚBLICO DO TRT4]
+Público: Servidores do TRT4.
 
-Objetivos de Aprendizagem (Utilize verbos da Taxonomia de Bloom):
-- Nível Conhecimento: ...
-- Nível Aplicação: ...
+Defina objetivos claros usando a Taxonomia de Bloom:
+- Nível de Compreensão: O aluno será capaz de...
+- Nível de Aplicação: O aluno será capaz de...
 
-Estrutura:
-1. Gancho Inicial (Conexão)
-2. Desenvolvimento Teórico Curto
-3. Atividade Mão na Massa
-4. Checklist de encerramento.`
+Estruture em 4 etapas: Conexão (experiência prévia), Conteúdo (teoria curta), Construção (mão na massa) e Conclusão.`
     },
     'rubricas': {
-      title: 'Prompt: Rubricas de Avaliação',
-      text: `Crie uma rubrica de avaliação para uma atividade prática de [DESCREVER ATIVIDADE].
+      title: 'Rubricas de Avaliação Objetivas',
+      text: `Crie uma rubrica de avaliação para a atividade [DESCREVER ATIVIDADE].
 
-A rubrica deve conter 3 critérios de avaliação e 4 níveis de desempenho:
-1. Insatisfatório
-2. Em desenvolvimento
-3. Proficiente
-4. Excelente
+Utilize 3 critérios de avaliação e 4 níveis de desempenho:
+1. Insatisfatório (Abaixo do esperado)
+2. Básico (Conhece mas não aplica totalmente)
+3. Proficiente (Aplica corretamente no fluxo do TRT4)
+4. Avançado (Capaz de orientar outros servidores)
 
-Defina claramente o que é esperado em cada nível para o critério de 'Qualidade Técnica' e 'Eficiência Processual'.`
+Descreva detalhadamente o que caracteriza o sucesso em cada critério.`
     },
     'curadoria': {
-      title: 'Prompt: Curadoria Inteligente',
-      text: `Atue como curador de conteúdo educacional. 
-Para o tema [TEMA], identifique:
-- 1 Referência normativa/legal (busque no acervo do TST/TRT4).
-- 2 Artigos técnicos ou manuais resumidos.
-- 1 Vídeo explicativo sugerido.
-- Organize os materiais do mais simples ao mais complexo (Trilha de Aprendizagem).`
+      title: 'Curadoria Estruturada',
+      text: `Atue como especialista em curadoria educacional. 
+Para o tema [TEMA], identifique e organize:
+- 1 Referência oficial (Manual ou Resolução do TST/TRT4).
+- 2 Artigos ou pílulas de conhecimento externas de alta qualidade.
+- 1 Recurso multimídia (vídeo ou áudio).
+- Organize os materiais em uma sequência lógica do 'Saber que' para o 'Saber como'.`
     }
   };
 
@@ -477,23 +493,29 @@ Para o tema [TEMA], identifique:
     const text = document.getElementById('modalPromptText').innerText;
     navigator.clipboard.writeText(text).then(() => {
       const btn = document.querySelector('.btn-copy-modal');
-      btn.innerText = 'Copiado!';
-      setTimeout(() => btn.innerText = 'Copiar Prompt', 2000);
+      btn.innerText = '✓ Prompt Copiado!';
+      btn.style.background = '#80FFDB';
+      btn.style.color = '#7400B8';
+      setTimeout(() => {
+        btn.innerText = 'Copiar Prompt para Área de Transferência';
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 2000);
     });
   }
 
-  // Reveal on scroll
+  // Reveal on scroll logic
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
         entry.target.classList.add('in');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.15 });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  // Close modal on click outside
+  // Fechar modal ao clicar fora dele
   window.onclick = function(event) {
     const modal = document.getElementById('modalOverlay');
     if (event.target == modal) closeModal();
