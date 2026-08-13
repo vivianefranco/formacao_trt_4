@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
   :root{
     /* Nova Paleta de Cores */
     --p-violet: #7400B8;
@@ -158,8 +157,12 @@
   .close-modal:hover{ opacity:1; }
   .modal-body{ padding:32px; max-height:70vh; overflow-y:auto; }
   .prompt-display{ background:var(--paper); border-left:5px solid var(--p-aqua); padding:24px; font-family:"IBM Plex Mono", monospace; font-size:0.92rem; white-space:pre-wrap; color:var(--text); line-height:1.7; border-radius: 0 8px 8px 0; }
-  .btn-copy-modal{ margin-top:24px; background:var(--p-sky-surge); color:white; border:none; padding:14px 28px; border-radius:10px; font-weight:700; cursor:pointer; transition: all 0.2s; width: 100%; }
+  
+  .modal-btn-group { display: flex; gap: 12px; margin-top: 24px; }
+  .btn-copy-modal{ flex: 1; background:var(--p-sky-surge); color:white; border:none; padding:14px 20px; border-radius:10px; font-weight:700; cursor:pointer; transition: all 0.2s; text-align: center; }
   .btn-copy-modal:hover{ background: var(--p-indigo); transform: scale(1.02); }
+  .btn-open-gemini{ flex: 1; background:var(--p-violet); color:white; border:none; padding:14px 20px; border-radius:10px; font-weight:700; cursor:pointer; transition: all 0.2s; text-decoration: none; text-align: center; display: inline-block; }
+  .btn-open-gemini:hover{ background: var(--p-slate); transform: scale(1.02); color: white; }
 
   /* ---------- Bloom staircase ---------- */
   .bloom-card{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:30px; margin-top:36px; }
@@ -167,7 +170,6 @@
   .bloom-list li{ display:flex; align-items:center; gap:14px; padding:12px 16px; border-radius:8px; margin-bottom:8px; font-family:"IBM Plex Mono", monospace; font-size:.88rem; color:#fff; font-weight: 500; }
   .bloom-list li span.lvl{ font-size:.68rem; color:rgba(255,255,255,0.8); width:20px; font-weight: bold; }
   
-  /* Cores da Escada Bloom baseadas na nova paleta */
   .bloom-list li:nth-child(1){ background: var(--p-indigo); width:50%; }
   .bloom-list li:nth-child(2){ background: var(--p-slate); width:60%; }
   .bloom-list li:nth-child(3){ background: var(--p-sky-dark); width:70%; }
@@ -205,6 +207,7 @@
     .grid, .grid-4, .grid-2{ grid-template-columns:1fr; }
     .section{ padding:56px 22px; }
     .about-card{ flex-direction: column; text-align: center; }
+    .modal-btn-group{ flex-direction: column; }
   }
 
 </style>
@@ -226,6 +229,7 @@
     <a class="navlink" href="#bloco2"><span class="navlink-mark">II</span>Bloco 2 — Engenharia & Bloom</a>
     <a class="navlink" href="#bloco3"><span class="navlink-mark">III</span>Bloco 3 — Materiais</a>
     <div class="nav-group-label">Para ir além</div>
+    <a class="navlink" href="#gem-section"><span class="navlink-dot"></span>Gems no Gemini</a>
     <a class="navlink" href="#extras"><span class="navlink-dot"></span>Conteúdo Extra</a>
     <a class="navlink" href="#sobre"><span class="navlink-dot"></span>Facilitação</a>
   </div>
@@ -327,6 +331,18 @@
     </div>
   </section>
 
+  <!-- GEM SECTION -->
+  <section class="section reveal" id="gem-section">
+    <div class="eyebrow"><span class="numeral">★</span>Avançado</div>
+    <h2>Criando seu Agente Personalizado (Gem)</h2>
+    <p style="color:var(--muted); max-width:60ch;">Vá além da engenharia de prompt pontual. Transforme o Gemini em um <strong>Copiloto de Design Instrucional do TRT4</strong> criando um Gem com instruções de sistema contínuas.</p>
+
+    <div class="card clickable" style="margin-top:24px;" onclick="openPromptModal('gem-design')">
+      <h5 style="color:var(--p-violet);">💎 Gem: Copiloto de Design Instrucional TRT4</h5>
+      <p>Clique aqui para visualizar o Prompt de Sistema completo para colar na área de criação do seu Gem no Google Gemini.</p>
+    </div>
+  </section>
+
   <section class="section reveal" id="extras">
     <div class="eyebrow">Aprofundamento</div>
     <h2>Conteúdo Extra: Ferramentas de IA</h2>
@@ -413,7 +429,10 @@
       <div class="prompt-display" id="modalPromptText">
         Texto do prompt aqui...
       </div>
-      <button class="btn-copy-modal" onclick="copyModalPrompt()">Copiar Prompt para Área de Transferência</button>
+      <div class="modal-btn-group">
+        <button class="btn-copy-modal" id="btnCopy" onclick="copyModalPrompt()">Copiar Prompt</button>
+        <a class="btn-open-gemini" id="btnGemini" href="#" target="_blank" rel="noopener">Abrir no Gemini ↗</a>
+      </div>
     </div>
   </div>
 </div>
@@ -423,65 +442,42 @@
   const promptData = {
     'andragogia': {
       title: 'Estratégia Andragógica',
-      text: `Atue como um designer instrucional especialista em Andragogia. 
-
-Analise o tema [TEMA DO CURSO] e sugira como abordá-lo para servidores adultos do TRT4 seguindo os pilares de Knowles:
-1. Autoconceito: Como oferecer autonomia na trilha?
-2. Experiência: Como validar o conhecimento prévio dos servidores?
-3. Prontidão: Como conectar com as demandas reais de trabalho?
-4. Orientação: Como focar na resolução de problemas práticos?
-
-Gere 3 estratégias de engajamento.`
+      text: `Atue como um designer instrucional especialista em Andragogia.\n\nAnalise o tema [TEMA DO CURSO] e sugira como abordá-lo para servidores adultos do TRT4 seguindo os pilares de Knowles:\n1. Autoconceito: Como oferecer autonomia na trilha?\n2. Experiência: Como validar o conhecimento prévio dos servidores?\n3. Prontidão: Como conectar com as demandas reais de trabalho?\n4. Orientação: Como focar na resolução de problemas práticos?\n\nGere 3 estratégias de engajamento.`
     },
     'diagnostico': {
       title: 'Diagnóstico de Competências com IA',
-      text: `Com base no perfil de servidores do tribunal, realize um mapeamento para o curso [TEMA].
-
-Mapeie:
-- 3 competências técnicas (Hard Skills) prioritárias.
-- 2 competências comportamentais (Soft Skills) de apoio.
-- Liste 3 possíveis lacunas (gaps) de conhecimento que geram retrabalho hoje.
-- Crie 1 cenário de 'situação-problema' para testar o nível inicial da turma.`
+      text: `Com base no perfil de servidores do tribunal, realize um mapeamento para o curso [TEMA].\n\nMapeie:\n- 3 competências técnicas (Hard Skills) prioritárias.\n- 2 competências comportamentais (Soft Skills) de apoio.\n- Liste 3 possíveis lacunas (gaps) de conhecimento que geram retrabalho hoje.\n- Crie 1 cenário de 'situação-problema' para testar o nível inicial da turma.`
     },
     'plano-aula': {
       title: 'Plano de Aula Dinâmico (Taxonomia de Bloom)',
-      text: `Elabore um plano de aula para uma oficina de [TEMPO].
-Tema: [TEMA]
-Público: Servidores do TRT4.
-
-Defina objetivos claros usando a Taxonomia de Bloom:
-- Nível de Compreensão: O aluno será capaz de...
-- Nível de Aplicação: O aluno será capaz de...
-
-Estruture em 4 etapas: Conexão (experiência prévia), Conteúdo (teoria curta), Construção (mão na massa) e Conclusão.`
+      text: `Elabore um plano de aula para uma oficina de [TEMPO].\nTema: [TEMA]\nPúblico: Servidores do TRT4.\n\nDefina objetivos claros usando a Taxonomia de Bloom:\n- Nível de Compreensão: O aluno será capaz de...\n- Nível de Aplicação: O aluno será capaz de...\n\nEstruture em 4 etapas: Conexão (experiência prévia), Conteúdo (teoria curta), Construção (mão na massa) e Conclusão.`
     },
     'rubricas': {
       title: 'Rubricas de Avaliação Objetivas',
-      text: `Crie uma rubrica de avaliação para a atividade [DESCREVER ATIVIDADE].
-
-Utilize 3 critérios de avaliação e 4 níveis de desempenho:
-1. Insatisfatório (Abaixo do esperado)
-2. Básico (Conhece mas não aplica totalmente)
-3. Proficiente (Aplica corretamente no fluxo do TRT4)
-4. Avançado (Capaz de orientar outros servidores)
-
-Descreva detalhadamente o que caracteriza o sucesso em cada critério.`
+      text: `Crie uma rubrica de avaliação para a atividade [DESCREVER ATIVIDADE].\n\nUtilize 3 critérios de avaliação e 4 níveis de desempenho:\n1. Insatisfatório (Abaixo do esperado)\n2. Básico (Conhece mas não aplica totalmente)\n3. Proficiente (Aplica corretamente no fluxo do TRT4)\n4. Avançado (Capaz de orientar outros servidores)\n\nDescreva detalhadamente o que caracteriza o sucesso em cada critério.`
     },
     'curadoria': {
       title: 'Curadoria Estruturada',
-      text: `Atue como especialista em curadoria educacional. 
-Para o tema [TEMA], identifique e organize:
-- 1 Referência oficial (Manual ou Resolução do TST/TRT4).
-- 2 Artigos ou pílulas de conhecimento externas de alta qualidade.
-- 1 Recurso multimídia (vídeo ou áudio).
-- Organize os materiais em uma sequência lógica do 'Saber que' para o 'Saber como'.`
+      text: `Atue como especialista em curadoria educacional. \nPara o tema [TEMA], identifique e organize:\n- 1 Referência oficial (Manual ou Resolução do TST/TRT4).\n- 2 Artigos ou pílulas de conhecimento externas de alta qualidade.\n- 1 Recurso multimídia (vídeo ou áudio).\n- Organize os materiais em uma sequência lógica do 'Saber que' para o 'Saber como'.`
+    },
+    'gem-design': {
+      title: 'Instruções de Sistema para o Gem (Copiloto TRT4)',
+      text: `Você é o Copiloto de Design Instrucional e Andragogia do TRT4 (Tribunal Regional do Trabalho da 4ª Região).\n\nSeu objetivo é auxiliar instrutores internos e servidores na construção de ações educacionais de alto impacto, aliando rigor metodológico à linguagem pública contemporânea.\n\nPremissas de Atuação:\n1. Metodologia: Fundamente sempre em Andragogia (Malcolm Knowles) e na Taxonomia de Bloom Digital.\n2. Contexto Jurídico/Administrativo: Entenda que os participantes são adultos, servidores públicos com bagagem prévia e busca por aplicabilidade imediata.\n3. Tom de Voz: Profissional, consultivo, encorajador e pragmático.\n4. Segurança de Informação: Sempre oriente a ancorar dados técnicos em normativas oficiais e evite aceitar alucinações de dados.\n\nSempre que o usuário trouxer um tema ou demanda de curso, responda estruturando em: (1) Diagnóstico de Necessidades, (2) Objetivos de Aprendizagem (Verbos da Taxonomia), (3) Atividade Prática / Situação-Problema e (4) Formato de Avaliação Formativa.`
     }
   };
 
+  let currentPromptText = "";
+
   function openPromptModal(key) {
     const data = promptData[key];
+    currentPromptText = data.text;
     document.getElementById('modalTitle').innerText = data.title;
     document.getElementById('modalPromptText').innerText = data.text;
+    
+    // Configura o link direto para o Gemini
+    const geminiUrl = "https://gemini.google.com/app?prompt=" + encodeURIComponent(data.text);
+    document.getElementById('btnGemini').setAttribute('href', geminiUrl);
+
     document.getElementById('modalOverlay').classList.add('active');
   }
 
@@ -490,17 +486,17 @@ Para o tema [TEMA], identifique e organize:
   }
 
   function copyModalPrompt() {
-    const text = document.getElementById('modalPromptText').innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = document.querySelector('.btn-copy-modal');
-      btn.innerText = '✓ Prompt Copiado!';
+    navigator.clipboard.writeText(currentPromptText).then(() => {
+      const btn = document.getElementById('btnCopy');
+      const originalText = btn.innerText;
+      btn.innerText = '✓ Copiado!';
       btn.style.background = '#80FFDB';
       btn.style.color = '#7400B8';
       setTimeout(() => {
-        btn.innerText = 'Copiar Prompt para Área de Transferência';
+        btn.innerText = originalText;
         btn.style.background = '';
         btn.style.color = '';
-      }, 2000);
+      }, 1800);
     });
   }
 
