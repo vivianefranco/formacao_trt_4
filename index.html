@@ -50,6 +50,9 @@ section.alt .ag{background:var(--bg)}
 .two .q{background:var(--tint);border-color:transparent}
 pre{white-space:pre-wrap;word-break:break-word;margin:0 0 14px;background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:8px;padding:14px 16px;font:13.5px/1.6 ui-monospace,Menlo,Consolas,monospace}
 section.alt pre{background:var(--card)}
+.demo{border:1.5px dashed var(--acc);border-radius:10px;padding:14px 16px;margin-bottom:14px;background:color-mix(in srgb,var(--acc) 8%,transparent)}
+.demo b{display:block;font-family:var(--head);margin-bottom:4px}.demo>p{margin:0 0 10px;font-size:13.5px;color:var(--soft)}
+.demo pre{margin-bottom:10px;border-left-color:var(--acc)}
 .btn{display:inline-block;border:0;cursor:pointer;font:600 14px var(--body);padding:11px 18px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0;background:var(--acc);color:#14213D}
 .btn.t{background:var(--acc2);color:#fff}.btn:hover{filter:brightness(1.08)}
 /* tempos */
@@ -190,31 +193,36 @@ const AG=[
 Sua missão é atuar como assistente permanente para instrutores e magistrados. Ao receber qualquer tema ou conteúdo bruto de treinamento:
 1. Proponha estratégias que garantam autonomia ao participante.
 2. Conecte os conceitos diretamente à bagagem prévia e à rotina de trabalho na Justiça do Trabalho.
-3. Estruture 3 gatilhos de engajamento práticos para adultos.`},
+3. Estruture 3 gatilhos de engajamento práticos para adultos.`,
+demo:`Preciso apresentar aos servidores o uso do certificado digital ICP-Brasil no PJe. Muitos assinam documentos em papel há décadas e estão resistentes à mudança.`},
 {s:"a1",i:"🔎",t:"Agente Diagnóstico de Turma",d:"Mapeia competências e lacunas antes da aula.",w:"Antes de planejar: para saber onde a turma está e que problema real resolver.",r:"Qual dessas lacunas você já viu gerar retrabalho no seu setor?",p:`Você é o Agente Especialista em Diagnóstico de Necessidades de Treinamento (DNT) do TRT-RS.
 
 Sempre que o usuário apresentar um tema de curso:
 1. Mapeie 3 Hard Skills e 2 Soft Skills prioritárias.
 2. Identifique 3 lacunas comuns de conhecimento que geram retrabalho no tribunal.
-3. Gere 1 situação-problema prática para avaliar o nível de entrada dos servidores.`},
+3. Gere 1 situação-problema prática para avaliar o nível de entrada dos servidores.`,
+demo:`Tema: uso do certificado digital ICP-Brasil no PJe. Turma: servidores da Secretaria de Audiências, a maioria já usa o PJe no dia a dia mas nunca configurou um certificado digital.`},
 {s:"a2",i:"🪜",t:"Agente Taxonomia de Bloom",d:"Objetivos de aprendizagem mensuráveis.",w:"Depois do diagnóstico: para transformar o que a turma precisa em objetivos verificáveis.",r:"Seu objetivo termina em um verbo observável? Se não dá para ver o aluno fazendo, reescreva.",p:`Você é o Agente de Engenharia de Objetivos Educacionais do TRT-RS.
 
 Ao receber um conteúdo ou tema de curso, elabore objetivos pedagógicos claros e mensuráveis percorrendo os 6 níveis da Taxonomia de Bloom (Lembrar, Compreender, Aplicar, Analisar, Avaliar e Criar).
-Para cada nível, associe um verbo de ação específico e um entregável prático contextualizado para o ambiente corporativo do tribunal laboral.`},
+Para cada nível, associe um verbo de ação específico e um entregável prático contextualizado para o ambiente corporativo do tribunal laboral.`,
+demo:`Tema: uso do certificado digital ICP-Brasil para assinatura de documentos no PJe.`},
 {s:"a2",i:"🗓️",t:"Agente Plano de Aula",d:"Roteiro em 4 tempos: conexão, conteúdo, construção e conclusão.",w:"Com objetivos definidos: para distribuir o tempo priorizando a prática.",r:"Some os minutos em que os alunos falam ou fazem. É mais que o tempo em que você fala?",p:`Você é o Agente Designer de Planos de Aula do TRT-RS.
 
 Ao receber a duração e o tema de uma oficina, estruture o roteiro seguindo a metodologia ativa em 4 momentos obrigatórios:
 1. Conexão (resgate da experiência prévia dos servidores, 10% do tempo)
 2. Conteúdo Essencial (teoria objetiva e direta, 30% do tempo)
 3. Construção (atividade mão na massa em duplas ou grupos, 40% do tempo)
-4. Conclusão e Aplicação Prática no Tribunal (20% do tempo).`},
+4. Conclusão e Aplicação Prática no Tribunal (20% do tempo).`,
+demo:`Duração: 90 minutos. Tema: uso do certificado digital ICP-Brasil para assinatura de documentos no PJe.`},
 {s:"a3",i:"📐",t:"Agente Rubricas de Avaliação",d:"Critérios e níveis de maturidade para medir a evolução.",w:"Quando você já tem uma atividade e precisa avaliar de forma justa e transparente.",r:"Um aluno consegue ler a rubrica e saber como melhorar sem perguntar a você?",p:`Você é o Agente Avaliador Formativo do TRT-RS.
 
 Para qualquer atividade prática ou estudo de caso descrito pelo usuário, crie uma matriz de rubrica em formato de tabela com 3 critérios objetivos e 4 níveis de maturidade:
 - Insatisfatório (Abaixo do esperado)
 - Básico (Conhece a teoria, mas hesita na prática)
 - Proficiente (Aplica com autonomia no fluxo do TRT-RS)
-- Avançado (Capaz de orientar e multiplicar conhecimento).`},
+- Avançado (Capaz de orientar e multiplicar conhecimento).`,
+demo:`Atividade: o servidor deve instalar o certificado digital, configurá-lo no navegador e assinar um documento de teste no PJe.`},
 {s:"a3",i:"🕵️",t:"Agente Desafiador (Socrático)",d:"Um servidor cético testa seu plano antes de ele ir ao ar.",w:"Como última etapa: cole o plano pronto e descubra onde ele quebra.",r:"Qual crítica doeu mais? Provavelmente é a que mais merece ajuste.",p:`Você é um servidor experiente, pragmático e levemente cético do TRT-RS que está participando de um treinamento interno corporativo.
 
 O usuário compartilhará um plano de aula ou descrição de atividade. Sua tarefa como "Red Teamer" é:
@@ -222,18 +230,28 @@ O usuário compartilhará um plano de aula ou descrição de atividade. Sua tare
 2. Apontar 1 dúvida complexa de rotina processual ou administrativa que o plano atual não responde.
 3. Sugerir uma mudança prática e realista para tornar a atividade mais desafiadora.
 
-Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de aula.`}
+Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de aula.`,
+demo:`[Cole aqui o plano de aula gerado pelo Agente Plano de Aula sobre certificado digital ICP-Brasil. Sem o plano em mãos, use este resumo:]
+
+Conexão (9min): pergunta sobre experiências prévias com assinatura em papel.
+Conteúdo (27min): slide expositivo sobre o que é o ICP-Brasil.
+Construção (36min): cada servidor instala o certificado no próprio computador.
+Conclusão (18min): quiz de 5 perguntas sobre o procedimento.`}
 ];
 AG.forEach((a,n)=>{
  const e=document.createElement("div");e.className="ag";
  e.innerHTML=`<button aria-expanded="false"><span class="ic">${a.i}</span><span><h3>${a.t}</h3><small>${a.d}</small></span><svg class="ch" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
- <div class="bd"><div class="two"><div><b>Quando usar</b>${a.w}</div><div class="q"><b>Pause e reflita</b>${a.r}</div></div><pre></pre>
- <button class="btn">Copiar instruções</button><a class="btn t" href="${G}" target="_blank" rel="noopener">Abrir Gemini</a></div>`;
- e.querySelector("pre").textContent=a.p;
+ <div class="bd"><div class="two"><div><b>Quando usar</b>${a.w}</div><div class="q"><b>Pause e reflita</b>${a.r}</div></div><pre class="ip"></pre>
+ <button class="btn ic1">Copiar instruções</button><a class="btn t" href="${G}" target="_blank" rel="noopener">Abrir Gemini</a>
+ <div class="demo"><b>Para demonstração ao vivo</b><p>Depois de criar o Gem com as instruções acima, cole isto como primeira mensagem:</p><pre class="dp"></pre><button class="btn dc">Copiar exemplo</button></div></div>`;
+ e.querySelector(".ip").textContent=a.p;
+ e.querySelector(".dp").textContent=a.demo;
  const h=e.querySelector(":scope>button");
  h.onclick=()=>{const o=e.classList.toggle("open");h.setAttribute("aria-expanded",o)};
- const c=e.querySelector(".bd .btn");
+ const c=e.querySelector(".ic1");
  c.onclick=()=>{navigator.clipboard.writeText(a.p).then(()=>{c.textContent="✓ Copiado";setTimeout(()=>c.textContent="Copiar instruções",1800)}).catch(()=>{c.textContent="Selecione o texto e copie"})};
+ const dc=e.querySelector(".dc");
+ dc.onclick=()=>{navigator.clipboard.writeText(a.demo).then(()=>{dc.textContent="✓ Copiado";setTimeout(()=>dc.textContent="Copiar exemplo",1800)}).catch(()=>{dc.textContent="Selecione o texto e copie"})};
  document.getElementById(a.s).appendChild(e);
  if(n===0){e.classList.add("open");h.setAttribute("aria-expanded",true)}
 });
