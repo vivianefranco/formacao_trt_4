@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Material de Apoio · IA e Metodologias Ativas</title>
+<title>Material de Apoio · Oficina 6h: IA e Metodologias Ativas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -192,7 +192,6 @@
   }
   .card.open .card-body{max-height:1200px; margin-top:16px;}
   .card-body p{margin:0 0 12px 0; color:var(--ink-soft); font-size:.94rem;}
-  .stop.extra .card{background:var(--teal-soft); border-color:#c3d9cf;}
 
   /* ---------- AGENT INSTRUCTIONS (PROMPTS) ---------- */
   .prompt-box {
@@ -212,12 +211,19 @@
   .btn-teal { background: var(--teal); color: #fff; }
   .btn-teal:hover { background: var(--teal-soft); color: var(--teal); }
 
-  /* ---------- CONTEÚDO EXTRA / TABELA ---------- */
-  .extra-note{
-    display:flex; gap:12px; align-items:flex-start;
-    background:var(--teal-soft); border:1px dashed #9fbdb0; border-radius:var(--radius);
-    padding:16px 18px; margin-bottom:26px; font-size:.9rem; color:#274a3f;
+  /* ---------- DESTAQUE DE ENTREGAS OBRIGATÓRIAS ---------- */
+  .pre-req-box {
+    background: var(--teal-soft); border: 1px solid #b5d3c8; border-radius: var(--radius);
+    padding: 24px; margin: 30px 0;
   }
+  .pre-req-box h3 {
+    font-family: var(--serif); font-size: 1.25rem; color: var(--teal); margin-top: 0;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .pre-req-box ul { margin: 0; padding-left: 20px; color: var(--ink); }
+  .pre-req-box li { margin-bottom: 10px; font-size: 0.95rem; }
+
+  /* ---------- TABELA EXTRAS ---------- */
   .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper-raised);}
   table{width:100%; border-collapse:collapse; min-width:640px;}
   thead th{
@@ -269,11 +275,12 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand"><strong>Material de Apoio</strong> · Docência Corporativa TRT-RS</div>
+    <div class="brand"><strong>Material de Apoio</strong> · Oficina 6h TRT-RS</div>
     <ul class="navlinks">
-      <li><a href="#agentes">Agentes Spark</a></li>
+      <li><a href="#parte1">Parte 1 (3h)</a></li>
+      <li><a href="#entregas">Entregas Encontro 2</a></li>
+      <li><a href="#parte2">Parte 2 (3h)</a></li>
       <li><a href="#notebooklm">NotebookLM</a></li>
-      <li><a href="#extra">Extra</a></li>
       <li><a href="#facilitadora">Facilitadora</a></li>
     </ul>
   </div>
@@ -281,30 +288,30 @@
 
 <header class="hero">
   <div class="wrap">
-    <span class="eyebrow">● Área do Aluno</span>
+    <span class="eyebrow">● Área do Aluno · Carga Horária: 6h (2 Encontros)</span>
     <h1 class="title">Inteligência Artificial e <em>metodologias ativas</em> na docência corporativa</h1>
-    <p class="lede">Como integrar ferramentas de Inteligência Artificial do Google Workspace (Gemini Spark e Notebook) ao seu planejamento pedagógico.</p>
+    <p class="lede">Capacitação prática dividida em duas etapas para integrar ferramentas de Inteligência Artificial do Google Workspace ao seu planejamento pedagógico no TRT-RS.</p>
     <div class="docket">
       <div><div class="k">Instrutora</div><div class="v">Viviane Franco</div></div>
       <div><div class="k">Instituição</div><div class="v">TRT-RS</div></div>
-      <div><div class="k">Ecossistema</div><div class="v">Google AI</div></div>
+      <div><div class="k">Formato</div><div class="v">2 Partes de 3h (EAD Síncrono)</div></div>
     </div>
   </div>
 </header>
 
-<section class="alt" id="agentes">
+<section class="alt" id="parte1">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="kicker">Jornada de 3 Horas</span>
-      <h2>Laboratório Prático: Seus Agentes Spark</h2>
-      <p>Clique nos cards abaixo para revelar as instruções de sistema. Você pode copiá-las e colá-las na tela de criação de "Gems" do Gemini Spark.</p>
+      <span class="kicker">Primeiro Encontro (3 Horas)</span>
+      <h2>Parte 1: Fundamentos, Diagnóstico e Engenharia de Cursos</h2>
+      <p>Construção dos Agentes Spark de apoio pedagógico e alinhamento com a Taxonomia de Bloom e Andragogia.</p>
     </div>
 
     <div class="journey">
       
-      <!-- HORA 1 -->
+      <!-- PARTE 1 - BLOCO 1 -->
       <div class="stop active reveal">
-        <div class="stamp">Hora<br>1</div>
+        <div class="stamp">Parte 1<br>Bloco 1</div>
         
         <div class="card" data-card>
           <div class="card-top">
@@ -353,9 +360,9 @@ Sempre que o usuário apresentar um tema de curso:
         </div>
       </div>
 
-      <!-- HORA 2 -->
+      <!-- PARTE 1 - BLOCO 2 -->
       <div class="stop active reveal">
-        <div class="stamp">Hora<br>2</div>
+        <div class="stamp">Parte 1<br>Bloco 2</div>
         
         <div class="card" data-card>
           <div class="card-top">
@@ -402,10 +409,35 @@ Ao receber a duração e o tema de uma oficina, estruture o roteiro seguindo a m
           </div>
         </div>
       </div>
+      
+    </div>
 
-      <!-- HORA 3 -->
+    <!-- BLOCO DE ENTREGAS OBRIGATÓRIAS PARA O ENCONTRO 2 -->
+    <div class="pre-req-box reveal" id="entregas">
+      <h3>📌 Entregas Obrigatórias para o Encontro 2</h3>
+      <p>Ao concluir a Parte 1 da oficina, os participantes deverão preparar e trazer as seguintes entregas desenvolvidas com o apoio dos Agentes Spark:</p>
+      <ul>
+        <li><strong>1. Esboço preliminar de Plano de Curso:</strong> Estrutura de conteúdo gerada e refinada com o auxílio da IA durante o primeiro encontro.</li>
+        <li><strong>2. Roteiro de Atividade Prática / Ativa:</strong> Uma dinâmica ou atividade alinhada a um nível específico da Taxonomia de Bloom.</li>
+        <li><strong>3. Base de Conhecimento Inicial (NotebookLM):</strong> Link ou estrutura de caderno configurada a partir de um normativo ou documento real do TRT-RS.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="parte2">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Segundo Encontro (3 Horas)</span>
+      <h2>Parte 2: Produção de Materiais, Avaliação e Validação (Red Teaming)</h2>
+      <p>Aprofundamento na criação de rubricas, mídias inovadoras, simulações socráticas e ecossistema ampliado.</p>
+    </div>
+
+    <div class="journey">
+      
       <div class="stop active reveal">
-        <div class="stamp">Hora<br>3</div>
+        <div class="stamp">Parte 2<br>Foco</div>
         
         <div class="card" data-card>
           <div class="card-top">
@@ -456,12 +488,12 @@ Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>
 
-<section id="notebooklm">
+<section class="alt" id="notebooklm">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">Ancoragem Institucional</span>
@@ -482,7 +514,7 @@ Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de
       <div class="pillar reveal">
         <span class="num">03</span>
         <h3>Áudio e Guias</h3>
-        <p>Transforme o material analisado em Audio Overviews (podcasts) ou gere FAQs para distribuir aos alunos antes da aula síncrona.</p>
+        <p>Transforme o material analisado em Audio Overviews (podcasts) ou gere FAQs para distribuir aos alunos entre os encontros.</p>
       </div>
     </div>
     <div style="margin-top: 40px;" class="reveal">
@@ -491,7 +523,7 @@ Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de
   </div>
 </section>
 
-<section class="alt" id="extra">
+<section id="extra">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker">Para ir além do Workspace</span>
@@ -530,13 +562,13 @@ Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de
   </div>
 </section>
 
-<section id="facilitadora">
+<section class="alt" id="facilitadora">
   <div class="wrap">
     <div class="facil-box reveal">
       <div class="avatar">VF</div>
       <div>
         <h3>Viviane Franco</h3>
-        <div class="facil-role">DESIGNER INSTRUCIONAL FGV</div>
+        <div class="facil-role">DESIGNER INSTRUCIONAL · FGV</div>
         <p class="facil-bio">Com sólida trajetória como professora e formação em Letras, Viviane dedica-se à integração estratégica da Inteligência Artificial na educação corporativa, aliando metodologias ativas, Python e AI Studio para empoderar instrutores e otimizar a aprendizagem.</p>
         <div class="facil-links">
           <a class="flink li" href="#" onclick="alert('Link do LinkedIn a ser adicionado')">
@@ -555,7 +587,7 @@ Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de
 
 <footer>
   <div class="wrap">
-    <p>MATERIAL DE APOIO · IA E METODOLOGIAS ATIVAS NA DOCÊNCIA CORPORATIVA · TRT-RS</p>
+    <p>MATERIAL DE APOIO · OFICINA DE 6H (2 PARTES) · TRT-RS</p>
   </div>
 </footer>
 
@@ -563,7 +595,6 @@ Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de
   // Accordion cards
   document.querySelectorAll('[data-card]').forEach(card=>{
     card.addEventListener('click', (e)=>{
-      // Evita conflito com botões clicados dentro do card
       if(e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
       card.classList.toggle('open');
     });
