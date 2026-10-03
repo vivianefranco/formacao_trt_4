@@ -83,7 +83,11 @@ th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vert
 .tools h3{font-size:1.05rem;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .tools h3 svg{width:16px;height:16px;color:var(--acc2);flex:none}.tools small{color:var(--acc2);font-weight:600}.tools p{margin:6px 0 0;font-size:14px;color:var(--soft)}
 /* avaliação */
-.rate{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;max-width:640px}
+.rate{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px}
+.qr{display:flex;gap:28px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:28px 32px}
+.qr .box{background:#fff;padding:12px;border-radius:12px;flex:none;line-height:0}
+.qr h3{font-size:1.3rem;margin-bottom:6px}.qr p{margin:0 0 14px;color:var(--soft);max-width:52ch}
+@media(max-width:640px){.qr{flex-direction:column;text-align:center}}
 .stars{display:flex;gap:4px;margin:6px 0 16px}
 .stars button{all:unset;cursor:pointer;font-size:38px;line-height:1;color:var(--line);padding:2px 4px;border-radius:6px;transition:color .15s,transform .15s}
 .stars button.on{color:var(--acc)}.stars button:hover{transform:scale(1.12)}
@@ -104,7 +108,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 </style>
 </head>
 <body>
-<nav><div class="w"><b>Oficina IA · TRT-RS</b><div class="l"><a href="#p1">Encontro 1</a><a href="#entregas">Entregas</a><a href="#p2">Encontro 2</a><a href="#nb">Gemini Notebook</a><a href="#avalie">Avaliação</a><a href="#fac">Facilitadora</a></div></div><div id="bar"></div></nav>
+<nav><div class="w"><b>Oficina IA · TRT-RS</b><div class="l"><a href="#p1">Encontro 1</a><a href="#entregas">Entregas</a><a href="#p2">Encontro 2</a><a href="#nb">Gemini Notebook</a><a href="#site">Site</a><a href="#avalie">Avaliação</a><a href="#fac">Facilitadora</a></div></div><div id="bar"></div></nav>
 
 <header class="hero"><div class="w">
 <h1>IA e <span>metodologias ativas</span> na docência corporativa</h1>
@@ -182,7 +186,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <div><h3>Transforme e distribua</h3><p>Gere Audio Overviews (podcast) ou FAQs para os alunos estudarem entre os encontros.</p></div>
 </div>
 <div class="warn"><b>Antes de usar o resultado:</b> confira cada citação no documento original e não envie dados pessoais ou processos sigilosos a ferramentas de IA.</div>
-<p style="margin-top:22px"><a class="btn t" href="https://notebook.google.com/" target="_blank" rel="noopener">Abrir Gemini Notebook</a></p>
+<p style="margin-top:22px"><a class="btn t" href="https://notebook.google.com//" target="_blank" rel="noopener">Abrir Gemini Notebook</a></p>
 </div></section>
 
 <section><div class="w">
@@ -192,6 +196,12 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <a class="card-link" href="https://www.perplexity.ai" target="_blank" rel="noopener"><div><h3>Perplexity<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Pesquisa com fontes</small><p>Busca na web com links de referência para embasar o conteúdo teórico.</p></div></a>
 <a class="card-link" href="https://gamma.app" target="_blank" rel="noopener"><div><h3>Gamma.app<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Slides e microsites</small><p>Transforma o plano de aula em texto em apresentação pronta.</p></div></a>
 <a class="card-link" href="https://elevenlabs.io" target="_blank" rel="noopener"><div><h3>ElevenLabs<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Voz sintética</small><p>Narração de tutoriais e vídeos de microlearning com entonação natural.</p></div></a>
+</div></div></section>
+
+<section class="alt" id="site"><div class="w"><div class="qr">
+<div class="box" id="qrc" role="img" aria-label="QR code para o site da formação"></div>
+<div><h3>Acesse o site da formação</h3><p>Aponte a câmera do celular para o QR code ou use o botão para abrir o material completo da oficina.</p>
+<a class="btn t" href="https://vivianefranco.github.io/formacao_trt_4/" target="_blank" rel="noopener">Abrir o site</a></div>
 </div></div></section>
 
 <section id="avalie"><div class="w">
@@ -206,7 +216,6 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <p id="rmsg" role="status"></p>
 </form>
 </div>
-<div class="own" id="own" hidden></div>
 </div></section>
 
 <section class="alt" id="fac"><div class="w"><div class="fac">
@@ -272,7 +281,7 @@ AG.forEach((a,n)=>{
  e.innerHTML=`<button aria-expanded="false"><span class="ic">${a.i}</span><span><h3>${a.t}</h3><small>${a.d}</small></span><svg class="ch" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
  <div class="bd"><div class="two"><div><b>Quando usar</b>${a.w}</div><div class="q"><b>Pause e reflita</b>${a.r}</div></div><pre class="ip"></pre>
  <button class="btn ic1">Copiar instruções</button><a class="btn t" href="${G}" target="_blank" rel="noopener">Abrir Gemini</a>
- <div class="demo"><b>Para demonstração </b><p>Depois de criar o Gem com as instruções acima, cole isto como primeira mensagem:</p><pre class="dp"></pre><button class="btn dc">Copiar exemplo</button></div></div>`;
+ <div class="demo"><b>Para demonstração</b><p>Depois de criar o Gem com as instruções acima, cole isto como primeira mensagem:</p><pre class="dp"></pre><button class="btn dc">Copiar exemplo</button></div></div>`;
  e.querySelector(".ip").textContent=a.p;
  e.querySelector(".dp").textContent=a.demo;
  const h=e.querySelector(":scope>button");
@@ -293,7 +302,11 @@ cs.forEach(x=>x.onchange=up);up();
 // barra de leitura
 addEventListener("scroll",()=>{const d=document.documentElement;bar.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight||1)*100)+"%"},{passive:true});
 
-// avaliação anônima (salva no banco do artefato; só a dona lê)
+// avaliação anônima → Google Formulários (respostas ficam numa planilha Google)
+// CONFIGURE AQUI (veja o passo a passo): link do formulário terminando em /formResponse e os códigos entry.
+const FORM_URL="";            // ex.: "https://docs.google.com/forms/d/e/SEU_ID/formResponse"
+const ENTRY_NOTA="";          // ex.: "entry.1234567890"
+const ENTRY_COMENTARIO="";    // ex.: "entry.0987654321"
 let nota=0;
 const stars=document.getElementById("stars"),rmsg=document.getElementById("rmsg"),rate=document.getElementById("rate");
 for(let i=1;i<=5;i++){const b=document.createElement("button");b.type="button";b.textContent="★";b.setAttribute("role","radio");b.setAttribute("aria-checked","false");b.setAttribute("aria-label",i+(i===1?" estrela":" estrelas"));
@@ -303,32 +316,20 @@ try{if(localStorage.getItem("oficina-avaliou"))thanks()}catch(e){}
 const rs=document.getElementById("rs");
 if(rs)rs.onclick=async()=>{
  if(!nota){rmsg.textContent="Escolha de 1 a 5 estrelas antes de enviar.";return}
+ if(!FORM_URL||!ENTRY_NOTA){rmsg.textContent="Avaliação ainda não configurada.";return}
  rs.disabled=true;rmsg.textContent="Enviando…";
+ const d=new URLSearchParams();d.append(ENTRY_NOTA,nota);
+ if(ENTRY_COMENTARIO)d.append(ENTRY_COMENTARIO,document.getElementById("rc").value.trim().slice(0,1000));
  try{
-  const db=window.claude?await claude.use("db"):null;
-  if(!db)throw new Error("sem db");
-  await db.collection("avaliacoes").add({nota,comentario:document.getElementById("rc").value.trim().slice(0,1000),data:new Date().toISOString()});
+  await fetch(FORM_URL,{method:"POST",mode:"no-cors",body:d});
   try{localStorage.setItem("oficina-avaliou","1")}catch(e){}
-  thanks();loadOwner();
- }catch(e){rs.disabled=false;rmsg.textContent="Não foi possível salvar agora. Verifique se está conectado(a) e tente novamente."}
+  thanks();
+ }catch(e){rs.disabled=false;rmsg.textContent="Não foi possível enviar. Verifique sua conexão e tente novamente."}
 };
-// painel só para a dona da página
-async function loadOwner(){
- try{
-  if(!window.claude)return;
-  const u=await claude.use("user");if(!u||!(await u.isOwner()))return;
-  const db=await claude.use("db");if(!db)return;
-  const snap=await db.collection("avaliacoes").get();
-  const rows=snap.docs.map(d=>d.data()||{});
-  const box=document.getElementById("own");box.hidden=false;box.textContent="";
-  const n=rows.length,avg=n?(rows.reduce((s,r)=>s+(+r.nota||0),0)/n).toFixed(2):"–";
-  const h=document.createElement("b");h.textContent="Painel da facilitadora (só você vê): "+n+" avaliações · média "+avg+" ★";box.appendChild(h);
-  const ul=document.createElement("ul");
-  rows.filter(r=>r.comentario).forEach(r=>{const li=document.createElement("li");li.textContent="★".repeat(r.nota||0)+" — "+r.comentario;ul.appendChild(li)});
-  box.appendChild(ul);
- }catch(e){}
-}
-loadOwner();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+try{new QRCode(document.getElementById("qrc"),{text:"https://vivianefranco.github.io/formacao_trt_4/",width:168,height:168,colorDark:"#14213D",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}catch(e){document.getElementById("qrc").textContent=""}
 </script>
 </body>
 </html>
