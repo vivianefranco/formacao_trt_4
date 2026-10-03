@@ -186,7 +186,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <div><h3>Transforme e distribua</h3><p>Gere Audio Overviews (podcast) ou FAQs para os alunos estudarem entre os encontros.</p></div>
 </div>
 <div class="warn"><b>Antes de usar o resultado:</b> confira cada citação no documento original e não envie dados pessoais ou processos sigilosos a ferramentas de IA.</div>
-<p style="margin-top:22px"><a class="btn t" href="https://notebook.google.com//" target="_blank" rel="noopener">Abrir Gemini Notebook</a></p>
+<p style="margin-top:22px"><a class="btn t" href="https://notebooklm.google.com/" target="_blank" rel="noopener">Abrir Gemini Notebook</a></p>
 </div></section>
 
 <section><div class="w">
@@ -226,7 +226,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <div>
 <h3>Viviane Franco</h3><small>Designer instrucional · FGV</small>
 <p>Professora com formação em Letras e mestranda em Informática, dedica-se à integração da IA na educação, unindo metodologias ativas, Python e AI Studio para apoiar instrutores e melhorar a aprendizagem.</p>
-<a class="btn" href="https://www.linkedin.com/in/viviane-francos/";return false">LinkedIn</a><a class="btn t" href="https://wa.me/5521979234890" target="_blank" rel="noopener">WhatsApp (21) 97923-4890</a>
+<a class="btn" href="#" onclick="alert('Link do LinkedIn a ser adicionado');return false">LinkedIn</a><a class="btn t" href="https://wa.me/5521979234890" target="_blank" rel="noopener">WhatsApp (21) 97923-4890</a>
 </div></div></div></section>
 <footer>Material de apoio · Oficina de 6h · TRT-RS</footer>
 
@@ -281,7 +281,7 @@ AG.forEach((a,n)=>{
  e.innerHTML=`<button aria-expanded="false"><span class="ic">${a.i}</span><span><h3>${a.t}</h3><small>${a.d}</small></span><svg class="ch" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
  <div class="bd"><div class="two"><div><b>Quando usar</b>${a.w}</div><div class="q"><b>Pause e reflita</b>${a.r}</div></div><pre class="ip"></pre>
  <button class="btn ic1">Copiar instruções</button><a class="btn t" href="${G}" target="_blank" rel="noopener">Abrir Gemini</a>
- <div class="demo"><b>Para demonstração</b><p>Depois de criar o Gem com as instruções acima, cole isto como primeira mensagem:</p><pre class="dp"></pre><button class="btn dc">Copiar exemplo</button></div></div>`;
+ <div class="demo"><b>Para demonstração ao vivo</b><p>Depois de criar o Gem com as instruções acima, cole isto como primeira mensagem:</p><pre class="dp"></pre><button class="btn dc">Copiar exemplo</button></div></div>`;
  e.querySelector(".ip").textContent=a.p;
  e.querySelector(".dp").textContent=a.demo;
  const h=e.querySelector(":scope>button");
@@ -304,9 +304,9 @@ addEventListener("scroll",()=>{const d=document.documentElement;bar.style.width=
 
 // avaliação anônima → Google Formulários (respostas ficam numa planilha Google)
 // CONFIGURE AQUI (veja o passo a passo): link do formulário terminando em /formResponse e os códigos entry.
-const FORM_URL="";            // ex.: "https://docs.google.com/forms/d/e/SEU_ID/formResponse"
-const ENTRY_NOTA="";          // ex.: "entry.1234567890"
-const ENTRY_COMENTARIO="";    // ex.: "entry.0987654321"
+const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSfdgoWKCGBspIzToBMbhwCiF15kpNkNtFb5vnGlpM6faouXPw";            // 
+const ENTRY_NOTA="entry.1328668465";          // ex.: "entry.1234567890"
+const ENTRY_COMENTARIO="entry.912479846";    // ex.: "entry.0987654321"
 let nota=0;
 const stars=document.getElementById("stars"),rmsg=document.getElementById("rmsg"),rate=document.getElementById("rate");
 for(let i=1;i<=5;i++){const b=document.createElement("button");b.type="button";b.textContent="★";b.setAttribute("role","radio");b.setAttribute("aria-checked","false");b.setAttribute("aria-label",i+(i===1?" estrela":" estrelas"));
