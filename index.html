@@ -1,641 +1,335 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viviane Franco | Mestranda em Informática & Especialista em IA</title>
-    <meta name="description" content="Viviane Franco - Mestranda em Informática em transição para a área de Tecnologia. Especialista em unir linguagem, educação e Inteligência Artificial Generativa para construir soluções inovadoras.">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --ink: #1a1025;
-            --cream: #faf7f2;
-            --mist: #f0ebe3;
-            --plum: #5b2d82;
-            --violet: #7c3db8;
-            --rose: #c96a9b;
-            --gold: #d4a853;
-            --text-soft: #6b5f7a;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        ::selection { background: var(--rose); color: white; }
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--cream);
-            color: var(--ink);
-            overflow-x: hidden;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 1000;
-            opacity: 0.4;
-        }
-
-        /* ── NAV ── */
-        .top-nav {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            padding: 30px 50px;
-            display: flex;
-            justify-content: flex-end;
-            gap: 30px;
-            z-index: 20;
-        }
-        .top-nav a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-        .top-nav a:hover { color: var(--gold); }
-
-        /* ── HEADER ── */
-        header {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-            overflow: hidden;
-        }
-        .header-left {
-            background: var(--ink);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 60px 50px 70px;
-            position: relative;
-            z-index: 2;
-        }
-        .header-left::after {
-            content: '';
-            position: absolute;
-            top: 0; right: -1px; bottom: 0;
-            width: 80px;
-            background: var(--ink);
-            clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
-            z-index: 3;
-        }
-        .header-right {
-            background: var(--plum);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .header-right::before {
-            content: '';
-            position: absolute;
-            width: 600px; height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(196,106,155,0.3) 0%, transparent 70%);
-            top: -100px; right: -100px;
-            pointer-events: none;
-        }
-        .header-right::after {
-            content: '';
-            position: absolute;
-            width: 400px; height: 400px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(212,168,83,0.15) 0%, transparent 70%);
-            bottom: 50px; left: 0;
-            pointer-events: none;
-        }
-
-        /* ── PROFILE ── */
-        .profile-container {
-            position: relative; z-index: 2;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: 50px 40px; flex-shrink: 0;
-            animation: profileIn 1s ease 0.35s both;
-        }
-        @keyframes profileIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .profile-ring {
-            position: relative; width: 260px; height: 260px;
-            border-radius: 50%; padding: 4px;
-            background: linear-gradient(135deg, var(--rose), var(--gold), var(--violet));
-            box-shadow: 0 0 28px rgba(201, 106, 155, 0.5), 0 0 65px rgba(124, 61, 184, 0.3);
-        }
-        .profile-ring-inner {
-            width: 100%; height: 100%; border-radius: 50%;
-            overflow: hidden; background: var(--plum);
-            position: relative; box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
-        }
-        .profile-img {
-            width: 100%; height: 100%; display: block;
-            object-fit: cover; object-position: center top;
-            border-radius: 50%; filter: contrast(1.04) saturate(1.05);
-            transition: transform 0.5s ease;
-        }
-        .profile-ring:hover .profile-img { transform: scale(1.04); }
-        .profile-ring-inner::after {
-            content: ''; position: absolute; inset: 0; border-radius: 50%;
-            background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.12) 0%, transparent 55%);
-            pointer-events: none; z-index: 2;
-        }
-        .profile-fallback {
-            display: none; width: 100%; height: 100%; border-radius: 50%;
-            background: linear-gradient(135deg, var(--violet) 0%, var(--rose) 100%);
-            align-items: center; justify-content: center; position: relative;
-        }
-        .profile-fallback-initials {
-            font-family: 'DM Serif Display', serif;
-            font-size: 5rem; color: white; letter-spacing: -2px; position: relative; z-index: 1;
-        }
-        .profile-shadow {
-            width: 200px; height: 24px; border-radius: 50%;
-            background: radial-gradient(ellipse, rgba(0,0,0,0.45) 0%, transparent 70%);
-            margin-top: 18px; filter: blur(8px);
-        }
-        .deco-circle {
-            position: absolute; border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.12); pointer-events: none;
-        }
-        .deco-1 { width: 200px; height: 200px; top: 40px; right: 40px; }
-        .deco-2 { width: 120px; height: 120px; top: 80px; right: 80px; }
-        .deco-3 { width: 60px; height: 60px; top: 110px; right: 110px; border-color: var(--gold); opacity: 0.4; }
-
-        /* ── HEADER TEXT ── */
-        .eyebrow {
-            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em;
-            text-transform: uppercase; color: var(--rose); margin-bottom: 20px;
-        }
-        .header-name {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(3rem, 5vw, 5rem);
-            color: white; line-height: 1; margin-bottom: 30px;
-        }
-        .header-name em { font-style: italic; color: var(--gold); }
-        .header-tagline {
-            color: rgba(255,255,255,0.65); font-size: 1rem; font-weight: 300;
-            line-height: 1.75; max-width: 420px; margin-bottom: 18px;
-        }
-        .header-tagline strong { color: rgba(255,255,255,0.9); font-weight: 500; }
-        .social-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
-        .social-links a {
-            display: flex; align-items: center; gap: 8px;
-            color: rgba(255,255,255,0.6); text-decoration: none;
-            font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.15); padding: 10px 18px;
-            border-radius: 100px; transition: all 0.3s ease;
-        }
-        .social-links a:hover {
-            color: white; border-color: var(--rose); background: rgba(201,106,155,0.12);
-        }
-        .scroll-hint {
-            position: absolute; bottom: 30px; right: 50px;
-            color: rgba(255,255,255,0.3); font-size: 0.68rem;
-            letter-spacing: 0.2em; text-transform: uppercase;
-            writing-mode: vertical-rl; display: flex; align-items: center; gap: 10px; z-index: 10;
-        }
-        .scroll-hint::after {
-            content: ''; width: 1px; height: 50px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-            animation: scrollLine 1.5s ease-in-out infinite;
-        }
-        @keyframes scrollLine { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .header-left > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
-        .eyebrow { animation-delay: 0.1s; }
-        .header-name { animation-delay: 0.25s; }
-        .header-tagline { animation-delay: 0.4s; }
-        .social-links { animation-delay: 0.55s; }
-
-        /* ── MAIN ── */
-        main { max-width: 1100px; margin: 0 auto; padding: 100px 40px; }
-        .section-label {
-            font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em;
-            text-transform: uppercase; color: var(--rose); margin-bottom: 12px;
-            display: flex; align-items: center; gap: 12px;
-        }
-        .section-label::before { content: ''; width: 30px; height: 1px; background: var(--rose); }
-        .section-title {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            color: var(--ink); margin-bottom: 40px; line-height: 1.15;
-        }
-        .section-title em { font-style: italic; color: var(--plum); }
-        section { margin-bottom: 110px; }
-
-        .sobre-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 80px; align-items: start; }
-        .sobre-text p {
-            color: var(--text-soft); font-size: 1.05rem;
-            line-height: 1.85; margin-bottom: 20px;
-        }
-        .sobre-text p strong { color: var(--ink); font-weight: 500; }
-        .sobre-sidebar { padding-top: 20px; }
-        .stat-item { padding: 28px 0; border-bottom: 1px solid var(--mist); }
-        .stat-number {
-            font-family: 'DM Serif Display', serif;
-            font-size: 2.8rem; color: var(--plum); line-height: 1;
-        }
-        .stat-label {
-            font-size: 0.8rem; color: var(--text-soft); margin-top: 4px;
-            text-transform: uppercase; letter-spacing: 0.1em;
-        }
-
-        .process-grid {
-            display: grid; grid-template-columns: repeat(5, 1fr);
-            gap: 0; border: 1px solid var(--mist); border-radius: 16px; overflow: hidden;
-        }
-        .process-step { padding: 35px 25px; background: white; transition: background 0.3s; }
-        .process-step:not(:last-child) { border-right: 1px solid var(--mist); }
-        .process-step:hover { background: var(--ink); }
-        .process-step:hover .step-num, .process-step:hover .step-title, .process-step:hover .step-desc { color: rgba(255,255,255,0.8); }
-        .process-step:hover .step-num { color: var(--gold); }
-        .step-num {
-            font-family: 'DM Serif Display', serif; font-size: 2.5rem;
-            color: var(--mist); line-height: 1; margin-bottom: 20px; transition: color 0.3s;
-        }
-        .step-title {
-            font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.08em; color: var(--ink); margin-bottom: 10px; transition: color 0.3s;
-        }
-        .step-desc { font-size: 0.8rem; color: var(--text-soft); line-height: 1.6; transition: color 0.3s; }
-
-        /* ── RESULTADOS / IMPACTO ── */
-        .results-section { margin-bottom: 110px; }
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .result-card {
-            background: white;
-            border: 1px solid var(--mist);
-            border-top: 3px solid var(--rose);
-            border-radius: 16px;
-            padding: 36px 30px;
-            display: flex;
-            transition: all 0.3s ease;
-        }
-        .result-card:hover {
-            background: var(--ink);
-            border-color: var(--ink);
-            border-top-color: var(--gold);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(91,45,130,0.15);
-        }
-        .result-header {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--rose);
-            margin-bottom: 18px;
-        }
-        .result-number {
-            display: block;
-            font-family: 'DM Serif Display', serif;
-            font-size: 3.4rem;
-            line-height: 1;
-            color: var(--plum);
-            margin-bottom: 18px;
-            transition: color 0.3s;
-        }
-        .result-label {
-            display: block;
-            font-size: 0.9rem;
-            line-height: 1.65;
-            color: var(--text-soft);
-            transition: color 0.3s;
-        }
-        .result-label strong {
-            display: block;
-            color: var(--ink);
-            font-weight: 600;
-            margin-bottom: 8px;
-            transition: color 0.3s;
-        }
-        .result-card:hover .result-number { color: var(--gold); }
-        .result-card:hover .result-label { color: rgba(255,255,255,0.7); }
-        .result-card:hover .result-label strong { color: white; }
-
-        .skills-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px;
-        }
-        .skill-tag {
-            background: white; border: 1px solid var(--mist); padding: 16px 20px;
-            border-radius: 10px; font-size: 0.88rem; color: var(--ink);
-            display: flex; align-items: center; gap: 10px; transition: all 0.25s; cursor: default;
-        }
-        .skill-tag::before {
-            content: ''; width: 6px; height: 6px; border-radius: 50%;
-            background: var(--rose); flex-shrink: 0;
-        }
-        .skill-tag:hover {
-            border-color: var(--plum); color: var(--plum); transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(91,45,130,0.08);
-        }
-
-        .projects-list { display: flex; flex-direction: column; gap: 10px; }
-        .project-item {
-            display: grid; grid-template-columns: auto 1fr auto; align-items: center;
-            gap: 30px; padding: 32px 36px; background: white; border-radius: 12px;
-            text-decoration: none; color: var(--ink); transition: all 0.3s ease;
-            border: 1px solid var(--mist); border-left: 3px solid rgba(91,45,130,0.2); cursor: pointer;
-        }
-        .project-item:hover {
-            border-color: var(--plum); border-left-color: var(--plum);
-            transform: translateX(6px); box-shadow: -4px 0 0 var(--plum), 0 12px 35px rgba(91,45,130,0.08);
-        }
-        .project-num {
-            font-family: 'DM Serif Display', serif; font-size: 1.2rem;
-            color: var(--mist); min-width: 40px; transition: color 0.3s;
-        }
-        .project-item:hover .project-num { color: var(--plum); }
-        .project-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
-        .project-desc { font-size: 0.88rem; color: var(--text-soft); line-height: 1.55; }
-        .project-cta {
-            display: flex; align-items: center; gap: 7px; font-size: 0.75rem;
-            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-            color: var(--text-soft); background: var(--mist); padding: 8px 14px;
-            border-radius: 100px; white-space: nowrap; flex-shrink: 0; transition: all 0.3s ease;
-        }
-        .project-cta svg { transition: transform 0.3s ease; }
-        .project-item:hover .project-cta { background: var(--plum); color: white; }
-        .project-item:hover .project-cta svg { transform: translateX(3px); }
-
-        footer {
-            background: var(--ink); padding: 70px 40px; text-align: center;
-            position: relative; overflow: hidden;
-        }
-        footer::before {
-            content: 'VF'; position: absolute; font-family: 'DM Serif Display', serif;
-            font-size: 20rem; color: rgba(255,255,255,0.02); left: 50%; top: 50%;
-            transform: translate(-50%, -50%); user-select: none; pointer-events: none;
-        }
-        .footer-title {
-            font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 4vw, 3rem);
-            color: white; margin-bottom: 16px;
-        }
-        .footer-sub { color: rgba(255,255,255,0.4); font-size: 0.9rem; margin-bottom: 40px; }
-        .contact-btn {
-            display: inline-block; padding: 16px 40px; background: var(--rose);
-            color: white; text-decoration: none; border-radius: 100px; font-size: 0.9rem;
-            font-weight: 500; letter-spacing: 0.05em; transition: all 0.3s;
-        }
-        .contact-btn:hover {
-            background: var(--gold); color: var(--ink); transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(212,168,83,0.3);
-        }
-        .footer-copy { margin-top: 60px; color: rgba(255,255,255,0.2); font-size: 0.78rem; letter-spacing: 0.1em; }
-
-        @media (max-width: 900px) {
-            header { grid-template-columns: 1fr; min-height: auto; }
-            .top-nav { justify-content: center; padding: 20px; }
-            .header-left { padding: 100px 30px 60px; order: 2; }
-            .header-left::after { display: none; }
-            .header-right { order: 1; min-height: 340px; }
-            .profile-ring { width: 200px; height: 200px; }
-            .profile-shadow { width: 150px; }
-            .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
-            .process-grid { grid-template-columns: 1fr 1fr; }
-            .process-step:nth-child(2) { border-right: none; }
-            .process-step:not(:last-child) { border-bottom: 1px solid var(--mist); }
-            .results-grid { grid-template-columns: 1fr; }
-            main { padding: 70px 25px; }
-        }
-        @media (max-width: 600px) {
-            .process-grid { grid-template-columns: 1fr; }
-            .process-step:not(:last-child) { border-right: none; }
-            .project-item { grid-template-columns: 1fr auto; gap: 16px; padding: 22px 18px; }
-            .project-num { display: none; }
-            .project-cta span { display: none; }
-            .project-cta { padding: 8px 10px; }
-            .profile-ring { width: 160px; height: 160px; }
-            .profile-shadow { width: 120px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oficina IA e metodologias ativas · TRT-RS</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F5F7;--card:#fff;--ink:#14213D;--soft:#4A5872;--line:#D8DFE6;--acc:#E0921B;--acc2:#0F766E;--tint:#E3F1EE;--head:"Bricolage Grotesque",Georgia,serif;--body:"Inter",system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1626;--card:#16223A;--ink:#EAEFF7;--soft:#A9B6CC;--line:#293856;--acc:#F2B04A;--acc2:#4FD1C0;--tint:#12313A}}
+:root[data-theme="dark"]{--bg:#0E1626;--card:#16223A;--ink:#EAEFF7;--soft:#A9B6CC;--line:#293856;--acc:#F2B04A;--acc2:#4FD1C0;--tint:#12313A}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body)}
+.w{max-width:940px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .w{display:flex;justify-content:space-between;align-items:center;height:54px;gap:14px}
+nav b{font-family:var(--head)}nav a{color:var(--soft);text-decoration:none;font-size:14px;margin-left:16px}nav a:hover{color:var(--acc2)}
+@media(max-width:700px){nav .l{display:none}}
+#bar{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:var(--acc)}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0}
+.hero{padding:72px 0 56px}
+h1{font-size:clamp(2.2rem,6vw,3.7rem);max-width:17ch;letter-spacing:-.02em}
+h1 span{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--acc) 45%,transparent) 0)}
+.hero p{color:var(--soft);max-width:58ch;font-size:1.1rem;margin:20px 0 28px}
+.meta{display:flex;flex-wrap:wrap;gap:10px}.meta span{border:1px solid var(--line);background:var(--card);padding:7px 14px;border-radius:99px;font-size:14px}
+.path{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin-top:40px}
+.path>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.path .mid{background:var(--tint);border-style:dashed;border-color:var(--acc2);text-align:center;display:flex;flex-direction:column;justify-content:center;font-size:14px;min-width:150px}
+.path h3{font-size:1.05rem;margin-bottom:6px;color:var(--acc2)}.path p{margin:0;font-size:14px;color:var(--soft)}
+@media(max-width:700px){.path{grid-template-columns:1fr}}
+section{padding:60px 0}section.alt{background:var(--card);border-block:1px solid var(--line)}
+.sh{max-width:62ch;margin-bottom:30px}.sh h2{font-size:clamp(1.55rem,3.4vw,2.15rem);margin-bottom:10px}.sh p{margin:0;color:var(--soft)}
+.goal{background:var(--tint);border-left:4px solid var(--acc2);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:26px}
+.goal b{color:var(--acc2)}.goal ul{margin:6px 0 0;padding-left:20px}
+h3.bl{font-size:1.1rem;margin:28px 0 12px;color:var(--soft)}
+.ag{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+section.alt .ag{background:var(--bg)}
+.ag>button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:14px}
+.ag>button:focus-visible,.btn:focus-visible,.chk:focus-within,.stars button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.ic{width:42px;height:42px;border-radius:10px;background:var(--tint);display:grid;place-items:center;font-size:20px;flex:none}
+.ag h3{font-size:1.1rem}.ag small{color:var(--soft);display:block;font-size:13.5px}
+.ch{margin-left:auto;transition:transform .25s;color:var(--soft)}.ag.open .ch{transform:rotate(180deg)}
+.bd{display:none;padding:0 20px 20px}.ag.open .bd{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 14px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.two div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14.5px}
+.two b{display:block;font-family:var(--head);margin-bottom:2px}
+.two .q{background:var(--tint);border-color:transparent}
+pre{white-space:pre-wrap;word-break:break-word;margin:0 0 14px;background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--acc2);border-radius:8px;padding:14px 16px;font:13.5px/1.6 ui-monospace,Menlo,Consolas,monospace}
+section.alt pre{background:var(--card)}
+.demo{border:1.5px dashed var(--acc);border-radius:10px;padding:14px 16px;margin-bottom:14px;background:color-mix(in srgb,var(--acc) 8%,transparent)}
+.demo b{display:block;font-family:var(--head);margin-bottom:4px}.demo>p{margin:0 0 10px;font-size:13.5px;color:var(--soft)}
+.demo pre{margin-bottom:10px;border-left-color:var(--acc)}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 14px var(--body);padding:11px 18px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0;background:var(--acc);color:#14213D}
+.btn.t{background:var(--acc2);color:#fff}.btn:hover{filter:brightness(1.08)}
+.tempos{display:flex;border-radius:12px;overflow:hidden;min-height:96px;margin:6px 0 10px}
+.tempos div{padding:12px;font-size:13px;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.tempos b{font-family:var(--head);font-size:1rem}.tempos em{font-style:normal;font-size:1.3rem;font-family:var(--head)}
+.cap{font-size:13.5px;color:var(--soft);margin:0 0 4px}
+@media(max-width:700px){.tempos{flex-direction:column}.tempos div{width:100%!important;flex-direction:row;align-items:center}}
+.bloom{display:grid;gap:6px;margin-top:8px}
+.bloom div{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:8px;color:#fff;font-size:14px}
+.bloom b{font-family:var(--head)}.bloom span{opacity:.92;text-align:right}
+.pre{background:var(--tint);border:1px solid var(--acc2);border-radius:14px;padding:24px;margin-top:36px}
+.pre h3{font-size:1.3rem;margin-bottom:6px}.pre>p{margin:0 0 16px;color:var(--soft)}
+.chk{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--acc2);margin-top:3px;flex:none}
+.chk b{display:block}.chk span{font-size:14px;color:var(--soft)}
+.prog{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin:14px 0 6px}.prog i{display:block;height:100%;width:0;background:var(--acc2);transition:width .35s}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}th{font-family:var(--head);background:var(--tint)}tr:last-child td{border:0}td:first-child{font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
+@media(max-width:700px){.steps{grid-template-columns:1fr}}
+.steps div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px;counter-increment:s}
+.steps div::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--acc2);color:#fff;font:700 14px var(--head);margin-bottom:10px}
+.steps h3{font-size:1.05rem;margin-bottom:6px}.steps p{margin:0;font-size:14.5px;color:var(--soft)}
+.warn{margin-top:18px;border:1px solid var(--acc);border-radius:12px;padding:14px 18px;font-size:14.5px;background:color-mix(in srgb,var(--acc) 12%,transparent)}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.tools div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.tools a.card-link{display:block;text-decoration:none;color:inherit;transition:border-color .2s}
+.tools a.card-link:hover{border-color:var(--acc2)}
+.tools h3{font-size:1.05rem;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tools h3 svg{width:16px;height:16px;color:var(--acc2);flex:none}.tools small{color:var(--acc2);font-weight:600}.tools p{margin:6px 0 0;font-size:14px;color:var(--soft)}
+/* avaliação */
+.rate{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px}
+.qr{display:flex;gap:28px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:28px 32px}
+.qr .box{background:#fff;padding:12px;border-radius:12px;flex:none;line-height:0}
+.qr h3{font-size:1.3rem;margin-bottom:6px}.qr p{margin:0 0 14px;color:var(--soft);max-width:52ch}
+@media(max-width:640px){.qr{flex-direction:column;text-align:center}}
+.stars{display:flex;gap:4px;margin:6px 0 16px}
+.stars button{all:unset;cursor:pointer;font-size:38px;line-height:1;color:var(--line);padding:2px 4px;border-radius:6px;transition:color .15s,transform .15s}
+.stars button.on{color:var(--acc)}.stars button:hover{transform:scale(1.12)}
+.rate label{display:block;font-weight:600;margin-bottom:6px}
+.rate textarea{width:100%;min-height:110px;resize:vertical;font:400 15px/1.5 var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.rate textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+#rmsg{font-size:14px;color:var(--soft);margin:4px 0 0}
+.thanks{background:var(--tint);border-radius:10px;padding:16px 18px}
+.own{margin-top:22px;border:1px dashed var(--acc2);border-radius:12px;padding:16px 18px;font-size:14px}
+.own ul{margin:8px 0 0;padding-left:18px}.own li{margin-bottom:6px}
+.fac{display:flex;gap:24px;align-items:center;background:var(--ink);color:var(--bg);border-radius:16px;padding:32px}
+.fac .av{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;font:700 1.6rem var(--head);color:#14213D;flex:none;overflow:hidden}
+.fac .av img{width:100%;height:100%;object-fit:cover;display:block}
+.fac p{margin:6px 0 16px;opacity:.85;font-size:15px;max-width:56ch}.fac small{color:var(--acc)}
+@media(max-width:640px){.fac{flex-direction:column;text-align:center}}
+footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
+<nav><div class="w"><b>Oficina IA · TRT-RS</b><div class="l"><a href="#p1">Encontro 1</a><a href="#entregas">Entregas</a><a href="#p2">Encontro 2</a><a href="#nb">Gemini Notebook</a><a href="#site">Site</a><a href="#avalie">Avaliação</a><a href="#fac">Facilitadora</a></div></div><div id="bar"></div></nav>
 
-<header>
-    <nav class="top-nav">
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
-        <a href="blog.html">Blog</a>
-        <a href="#contato">Contato</a>
-    </nav>
-    <div class="header-left">
-        <p class="eyebrow">Mestranda em Informática</p>
-        <h1 class="header-name">Viviane<br><em>Franco</em></h1>
-        <p class="header-tagline">
-            <strong>Construindo a ponte entre Linguagem, Educação e Tecnologia.</strong> 
-            Aplico minha base em design instrucional e curadoria para desenvolver soluções de Inteligência Artificial, engenharia de prompt e automação de fluxos com rigor técnico e clareza narrativa.
-        </p>
-        <div class="social-links">
-            <a href="https://github.com/vivianefranco" aria-label="GitHub">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/viviane-francos/" aria-label="LinkedIn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                LinkedIn
-            </a>
-        </div>
-    </div>
+<header class="hero"><div class="w">
+<h1>IA e <span>metodologias ativas</span> na docência corporativa</h1>
+<p>Em dois encontros, você constrói um curso completo do zero, do diagnóstico da turma à avaliação, com agentes de IA como copilotos e o seu olhar pedagógico como critério final.</p>
+<div class="meta"><span>Viviane Franco</span><span>TRT-RS</span><span>6h · 2 encontros síncronos</span></div>
+<div class="path">
+<div><h3>Encontro 1 · 3h</h3><p>Entender a turma, definir objetivos e desenhar o plano de aula.</p></div>
+<div class="mid"><b>Entre os encontros</b>3 entregas para trazer</div>
+<div><h3>Encontro 2 · 3h</h3><p>Avaliar, testar o plano com um público cético e refinar.</p></div>
+</div></div></header>
 
-    <div class="header-right">
-        <div class="deco-circle deco-1"></div>
-        <div class="deco-circle deco-2"></div>
-        <div class="deco-circle deco-3"></div>
-        <div class="profile-container" id="profileContainer">
-            <div class="profile-ring">
-                <div class="profile-ring-inner">
-                    <img src="profile.png" alt="Foto de Viviane Franco" class="profile-img" id="profileImg" onerror="handlePhotoError()">
-                    <div class="profile-fallback" id="profileFallback" aria-label="Viviane Franco">
-                        <span class="profile-fallback-initials">VF</span>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-shadow"></div>
-        </div>
-    </div>
-    <div class="scroll-hint" aria-hidden="true">scroll</div>
-</header>
+<section class="alt" id="p1"><div class="w">
+<div class="sh"><h2>Encontro 1: da turma ao plano de aula</h2><p>Você usa três agentes em sequência: entender quem aprende, definir o que deve aprender e organizar como.</p></div>
+<div class="goal"><b>Ao final deste encontro você será capaz de:</b><ul><li>Adaptar um tema técnico ao perfil de aprendizes adultos.</li><li>Escrever objetivos mensuráveis em diferentes níveis da Taxonomia de Bloom.</li><li>Montar um roteiro de oficina em 4 tempos.</li></ul></div>
+<h3 class="bl">Bloco 1 · Fundamentos e diagnóstico</h3><div id="a1"></div>
+<h3 class="bl">Bloco 2 · Engenharia de cursos</h3><div id="a2"></div>
 
-<main>
-    <section id="sobre">
-        <div class="section-label">Trajetória</div>
-        <div class="sobre-grid">
-            <div class="sobre-text">
-                <h2 class="section-title">Onde a <em>pedagogia</em> encontra o código</h2>
-                <p>
-                    Atualmente sou <strong>mestranda em Informática</strong>, em um movimento estratégico de transição da área de Educação para Tecnologia. Minha trajetória em Letras, Design Instrucional e Liderança (FGV) me concedeu uma base única: entendo como as pessoas aprendem, como a linguagem estrutura o pensamento e como escalar processos com rigor de qualidade.
-                </p>
-                <p>
-                    Hoje, aplico esse repertório para <strong>desenvolver e curar soluções de Inteligência Artificial</strong>. Atuo na interseção entre engenharia de software e comunicação, criando fluxos de automação, engenharia de prompt avançada e sistemas de validação de LLMs que exigem tanto precisão técnica quanto clareza narrativa.
-                </p>
-                <p>
-                    Acredito que a tecnologia mais poderosa é aquela que consegue traduzir complexidade em acessibilidade. Meu objetivo é contribuir para times de produto, IA e desenvolvimento, trazendo uma visão humanizada, estruturada e orientada a dados.
-                </p>
-            </div>
-            <div class="sobre-sidebar">
-                <div class="stat-item">
-                    <div class="stat-number">MSc</div>
-                    <div class="stat-label">Mestranda em Informática</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">12+</div>
-                    <div class="stat-label">Anos em Educação e Linguagens</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">IA</div>
-                    <div class="stat-label">Foco em Automação e LLMs</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<h3 class="bl">Referência rápida: Taxonomia de Bloom</h3>
+<p class="cap">Quanto mais alto o degrau, mais complexa a tarefa cognitiva. Escolha o verbo do seu objetivo a partir daqui.</p>
+<div class="bloom">
+<div style="background:#0F766E;width:100%"><b>Criar</b><span>elaborar, projetar, propor</span></div>
+<div style="background:#1B7F8C;width:92%"><b>Avaliar</b><span>julgar, justificar, criticar</span></div>
+<div style="background:#2F6FA3;width:84%"><b>Analisar</b><span>comparar, diferenciar, investigar</span></div>
+<div style="background:#4B5FA8;width:76%"><b>Aplicar</b><span>executar, utilizar, resolver</span></div>
+<div style="background:#6B5AA0;width:68%"><b>Compreender</b><span>explicar, resumir, exemplificar</span></div>
+<div style="background:#84568F;width:60%"><b>Lembrar</b><span>listar, identificar, nomear</span></div>
+</div>
 
-    <section>
-        <div class="section-label">Método</div>
-        <h2 class="section-title">Como estruturo <em>soluções com IA</em></h2>
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="step-num">01</div>
-                <div class="step-title">Descoberta</div>
-                <div class="step-desc">Análise de requisitos e mapeamento de viabilidade técnica</div>
-            </div>
-            <div class="process-step">
-                <div class="step-num">02</div>
-                <div class="step-title">Prototipagem</div>
-                <div class="step-desc">Engenharia de prompt e testes iniciais com LLMs</div>
-            </div>
-            <div class="process-step">
-                <div class="step-num">03</div>
-                <div class="step-title">Integração</div>
-                <div class="step-desc">Conexão via API e automação de fluxos de trabalho</div>
-            </div>
-            <div class="process-step">
-                <div class="step-num">04</div>
-                <div class="step-title">Validação</div>
-                <div class="step-desc">Curadoria linguística e verificação factual rigorosa</div>
-            </div>
-            <div class="process-step">
-                <div class="step-num">05</div>
-                <div class="step-title">Evolução</div>
-                <div class="step-desc">Monitoramento de métricas e refinamento contínuo</div>
-            </div>
-        </div>
-    </section>
+<h3 class="bl">Referência rápida: os 4 tempos da oficina</h3>
+<p class="cap">Repare: 40% do tempo é dos participantes fazendo. Em uma oficina de 3h, isso são 72 minutos de mão na massa.</p>
+<div class="tempos">
+<div style="width:10%;background:#84568F"><b>Conexão</b><em>10%</em></div>
+<div style="width:30%;background:#2F6FA3"><b>Conteúdo</b><em>30%</em></div>
+<div style="width:40%;background:#0F766E"><b>Construção</b><em>40%</em></div>
+<div style="width:20%;background:#B5710F"><b>Conclusão</b><em>20%</em></div>
+</div>
 
-    <!-- RESULTADOS / IMPACTO -->
-    <section class="results-section">
-        <div class="section-label">Resultados</div>
-        <h2 class="section-title">Ecossistema de <em>IA</em> &amp; Impacto de Negócio</h2>
-        <div class="results-grid">
-            <div class="result-card">
-                <div>
-                    <div class="result-header">Ferramenta 01</div>
-                    <span class="result-number">-97%</span>
-                    <span class="result-label"><strong>Transcrição de Vídeo p/ Apostila:</strong> Redução drástica no tempo de elaboração de 40 dias para apenas 1 dia, gerando alta eficiência operacional.</span>
-                </div>
-            </div>
-            <div class="result-card">
-                <div>
-                    <div class="result-header">Ferramenta 02 (DocuMind)</div>
-                    <span class="result-number">-99,9%</span>
-                    <span class="result-label"><strong>Revisor RAG de Textos (+100 pgs):</strong> Eliminação de custos externos de revisão, encolhendo o tempo de 3 dias para 10 minutos por apostila.</span>
-                </div>
-            </div>
-            <div class="result-card">
-                <div>
-                    <div class="result-header">Ferramenta 03</div>
-                    <span class="result-number">-95%</span>
-                    <span class="result-label"><strong>Gerador de Questões:</strong> Adaptação pedagógica institucional automatizada, reduzindo o ciclo de criação de 10 dias para 30 minutos.</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="pre" id="entregas">
+<h3>Entregas para o Encontro 2</h3>
+<p>Marque conforme concluir. Seu progresso fica salvo neste navegador.</p>
+<label class="chk"><input type="checkbox"><div><b>Esboço do plano de curso</b><span>Estrutura de conteúdo gerada e refinada com IA durante o encontro 1.</span></div></label>
+<label class="chk"><input type="checkbox"><div><b>Roteiro de atividade ativa</b><span>Uma dinâmica alinhada a um nível específico da Taxonomia de Bloom.</span></div></label>
+<label class="chk"><input type="checkbox"><div><b>Base de conhecimento no Gemini Notebook</b><span>Caderno criado a partir de um normativo ou documento real do TRT-RS.</span></div></label>
+<div class="prog"><i id="pf"></i></div><span class="cap" id="pt">0 de 3 concluídas</span>
+</div>
+</div></section>
 
-    <section>
-        <div class="section-label">Habilidades</div>
-        <h2 class="section-title"><em>Stack</em> e Competências</h2>
-        <div class="skills-grid">
-            <div class="skill-tag">Python & Manipulação de Dados</div>
-            <div class="skill-tag">Engenharia de Prompt Avançada</div>
-            <div class="skill-tag">Integração de APIs (LLMs)</div>
-            <div class="skill-tag">Curadoria e Validação de IA</div>
-            <div class="skill-tag">Automação de Fluxos (n8n, Zapier)</div>
-            <div class="skill-tag">Design Instrucional & UX Writing</div>
-            <div class="skill-tag">Gestão Ágil de Projetos</div>
-            <div class="skill-tag">Comunicação Técnica</div>
-        </div>
-    </section>
+<section id="p2"><div class="w">
+<div class="sh"><h2>Encontro 2: avaliar e testar antes de ir ao ar</h2><p>Com o plano em mãos, você cria critérios de avaliação e submete o material a um "aluno" exigente.</p></div>
+<div class="goal"><b>Ao final deste encontro você será capaz de:</b><ul><li>Construir uma rubrica com critérios e níveis observáveis.</li><li>Testar um plano de aula com um leitor cético e corrigir suas falhas.</li></ul></div>
+<div id="a3"></div>
+<h3 class="bl">Exemplo de rubrica</h3>
+<p class="cap">Formato que o Agente Rubricas gera: 3 critérios × 4 níveis. Exemplo para uma atividade de redação de despacho.</p>
+<div class="tw"><table>
+<thead><tr><th>Critério</th><th>Insatisfatório</th><th>Básico</th><th>Proficiente</th><th>Avançado</th></tr></thead>
+<tbody>
+<tr><td>Fundamentação</td><td>Não cita a norma aplicável</td><td>Cita a norma sem relacioná-la ao caso</td><td>Relaciona norma e caso com autonomia</td><td>Orienta colegas sobre a aplicação</td></tr>
+<tr><td>Clareza</td><td>Texto confuso ou ambíguo</td><td>Compreensível, com trechos truncados</td><td>Claro e objetivo</td><td>Serve de modelo para o setor</td></tr>
+<tr><td>Fluxo do tribunal</td><td>Ignora o procedimento</td><td>Segue o fluxo com hesitação</td><td>Segue o fluxo sem apoio</td><td>Propõe melhoria do fluxo</td></tr>
+</tbody></table></div>
+</div></section>
 
-    <section id="projetos">
-        <div class="section-label">Portfólio</div>
-        <h2 class="section-title">Projetos <em>em destaque</em></h2>
-        <div class="projects-list">
+<section class="alt" id="nb"><div class="w">
+<div class="sh"><h2>Uso seguro do Gemini Notebook</h2><p>Um caderno que responde só com base nas suas fontes reduz bastante o risco de invenção, mas não o elimina.</p></div>
+<div class="goal"><b>Habilidades que você desenvolve com a prática no Gemini Notebook:</b><ul>
+<li>Selecionar e organizar fontes oficiais e vigentes como base de um material didático.</li>
+<li>Formular pedidos com restrição de fonte para obter respostas rastreáveis.</li>
+<li>Verificar citações e páginas no documento original antes de usar o resultado.</li>
+<li>Transformar normativos extensos em resumos, FAQs e Audio Overviews para os alunos.</li>
+<li>Aplicar critérios de segurança da informação, sem expor dados pessoais ou processos sigilosos.</li>
+</ul></div>
+<div class="steps">
+<div><h3>Suba as fontes</h3><p>Crie um caderno e envie apenas manuais oficiais, portarias e resoluções vigentes do TRT-RS e do CSJT.</p></div>
+<div><h3>Peça com restrição</h3><p><em>"Com base EXCLUSIVAMENTE nas fontes anexadas, resuma os procedimentos padrão, citando página e documento."</em></p></div>
+<div><h3>Transforme e distribua</h3><p>Gere Audio Overviews (podcast) ou FAQs para os alunos estudarem entre os encontros.</p></div>
+</div>
+<div class="warn"><b>Antes de usar o resultado:</b> confira cada citação no documento original e não envie dados pessoais ou processos sigilosos a ferramentas de IA.</div>
+<p style="margin-top:22px"><a class="btn t" href="https://notebook.google.com/" target="_blank" rel="noopener">Abrir Gemini Notebook</a></p>
+</div></section>
 
-            <a href="projeto-revisor.html" class="project-item">
-                <div class="project-num">01</div>
-                <div>
-                    <div class="project-title">Revisor Automático de Textos com IA</div>
-                    <div class="project-desc">Sistema em Python que alia NLP à manipulação avançada de documentos (.docx), resolvendo a perda de formatação em revisões de textos longos via LLMs.</div>
-                </div>
-                <div class="project-cta">
-                    <span>Ver Case Study</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </a>
+<section><div class="w">
+<div class="sh"><h2>Para ir além do Google Workspace</h2><p>Ferramentas complementares apresentadas como bônus. Cada uma resolve uma etapa do design de materiais.</p></div>
+<div class="tools">
+<a class="card-link" href="https://claude.ai" target="_blank" rel="noopener"><div><h3>Claude.ai<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Raciocínio e escrita</small><p>Estudos de caso complexos, manuais com tom natural e simulações de diálogo.</p></div></a>
+<a class="card-link" href="https://www.perplexity.ai" target="_blank" rel="noopener"><div><h3>Perplexity<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Pesquisa com fontes</small><p>Busca na web com links de referência para embasar o conteúdo teórico.</p></div></a>
+<a class="card-link" href="https://gamma.app" target="_blank" rel="noopener"><div><h3>Gamma.app<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Slides e microsites</small><p>Transforma o plano de aula em texto em apresentação pronta.</p></div></a>
+<a class="card-link" href="https://elevenlabs.io" target="_blank" rel="noopener"><div><h3>ElevenLabs<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Voz sintética</small><p>Narração de tutoriais e vídeos de microlearning com entonação natural.</p></div></a>
+</div></div></section>
 
-            <a href="#" class="project-item">
-                <div class="project-num">02</div>
-                <div>
-                    <div class="project-title">Transformador de Transcrições de Videoaulas</div>
-                    <div class="project-desc">Aplicação baseada em IA para adaptação automática de transcrições brutas em resumos, artigos e roteiros estruturados.</div>
-                </div>
-                <div class="project-cta">
-                    <span>Em breve</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </a>
+<section class="alt" id="site"><div class="w"><div class="qr">
+<div class="box" id="qrc" role="img" aria-label="QR code para o site da formação"></div>
+<div><h3>Acesse o site da formação</h3><p>Aponte a câmera do celular para o QR code ou use o botão para abrir o material completo da oficina.</p>
+<a class="btn t" href="https://vivianefranco.github.io/formacao_trt_4/" target="_blank" rel="noopener">Abrir o site</a></div>
+</div></div></section>
 
-            <a href="#" class="project-item">
-                <div class="project-num">03</div>
-                <div>
-                    <div class="project-title">Gerador de Questões para Pós-Graduação</div>
-                    <div class="project-desc">Sistema escalável para geração de questões de múltipla escolha com gabarito e justificativa, validado por especialistas da área.</div>
-                </div>
-                <div class="project-cta">
-                    <span>Em breve</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </a>
+<section id="avalie"><div class="w">
+<div class="sh"><h2>Avalie esta formação</h2><p>Sua opinião é anônima e ajuda a melhorar as próximas turmas. Nenhum nome ou identificação é registrado.</p></div>
+<div class="rate" id="rate">
+<form id="rf" onsubmit="return false">
+<label id="sl">Como você avalia a oficina?</label>
+<div class="stars" id="stars" role="radiogroup" aria-labelledby="sl"></div>
+<label for="rc">Comentários, sugestões ou o que mais gostou (opcional)</label>
+<textarea id="rc" maxlength="1000" placeholder="Escreva aqui com liberdade."></textarea>
+<button type="button" class="btn t" id="rs">Enviar avaliação</button>
+<p id="rmsg" role="status"></p>
+</form>
+</div>
+</div></section>
 
-        </div>
-    </section>
-</main>
-
-<footer id="contato">
-    <p class="footer-title">Vamos construir algo juntos?</p>
-    <p class="footer-sub">Aberta a colaborações, oportunidades em Tech e projetos de IA.</p>
-    <a href="mailto:vivianefrancodasilva@gmail.com" class="contact-btn">Entre em Contato</a>
-    <p class="footer-copy">© 2026 Viviane Franco — Todos os direitos reservados</p>
-</footer>
+<section class="alt" id="fac"><div class="w"><div class="fac">
+<!-- FOTO DA FACILITADORA: troque o div.av abaixo por
+     <div class="av"><img src="URL_OU_ARQUIVO_DA_FOTO.jpg" alt="Viviane Franco"></div>
+     (imagem quadrada, mínimo 168x168px, ideal ~300x300px) -->
+<div class="av"><img src="viviane_franco.jpg" alt="Viviane Franco"></div>
+<div>
+<h3>Viviane Franco</h3><small>Designer instrucional · FGV</small>
+<p>Professora com formação em Letras e mestranda em Informática, dedica-se à integração da IA na educação, unindo metodologias ativas, Python e AI Studio para apoiar instrutores e melhorar a aprendizagem.</p>
+<a class="btn" href="https://www.linkedin.com/in/viviane-francos/";return false">LinkedIn</a><a class="btn t" href="https://wa.me/5521979234890" target="_blank" rel="noopener">WhatsApp (21) 97923-4890</a>
+</div></div></div></section>
+<footer>Material de apoio · Oficina de 6h · TRT-RS</footer>
 
 <script>
-    function handlePhotoError() {
-        document.getElementById('profileImg').style.display = 'none';
-        document.getElementById('profileFallback').style.display = 'flex';
-    }
+const G="https://gemini.google.com/app";
+const AG=[
+{s:"a1",i:"🔎",t:"Agente Diagnóstico de Turma",d:"Mapeia competências e lacunas antes da aula.",w:"Antes de planejar: para saber onde a turma está e que problema real resolver.",r:"Qual dessas lacunas você já viu gerar retrabalho no seu setor?",p:`Você é o Agente Especialista em Diagnóstico de Necessidades de Treinamento (DNT) do TRT-RS.
+
+Sempre que o usuário apresentar um tema de curso:
+1. Mapeie 3 Hard Skills e 2 Soft Skills prioritárias.
+2. Identifique 3 lacunas comuns de conhecimento que geram retrabalho no tribunal.
+3. Gere 1 situação-problema prática para avaliar o nível de entrada dos servidores.`,
+demo:`Tema: uso do certificado digital ICP-Brasil no PJe. Turma: servidores da Secretaria de Audiências, a maioria já usa o PJe no dia a dia mas nunca configurou um certificado digital.`},
+{s:"a2",i:"🪜",t:"Agente Taxonomia de Bloom",d:"Objetivos de aprendizagem mensuráveis.",w:"Depois do diagnóstico: para transformar o que a turma precisa em objetivos verificáveis.",r:"Seu objetivo termina em um verbo observável? Se não dá para ver o aluno fazendo, reescreva.",p:`Você é o Agente de Engenharia de Objetivos Educacionais do TRT-RS.
+
+Ao receber um conteúdo ou tema de curso, elabore objetivos pedagógicos claros e mensuráveis percorrendo os 6 níveis da Taxonomia de Bloom (Lembrar, Compreender, Aplicar, Analisar, Avaliar e Criar).
+Para cada nível, associe um verbo de ação específico e um entregável prático contextualizado para o ambiente corporativo do tribunal laboral.`,
+demo:`Tema: uso do certificado digital ICP-Brasil para assinatura de documentos no PJe.`},
+{s:"a2",i:"🗓️",t:"Agente Plano de Aula",d:"Roteiro em 4 tempos: conexão, conteúdo, construção e conclusão (Malcolm Knowles).",w:"Com objetivos definidos: para distribuir o tempo priorizando a prática.",r:"Some os minutos em que os alunos falam ou fazem. É mais que o tempo em que você fala?",p:`Você é o Agente Designer de Planos de Aula do TRT-RS.
+
+Ao receber a duração e o tema de uma oficina, estruture o roteiro seguindo a metodologia ativa em 4 momentos obrigatórios:
+1. Conexão (resgate da experiência prévia dos servidores, 10% do tempo)
+2. Conteúdo Essencial (teoria objetiva e direta, 30% do tempo)
+3. Construção (atividade mão na massa em duplas ou grupos, 40% do tempo)
+4. Conclusão e Aplicação Prática no Tribunal (20% do tempo).`,
+demo:`Duração: 90 minutos. Tema: uso do certificado digital ICP-Brasil para assinatura de documentos no PJe.`},
+{s:"a3",i:"📐",t:"Agente Rubricas de Avaliação",d:"Critérios e níveis de maturidade para medir a evolução.",w:"Quando você já tem uma atividade e precisa avaliar de forma justa e transparente.",r:"Um aluno consegue ler a rubrica e saber como melhorar sem perguntar a você?",p:`Você é o Agente Avaliador Formativo do TRT-RS.
+
+Para qualquer atividade prática ou estudo de caso descrito pelo usuário, crie uma matriz de rubrica em formato de tabela com 3 critérios objetivos e 4 níveis de maturidade:
+- Insatisfatório (Abaixo do esperado)
+- Básico (Conhece a teoria, mas hesita na prática)
+- Proficiente (Aplica com autonomia no fluxo do TRT-RS)
+- Avançado (Capaz de orientar e multiplicar conhecimento).`,
+demo:`Atividade: o servidor deve instalar o certificado digital, configurá-lo no navegador e assinar um documento de teste no PJe.`},
+{s:"a3",i:"🕵️",t:"Agente Desafiador (Socrático)",d:"Um servidor cético testa seu plano antes de ele ir ao ar.",w:"Como última etapa: cole o plano pronto e descubra onde ele quebra.",r:"Qual crítica doeu mais? Provavelmente é a que mais merece ajuste.",p:`Você é um servidor experiente, pragmático e levemente cético do TRT-RS que está participando de um treinamento interno corporativo.
+
+O usuário compartilhará um plano de aula ou descrição de atividade. Sua tarefa como "Red Teamer" é:
+1. Encontrar 2 pontos onde o aluno pode perder o interesse, achar "teórico demais" ou desconectado da prática.
+2. Apontar 1 dúvida complexa de rotina processual ou administrativa que o plano atual não responde.
+3. Sugerir uma mudança prática e realista para tornar a atividade mais desafiadora.
+
+Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de aula.`,
+demo:`[Cole aqui o plano de aula gerado pelo Agente Plano de Aula sobre certificado digital ICP-Brasil. Sem o plano em mãos, use este resumo:]
+
+Conexão (9min): pergunta sobre experiências prévias com assinatura em papel.
+Conteúdo (27min): slide expositivo sobre o que é o ICP-Brasil.
+Construção (36min): cada servidor instala o certificado no próprio computador.
+Conclusão (18min): quiz de 5 perguntas sobre o procedimento.`}
+];
+AG.forEach((a,n)=>{
+ const e=document.createElement("div");e.className="ag";
+ e.innerHTML=`<button aria-expanded="false"><span class="ic">${a.i}</span><span><h3>${a.t}</h3><small>${a.d}</small></span><svg class="ch" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+ <div class="bd"><div class="two"><div><b>Quando usar</b>${a.w}</div><div class="q"><b>Pause e reflita</b>${a.r}</div></div><pre class="ip"></pre>
+ <button class="btn ic1">Copiar instruções</button><a class="btn t" href="${G}" target="_blank" rel="noopener">Abrir Gemini</a>
+ <div class="demo"><b>Para demonstração</b><p>Depois de criar o Gem com as instruções acima, cole isto como primeira mensagem:</p><pre class="dp"></pre><button class="btn dc">Copiar exemplo</button></div></div>`;
+ e.querySelector(".ip").textContent=a.p;
+ e.querySelector(".dp").textContent=a.demo;
+ const h=e.querySelector(":scope>button");
+ h.onclick=()=>{const o=e.classList.toggle("open");h.setAttribute("aria-expanded",o)};
+ const c=e.querySelector(".ic1");
+ c.onclick=()=>{navigator.clipboard.writeText(a.p).then(()=>{c.textContent="✓ Copiado";setTimeout(()=>c.textContent="Copiar instruções",1800)}).catch(()=>{c.textContent="Selecione o texto e copie"})};
+ const dc=e.querySelector(".dc");
+ dc.onclick=()=>{navigator.clipboard.writeText(a.demo).then(()=>{dc.textContent="✓ Copiado";setTimeout(()=>dc.textContent="Copiar exemplo",1800)}).catch(()=>{dc.textContent="Selecione o texto e copie"})};
+ document.getElementById(a.s).appendChild(e);
+ if(n===0){e.classList.add("open");h.setAttribute("aria-expanded",true)}
+});
+// checklist
+const cs=[...document.querySelectorAll(".chk input")];
+function up(){const k=cs.filter(x=>x.checked).length;pf.style.width=k/3*100+"%";pt.textContent=k===3?"Tudo pronto para o Encontro 2 🎉":k+" de 3 concluídas";
+ try{localStorage.setItem("oficina-chk",JSON.stringify(cs.map(x=>x.checked)))}catch(e){}}
+try{const s=JSON.parse(localStorage.getItem("oficina-chk")||"[]");cs.forEach((x,i)=>x.checked=!!s[i])}catch(e){}
+cs.forEach(x=>x.onchange=up);up();
+// barra de leitura
+addEventListener("scroll",()=>{const d=document.documentElement;bar.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight||1)*100)+"%"},{passive:true});
+
+// avaliação anônima → Google Formulários (respostas ficam numa planilha Google)
+// CONFIGURE AQUI (veja o passo a passo): link do formulário terminando em /formResponse e os códigos entry.
+const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSfdgoWKCGBspIzToBMbhwCiF15kpNkNtFb5vnGlpM6faouXPw";            // 
+const ENTRY_NOTA="entry.1328668465";          // ex.: "entry.1234567890"
+const ENTRY_COMENTARIO="entry.912479846";    // ex.: "entry.0987654321"
+let nota=0;
+const stars=document.getElementById("stars"),rmsg=document.getElementById("rmsg"),rate=document.getElementById("rate");
+for(let i=1;i<=5;i++){const b=document.createElement("button");b.type="button";b.textContent="★";b.setAttribute("role","radio");b.setAttribute("aria-checked","false");b.setAttribute("aria-label",i+(i===1?" estrela":" estrelas"));
+ b.onclick=()=>{nota=i;[...stars.children].forEach((s,k)=>{s.classList.toggle("on",k<i);s.setAttribute("aria-checked",k===i-1)})};stars.appendChild(b)}
+function thanks(){rate.innerHTML='<div class="thanks"><b>Obrigada pela sua avaliação! 💙</b><br>Seu retorno foi registrado de forma anônima.</div>'}
+try{if(localStorage.getItem("oficina-avaliou"))thanks()}catch(e){}
+const rs=document.getElementById("rs");
+if(rs)rs.onclick=async()=>{
+ if(!nota){rmsg.textContent="Escolha de 1 a 5 estrelas antes de enviar.";return}
+ if(!FORM_URL||!ENTRY_NOTA){rmsg.textContent="Avaliação ainda não configurada.";return}
+ rs.disabled=true;rmsg.textContent="Enviando…";
+ const d=new URLSearchParams();d.append(ENTRY_NOTA,nota);
+ if(ENTRY_COMENTARIO)d.append(ENTRY_COMENTARIO,document.getElementById("rc").value.trim().slice(0,1000));
+ try{
+  await fetch(FORM_URL,{method:"POST",mode:"no-cors",body:d});
+  try{localStorage.setItem("oficina-avaliou","1")}catch(e){}
+  thanks();
+ }catch(e){rs.disabled=false;rmsg.textContent="Não foi possível enviar. Verifique sua conexão e tente novamente."}
+};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+try{new QRCode(document.getElementById("qrc"),{text:"https://vivianefranco.github.io/formacao_trt_4/",width:168,height:168,colorDark:"#14213D",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}catch(e){document.getElementById("qrc").textContent=""}
 </script>
 </body>
 </html>
