@@ -82,7 +82,7 @@ section:not(.alt) .steps div{background:var(--card)}
 @media(max-width:700px){.cols{grid-template-columns:1fr}}
 .cols>div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px}
 .cols h3{font-size:1.05rem;margin-bottom:8px;color:var(--acc2)}.cols ul{margin:0;padding-left:20px;font-size:14.5px;color:var(--soft)}.cols li{margin-bottom:6px}
-.refs{margin:0;padding-left:20px;font-size:14.5px}.refs li{margin-bottom:10px}.refs span{color:var(--soft)}
+.refs{list-style:none;margin:0;padding:0;font-size:14.5px}.refs li{margin-bottom:14px}
 .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 .tools div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
 .tools a.card-link{display:block;text-decoration:none;color:inherit;transition:border-color .2s}
@@ -107,12 +107,16 @@ section:not(.alt) .steps div{background:var(--card)}
 .fac .av img{width:100%;height:100%;object-fit:cover;display:block}
 .fac p{margin:6px 0 16px;opacity:.85;font-size:15px;max-width:56ch}.fac small{color:var(--acc)}
 @media(max-width:640px){.fac{flex-direction:column;text-align:center}}
+.pp{border:0;padding:0;margin:0 0 18px}.pp legend{font-weight:600;margin-bottom:6px;padding:0}
+.rate label.opt{display:inline-flex;gap:8px;align-items:center;font-weight:500;margin:0 18px 8px 0}
+.rate input[type=radio]{accent-color:var(--acc2);width:18px;height:18px}
+.rate input[type=text]{width:100%;max-width:260px;font:400 15px var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:18px}
 footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<nav><div class="w"><b>Oficina IA · TRT-RS</b><div class="l"><a href="#crono">Cronograma</a><a href="#p1">Encontro 1</a><a href="#p2">Encontro 2</a><a href="#nb">NotebookLM</a><a href="#resp">Uso responsável</a><a href="#base">Base teórica</a><a href="#avalie">Avaliação</a><a href="#fac">Facilitadora</a></div></div><div id="bar"></div></nav>
+<nav><div class="w"><b>Oficina IA · TRT-RS</b><div class="l"><a href="#crono">Cronograma</a><a href="#p1">Encontro 1</a><a href="#p2">Encontro 2</a><a href="#nb">Gemini Notebook</a><a href="#resp">Uso responsável</a><a href="#base">Base teórica</a><a href="#avalie">Avaliação</a><a href="#fac">Facilitadora</a></div></div><div id="bar"></div></nav>
 
 <header class="hero"><div class="w">
 <h1>IA e <span>metodologias ativas</span> na docência corporativa</h1>
@@ -124,18 +128,36 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <div><h3>Encontro 2 · 3h</h3><p>Avaliar, testar o plano com um público cético e refinar.</p></div>
 </div></div></header>
 
+<section id="site" style="padding:36px 0"><div class="w"><div class="qr">
+<div class="box" id="qrc" role="img" aria-label="QR code para o site da formação"></div>
+<div><h3>Comece por aqui: acesse a página da oficina</h3><p>Aponte a câmera do celular para o QR code ou clique no botão. Deixe esta página aberta durante os dois encontros.</p>
+<a class="btn t" href="https://vivianefranco.github.io/formacao_trt_4/" target="_blank" rel="noopener">Abrir a página</a></div>
+</div></div></section>
 <section class="alt" id="crono"><div class="w">
 <div class="sh"><h2>Esta oficina aplica o que ensina</h2><p>Cada encontro de 3h segue os 4 tempos da metodologia ativa, com 40% do tempo em construção pelos participantes.</p></div>
 <div class="tw"><table>
 <thead><tr><th>Tempo</th><th>Encontro 1 · Da turma ao plano</th><th>Encontro 2 · Avaliar e testar</th></tr></thead>
 <tbody>
-<tr><td>Conexão<br>18 min</td><td>Sondagem: o que você já tentou com IA e onde travou.</td><td>Troca em duplas sobre as entregas trazidas.</td></tr>
-<tr><td>Conteúdo<br>54 min</td><td>Diagnóstico, Taxonomia de Bloom e os 4 tempos, com demonstração ao vivo.</td><td>Rubricas, NotebookLM e verificação de saídas da IA.</td></tr>
-<tr><td>Construção<br>72 min</td><td>Cada dupla monta diagnóstico, objetivos e plano de aula do seu tema.</td><td>Cada dupla cria a rubrica e submete o plano ao Agente Cético.</td></tr>
-<tr><td>Conclusão<br>36 min</td><td>Apresentação relâmpago dos planos e definição das 3 entregas.</td><td>Plano refinado, compromisso de aplicação e avaliação da oficina.</td></tr>
+<tr><td>Conexão<br>18 min</td><td>Acesso à página (5), autoavaliação pré (5), sondagem no chat: onde você já travou com IA (8).</td><td>Relato das entregas nas salas virtuais (10) e destaques em plenária (8).</td></tr>
+<tr><td>Conteúdo<br>54 min</td><td>Diagnóstico e criação do primeiro Gem (20), Taxonomia de Bloom (15), 4 tempos e Agente Plano de Aula (19).</td><td>Rubricas (18), Gemini Notebook e verificação de saídas (20), Agente Cético (16).</td></tr>
+<tr><td>Construção<br>72 min</td><td>Em salas virtuais: diagnóstico do seu tema (20), objetivos (20), plano de aula (25), ajustes (7).</td><td>Em salas virtuais: rubrica do seu plano (20), caça ao erro no seu caderno (20), Cético e ajuste do plano (32).</td></tr>
+<tr><td>Conclusão<br>36 min</td><td>Apresentação relâmpago dos planos (24) e combinados das 3 entregas (12).</td><td>Plano final compartilhado (20), autoavaliação pós e avaliação da oficina (10), próximos passos (6).</td></tr>
 </tbody></table></div>
+<div class="warn" style="background:var(--card)"><b>Dicas para trabalhar em grupo on-line</b>
+<ul style="margin:8px 0 0;padding-left:20px"><li>Use salas virtuais (breakout rooms) do Meet, se o seu perfil permitir, com <b>trios</b> em vez de duplas: se alguém cair, ninguém fica sozinho.</li><li>Cada sala tem um documento compartilhado e uma pessoa relatora que traz o resultado para a plenária.</li><li>Sem salas ou com turma pequena: trabalho individual, com troca de resultados no chat ou em um documento único.</li><li>Na conexão, use o chat: todos escrevem a resposta e enviam juntos na contagem 3, 2, 1.</li></ul></div>
 <p class="note" style="margin-top:16px">Vocabulário: nesta oficina, chamamos de <b>agente</b> um assistente de IA com instruções fixas (um prompt de sistema salvo, como um Gem do Gemini). Não são agentes autônomos: quem decide e revisa é você.</p>
 </div></section>
+
+<section id="auto" hidden><div class="w">
+<div class="sh"><h2>Autoavaliação: antes e depois</h2><p>Responda no início do Encontro 1 (pré) e no fim do Encontro 2 (pós). Serve para medir a evolução do grupo. Use o mesmo código nas duas vezes; ele não identifica você.</p></div>
+<div class="rate"><form id="ppf" onsubmit="return false">
+<fieldset class="pp"><legend>Momento</legend><label class="opt"><input type="radio" name="momento" value="pre">Pré (Encontro 1)</label><label class="opt"><input type="radio" name="momento" value="pos">Pós (Encontro 2)</label></fieldset>
+<label for="ppc">Código pessoal: dia do seu aniversário + 3 primeiras letras da sua cidade natal (ex.: 12por)</label>
+<input type="text" id="ppc" maxlength="12" autocomplete="off">
+<p class="cap">Escala: 1 = discordo totalmente · 5 = concordo totalmente</p>
+<div id="ppq"></div>
+<button type="button" class="btn t" id="pps">Enviar autoavaliação</button><p id="ppmsg" role="status"></p>
+</form></div></div></section>
 
 <section id="p1"><div class="w">
 <div class="sh"><h2>Encontro 1: da turma ao plano de aula</h2><p>Você usa três agentes em sequência encadeada: investiga o perfil e a sondagem da turma, define os objetivos com base nessas lacunas e organiza o plano de aula prático.</p></div>
@@ -149,7 +171,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <h3 class="bl">Bloco 2 · Engenharia de cursos</h3><div id="a2"></div>
 
 <h3 class="bl">Referência rápida: Taxonomia de Bloom (revisada)</h3>
-<p class="cap">Quanto mais alto o degrau, mais complexa a tarefa cognitiva. Escolha o verbo do seu objetivo a partir daqui.</p>
+<p class="cap">Quanto mais alto o degrau, mais complexa a tarefa cognitiva (ANDERSON; KRATHWOHL, 2001). Escolha o verbo do seu objetivo a partir daqui.</p>
 <div class="bloom">
 <div style="background:#0F766E;width:100%"><b>Criar</b><span>elaborar, projetar, propor</span></div>
 <div style="background:#1B7F8C;width:92%"><b>Avaliar</b><span>julgar, justificar, criticar</span></div>
@@ -160,7 +182,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 </div>
 
 <h3 class="bl">Referência rápida: os 4 tempos da oficina</h3>
-<p class="cap">Adaptação dos "4 Cs" de Sharon Bowman, com proporções 10/30/40/20. Em uma oficina de 3h, 40% são 72 minutos de mão na massa dos participantes.</p>
+<p class="cap">Adaptação dos "4 Cs" de Bowman (2009), com proporções 10/30/40/20. Em uma oficina de 3h, 40% são 72 minutos de mão na massa dos participantes.</p>
 <div class="tempos">
 <div style="width:10%;background:#84568F"><b>Conexão</b><em>10%</em></div>
 <div style="width:30%;background:#2F6FA3"><b>Conteúdo</b><em>30%</em></div>
@@ -173,7 +195,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <p>Marque conforme concluir. Seu progresso fica salvo neste navegador.</p>
 <label class="chk"><input type="checkbox"><div><b>Esboço do plano de curso</b><span>Estrutura de conteúdo gerada e refinada com IA durante o encontro 1.</span></div></label>
 <label class="chk"><input type="checkbox"><div><b>Roteiro de atividade ativa</b><span>Uma dinâmica alinhada a um nível específico da Taxonomia de Bloom.</span></div></label>
-<label class="chk"><input type="checkbox"><div><b>Base de conhecimento no NotebookLM</b><span>Caderno criado a partir de um normativo ou documento público e vigente do TRT-RS.</span></div></label>
+<label class="chk"><input type="checkbox"><div><b>Base de conhecimento no Gemini Notebook</b><span>Caderno criado a partir de um normativo ou documento público e vigente do TRT-RS.</span></div></label>
 <div class="prog"><i id="pf"></i></div><span class="cap" id="pt">0 de 3 concluídas</span>
 </div>
 </div></section>
@@ -194,13 +216,12 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 </div></section>
 
 <section id="nb"><div class="w">
-<div class="sh"><h2>Uso seguro do NotebookLM</h2><p>Um caderno que responde com base nas suas fontes reduz o risco de invenção em comparação a um chat aberto, mas não o elimina. A conferência continua sendo sua.</p></div>
+<div class="sh"><h2>Uso seguro do Gemini Notebook</h2><p>Um caderno que responde com base nas suas fontes reduz o risco de invenção em comparação a um chat aberto, mas não o elimina. A conferência continua sendo sua.</p></div>
 <div class="goal"><b>Ao final desta prática você será capaz de:</b><ul>
 <li>Selecionar fontes oficiais e vigentes e montar um caderno com elas.</li>
 <li>Formular pedidos com restrição de fonte para obter respostas rastreáveis.</li>
 <li>Conferir citações e páginas no documento original e registrar divergências.</li>
 <li>Gerar resumo, FAQ e Audio Overview a partir de um normativo para a turma.</li>
-<li>Classificar uma lista de exemplos entre o que pode e o que não pode ser inserido em ferramentas de IA.</li>
 </ul></div>
 <div class="steps">
 <div><h3>Suba as fontes</h3><p>Crie um caderno e envie apenas manuais oficiais, portarias e resoluções públicas e vigentes do TRT-RS, do CSJT e do CNJ.</p></div>
@@ -208,7 +229,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <div><h3>Transforme e distribua</h3><p>Gere Audio Overviews (podcast) ou FAQs para a turma estudar entre os encontros.</p></div>
 </div>
 <div class="warn"><b>Antes de usar o resultado:</b> confira cada citação no documento original e não envie dados pessoais ou processos sigilosos a ferramentas de IA.</div>
-<p style="margin-top:22px"><a class="btn t" href="https://notebooklm.google.com/" target="_blank" rel="noopener">Abrir NotebookLM</a></p>
+<p style="margin-top:22px"><a class="btn t" href="https://notebook.google.com/" target="_blank" rel="noopener">Abrir Gemini Notebook</a></p>
 </div></section>
 
 <section class="alt" id="resp"><div class="w">
@@ -221,12 +242,18 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <div><h3>Acessibilidade do material</h3><ul>
 <li>Slides e documentos com títulos reais e contraste adequado.</li>
 <li>Texto alternativo em imagens e gráficos.</li>
-<li>Legenda ou transcrição para áudio e vídeo, inclusive Audio Overviews.</li>
+<li>Áudio e vídeo precisam de alternativa em texto. O Audio Overview não traz transcrição garantida: peça ao caderno um texto equivalente (prompts abaixo) e, para legenda fiel, passe o arquivo por uma ferramenta de transcrição e revise.</li>
 <li>Linguagem simples e exemplos que não excluam perfis de servidores.</li></ul></div>
 </div>
-<h3 class="bl">Atividade: caça ao erro (15 min)</h3>
+<h3 class="bl">Prompts de acessibilidade</h3>
+<p class="cap">O texto equivalente é um novo texto gerado a partir das mesmas fontes, não a transcrição palavra por palavra do áudio. Revise antes de publicar.</p>
+<pre>Com base EXCLUSIVAMENTE nas fontes do caderno, escreva um texto corrido que cubra os mesmos pontos do Audio Overview, na mesma ordem, em linguagem simples, para servir de alternativa a quem não pode ouvir o áudio. Indique o documento de origem de cada ponto.</pre><button class="btn cp">Copiar prompt</button>
+<pre>Reescreva este resumo em linguagem simples: frases curtas, sem siglas sem explicação. Mantenha os termos técnicos obrigatórios, com uma definição de uma linha.</pre><button class="btn cp">Copiar prompt</button>
+<pre>Escreva um texto alternativo de até 2 frases para este gráfico ou imagem. Descreva a informação que ele transmite, não a aparência.</pre><button class="btn cp">Copiar prompt</button>
+<pre>Revise este material e liste problemas de acessibilidade: hierarquia de títulos, contraste, siglas sem explicação, links com texto "clique aqui" e imagens sem descrição. Sugira a correção de cada um.</pre><button class="btn cp">Copiar prompt</button>
+<h3 class="bl">Atividade: caça ao erro (20 min)</h3>
 <div class="steps">
-<div><h3>Gere</h3><p>Peça ao agente um resumo de um normativo público do TRT-RS que você conheça bem.</p></div>
+<div><h3>Gere</h3><p>Peça ao seu caderno do Gemini Notebook um resumo do normativo que você carregou (entrega 3).</p></div>
 <div><h3>Confira</h3><p>Compare cada afirmação com o documento original: número, data, artigo, prazo e citação.</p></div>
 <div><h3>Registre</h3><p>Anote os erros ou invenções encontrados e ajuste o prompt para evitá-los. Compartilhe um achado com a dupla.</p></div>
 </div>
@@ -243,24 +270,19 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 </div></div></section>
 
 <section class="alt" id="base"><div class="w">
-<div class="sh"><h2>Base teórica e leituras</h2><p>O desenho da oficina se apoia nestas referências. Boas para aprofundar depois.</p></div>
-<ol class="refs">
-<li><b>Anderson, L. W.; Krathwohl, D. R. (orgs.). A Taxonomy for Learning, Teaching, and Assessing. Longman, 2001.</b> <span>Revisão da Taxonomia de Bloom (1956) usada nos objetivos.</span></li>
-<li><b>Bonwell, C. C.; Eison, J. A. Active Learning: Creating Excitement in the Classroom. ASHE-ERIC, 1991.</b> <span>Fundamento das metodologias ativas.</span></li>
-<li><b>Wiggins, G.; McTighe, J. Understanding by Design. ASCD, 2005.</b> <span>Planejamento reverso: do resultado esperado e da avaliação para a atividade.</span></li>
-<li><b>Bowman, S. Training from the BACK of the Room! Pfeiffer, 2009.</b> <span>Os "4 Cs" (conexão, conceitos, prática concreta, conclusão) que inspiram os 4 tempos.</span></li>
-<li><b>Kirkpatrick, D. L.; Kirkpatrick, J. D. Evaluating Training Programs. Berrett-Koehler, 2006.</b> <span>Níveis de avaliação de treinamentos, base da avaliação desta oficina.</span></li>
-<li><b>Conselho Nacional de Justiça. Resolução nº 615/2025.</b> <span>Diretrizes de governança da IA no Poder Judiciário.</span></li>
-</ol>
+<div class="sh"><h2>Base teórica e leituras</h2><p>O desenho da oficina se apoia nestas referências, apresentadas conforme a ABNT NBR 6023.</p></div>
+<ul class="refs">
+<li>ANDERSON, Lorin W.; KRATHWOHL, David R. (ed.). <b>A taxonomy for learning, teaching, and assessing</b>: a revision of Bloom's taxonomy of educational objectives. New York: Longman, 2001.</li>
+<li>BONWELL, Charles C.; EISON, James A. <b>Active learning</b>: creating excitement in the classroom. Washington, DC: School of Education and Human Development, George Washington University, 1991. (ASHE-ERIC Higher Education Report, n. 1).</li>
+<li>BOWMAN, Sharon L. <b>Training from the back of the room!</b>: 65 ways to step aside and let them learn. San Francisco: Pfeiffer, 2009.</li>
+<li>BRASIL. Conselho Nacional de Justiça. <b>Resolução n. 615, de 2025</b>. Estabelece diretrizes para o desenvolvimento, utilização e governança de soluções desenvolvidas com recursos de inteligência artificial no Poder Judiciário. Brasília, DF: CNJ, 2025. Disponível em: https://atos.cnj.jus.br/. Acesso em: 8 out. 2026.</li>
+<li>KIRKPATRICK, Donald L.; KIRKPATRICK, James D. <b>Evaluating training programs</b>: the four levels. 3. ed. San Francisco: Berrett-Koehler, 2006.</li>
+<li>WIGGINS, Grant; MCTIGHE, Jay. <b>Understanding by design</b>. 2. ed. Alexandria: ASCD, 2005.</li>
+</ul>
 </div></section>
 
-<section id="site"><div class="w"><div class="qr">
-<div class="box" id="qrc" role="img" aria-label="QR code para o site da formação"></div>
-<div><h3>Acesse o site da formação</h3><p>Aponte a câmera do celular para o QR code ou use o botão para abrir o material completo da oficina.</p>
-<a class="btn t" href="https://vivianefranco.github.io/formacao_trt_4/" target="_blank" rel="noopener">Abrir o site</a></div>
-</div></div></section>
 
-<section class="alt" id="avalie"><div class="w">
+<section id="avalie"><div class="w">
 <div class="sh"><h2>Avalie esta formação</h2><p>Sua opinião é anônima e ajuda a melhorar as próximas turmas. Nenhum nome ou identificação é solicitado.</p></div>
 <div class="rate" id="rate">
 <form id="rf" onsubmit="return false">
@@ -274,7 +296,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 </div>
 </div></section>
 
-<section id="fac"><div class="w"><div class="fac">
+<section class="alt" id="fac"><div class="w"><div class="fac">
 <div class="av"><img src="viviane_franco.jpg" alt="Viviane Franco"></div>
 <div>
 <h3>Viviane Franco</h3><small>Designer instrucional · FGV</small>
@@ -305,7 +327,7 @@ demo:`Diagnóstico anterior: servidores sabem o fluxo básico do PJe, mas erram 
 Ao receber a duração, o tema, os objetivos (Taxonomia de Bloom) e as lacunas do diagnóstico, estruture o roteiro seguindo a metodologia ativa em 4 momentos obrigatórios:
 1. Conexão (resgate da experiência prévia e aplicação da sondagem diagnóstica, 10% do tempo)
 2. Conteúdo Essencial (teoria objetiva e direta para sanar os objetivos, 30% do tempo)
-3. Construção (atividade mão na massa em duplas ou grupos focada em resolver o problema real, 40% do tempo)
+3. Construção (atividade mão na massa em duplas, grupos ou salas virtuais focada em resolver o problema real, 40% do tempo)
 4. Conclusão e Aplicação Prática no Tribunal (validação e fechamento, 20% do tempo).`,
 demo:`Duração: 90 minutos. Tema: uso do certificado digital ICP-Brasil para assinatura de documentos no PJe. Alinhado ao diagnóstico de lacunas de configuração.`},
 {s:"a3",i:"📐",t:"Agente Rubricas de Avaliação",d:"Critérios e níveis de maturidade para medir a evolução.",w:"Quando você já tem uma atividade e precisa avaliar de forma justa e transparente.",r:"Um participante consegue ler a rubrica e saber como melhorar sem perguntar a você?",p:`Você é o Agente Avaliador Formativo do TRT-RS.
@@ -325,7 +347,7 @@ O usuário compartilhará um plano de aula ou descrição de atividade. Sua tare
 4. Fechar com 2 perguntas provocativas que o professor deveria saber responder antes de aplicar o plano.
 
 Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de aula.`,
-demoNote:"Este plano é propositalmente fraco: a Construção é individual (o Agente Plano de Aula pede duplas ou grupos), a Conexão não usa a sondagem diagnóstica e o fechamento é um quiz. O objetivo é ver o Agente Cético encontrar essas falhas. Não é uma saída típica do Agente Plano de Aula.",
+demoNote:"Este plano é propositalmente fraco: a Construção é individual (o Agente Plano de Aula pede atividade em grupo), a Conexão não usa a sondagem diagnóstica e o fechamento é um quiz. O objetivo é ver o Agente Cético encontrar essas falhas. Não é uma saída típica do Agente Plano de Aula.",
 demo:`[Cole aqui o plano de aula gerado pelo Agente Plano de Aula sobre certificado digital ICP-Brasil. Sem o plano em mãos, use este resumo:]
 
 Conexão (9min): pergunta sobre experiências prévias com assinatura em papel.
@@ -358,7 +380,7 @@ try{const s=JSON.parse(localStorage.getItem("oficina-chk")||"[]");cs.forEach((x,
 cs.forEach(x=>x.onchange=up);up();
 addEventListener("scroll",()=>{const d=document.documentElement;bar.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight||1)*100)+"%"},{passive:true});
 
-const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSfdgoWKCGBspIzToBMbhwCiF15kpNkNtFb5vnGlpM6faouXPw";
+const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSfdgoWKCGBspIzToBMbhwCiF15kpNkNtFb5vnGlpM6faouXPw/formResponse";
 const ENTRY_NOTA="entry.1328668465";
 const ENTRY_COMENTARIO="entry.912479846";
 let nota=0;
@@ -380,6 +402,27 @@ if(rs)rs.onclick=async()=>{
   thanks();
  }catch(e){rs.disabled=false;rmsg.textContent="Não foi possível enviar. Verifique sua conexão e tente novamente."}
 };
+
+// autoavaliação pré/pós: preencha após criar o Google Formulário
+const PP={url:"https://docs.google.com/forms/d/e/1FAIpQLSdtRhNf1UAVq5VHF69PPU86Ak6rru-SbdLkK41GueOkVY_-4g/formResponse",momento:"entry.1204729804",codigo:"entry.825606448",q:["entry.845032021","entry.809832522","entry.1809443788","entry.986802893","entry.1178830434","entry.59388840"],val:{pre:"Pre (Encontro 1)",pos:"Pos (Encontro 2)"}};
+const PPQ=["Sinto-me capaz de escrever instruções (prompts) claras para que a IA me ajude a conhecer o perfil e as dificuldades de uma turma.","Sinto-me capaz de redigir objetivos de aprendizagem mensuráveis, com verbos observáveis, usando a Taxonomia de Bloom.","Sinto-me capaz de montar um plano de aula em 4 tempos com uma atividade ativa para a turma.","Sinto-me capaz de criar uma rubrica de avaliação com critérios e níveis claros.","Sinto-me capaz de verificar se uma resposta de IA está correta, comparando com a fonte oficial.","Sinto-me capaz de usar IA de forma segura e responsável na minha atividade docente."];
+if(PP.url&&PP.momento&&PP.q.every(Boolean)){
+ document.getElementById("auto").hidden=false;
+ if(!PP.codigo){document.getElementById("ppc").hidden=true;document.querySelector("label[for=ppc]").hidden=true;document.querySelector("#auto .sh p").textContent="Responda no início do Encontro 1 (pré) e no fim do Encontro 2 (pós). Serve para medir a evolução do grupo. Nenhum dado pessoal é pedido."}
+ const box=document.getElementById("ppq");
+ PPQ.forEach((t,i)=>{const f=document.createElement("fieldset");f.className="pp";f.innerHTML="<legend>"+(i+1)+". "+t+"</legend>"+[1,2,3,4,5].map(v=>'<label class="opt"><input type="radio" name="q'+i+'" value="'+v+'">'+v+'</label>').join("");box.appendChild(f)});
+ const pm=document.getElementById("ppmsg"),pb=document.getElementById("pps");
+ pb.onclick=async()=>{
+  const mo=document.querySelector('input[name=momento]:checked'),cod=document.getElementById("ppc").value.trim();
+  const as=PPQ.map((_,i)=>document.querySelector('input[name=q'+i+']:checked'));
+  if(!mo||(PP.codigo&&!cod)||as.some(x=>!x)){pm.textContent="Escolha o momento"+(PP.codigo?", informe o código":"")+" e responda os 6 itens.";return}
+  pb.disabled=true;pm.textContent="Enviando…";
+  const d=new URLSearchParams();d.append(PP.momento,PP.val[mo.value]);if(PP.codigo)d.append(PP.codigo,cod);as.forEach((x,i)=>d.append(PP.q[i],x.value));
+  try{await fetch(PP.url,{method:"POST",mode:"no-cors",body:d});pm.textContent="Obrigada! Resposta enviada ("+PP.val[mo.value]+").";pb.disabled=false;document.querySelectorAll("#ppq input").forEach(x=>x.checked=false)}
+  catch(e){pb.disabled=false;pm.textContent="Não foi possível enviar. Tente novamente."}
+ };
+}
+document.querySelectorAll(".cp").forEach(b=>b.onclick=()=>{navigator.clipboard.writeText(b.previousElementSibling.textContent).then(()=>{b.textContent="✓ Copiado";setTimeout(()=>b.textContent="Copiar prompt",1800)}).catch(()=>{b.textContent="Selecione o texto e copie"})});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
