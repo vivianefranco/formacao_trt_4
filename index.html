@@ -15,8 +15,8 @@ body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body
 .w{max-width:940px;margin:0 auto;padding:0 22px}
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
 nav .w{display:flex;justify-content:space-between;align-items:center;height:54px;gap:14px}
-nav b{font-family:var(--head)}nav a{color:var(--soft);text-decoration:none;font-size:14px;margin-left:16px}nav a:hover{color:var(--acc2)}
-@media(max-width:700px){nav .l{display:none}}
+nav b{font-family:var(--head)}nav a{color:var(--soft);text-decoration:none;font-size:14px;margin-left:14px}nav a:hover{color:var(--acc2)}
+@media(max-width:900px){nav .l{display:none}}
 #bar{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:var(--acc)}
 h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0}
 .hero{padding:72px 0 56px}
@@ -24,7 +24,6 @@ h1{font-size:clamp(2.2rem,6vw,3.7rem);max-width:17ch;letter-spacing:-.02em}
 h1 span{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--acc) 45%,transparent) 0)}
 .hero p{color:var(--soft);max-width:58ch;font-size:1.1rem;margin:20px 0 28px}
 .meta{display:flex;flex-wrap:wrap;gap:10px}.meta span{border:1px solid var(--line);background:var(--card);padding:7px 14px;border-radius:99px;font-size:14px}
-/* trilha */
 .path{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin-top:40px}
 .path>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
 .path .mid{background:var(--tint);border-style:dashed;border-color:var(--acc2);text-align:center;display:flex;flex-direction:column;justify-content:center;font-size:14px;min-width:150px}
@@ -34,12 +33,12 @@ section{padding:60px 0}section.alt{background:var(--card);border-block:1px solid
 .sh{max-width:62ch;margin-bottom:30px}.sh h2{font-size:clamp(1.55rem,3.4vw,2.15rem);margin-bottom:10px}.sh p{margin:0;color:var(--soft)}
 .goal{background:var(--tint);border-left:4px solid var(--acc2);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:26px}
 .goal b{color:var(--acc2)}.goal ul{margin:6px 0 0;padding-left:20px}
+.note{font-size:14px;color:var(--soft);border-left:3px solid var(--line);padding:2px 0 2px 14px;margin:0 0 24px}
 h3.bl{font-size:1.1rem;margin:28px 0 12px;color:var(--soft)}
-/* agentes */
 .ag{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
 section.alt .ag{background:var(--bg)}
 .ag>button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:14px}
-.ag>button:focus-visible,.btn:focus-visible,.chk:focus-within{outline:3px solid var(--acc);outline-offset:2px}
+.ag>button:focus-visible,.btn:focus-visible,.chk:focus-within,.stars button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .ic{width:42px;height:42px;border-radius:10px;background:var(--tint);display:grid;place-items:center;font-size:20px;flex:none}
 .ag h3{font-size:1.1rem}.ag small{color:var(--soft);display:block;font-size:13.5px}
 .ch{margin-left:auto;transition:transform .25s;color:var(--soft)}.ag.open .ch{transform:rotate(180deg)}
@@ -56,59 +55,81 @@ section.alt pre{background:var(--card)}
 .demo pre{margin-bottom:10px;border-left-color:var(--acc)}
 .btn{display:inline-block;border:0;cursor:pointer;font:600 14px var(--body);padding:11px 18px;border-radius:8px;text-decoration:none;margin:0 8px 8px 0;background:var(--acc);color:#14213D}
 .btn.t{background:var(--acc2);color:#fff}.btn:hover{filter:brightness(1.08)}
-/* tempos */
 .tempos{display:flex;border-radius:12px;overflow:hidden;min-height:96px;margin:6px 0 10px}
 .tempos div{padding:12px;font-size:13px;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
 .tempos b{font-family:var(--head);font-size:1rem}.tempos em{font-style:normal;font-size:1.3rem;font-family:var(--head)}
 .cap{font-size:13.5px;color:var(--soft);margin:0 0 4px}
 @media(max-width:700px){.tempos{flex-direction:column}.tempos div{width:100%!important;flex-direction:row;align-items:center}}
-/* bloom */
 .bloom{display:grid;gap:6px;margin-top:8px}
 .bloom div{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:8px;color:#fff;font-size:14px}
 .bloom b{font-family:var(--head)}.bloom span{opacity:.92;text-align:right}
-/* checklist */
 .pre{background:var(--tint);border:1px solid var(--acc2);border-radius:14px;padding:24px;margin-top:36px}
 .pre h3{font-size:1.3rem;margin-bottom:6px}.pre>p{margin:0 0 16px;color:var(--soft)}
 .chk{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;cursor:pointer}
 .chk input{width:20px;height:20px;accent-color:var(--acc2);margin-top:3px;flex:none}
 .chk b{display:block}.chk span{font-size:14px;color:var(--soft)}
 .prog{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin:14px 0 6px}.prog i{display:block;height:100%;width:0;background:var(--acc2);transition:width .35s}
-/* rubrica */
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
 table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
 th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}th{font-family:var(--head);background:var(--tint)}tr:last-child td{border:0}td:first-child{font-weight:600}
-/* notebook */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
 @media(max-width:700px){.steps{grid-template-columns:1fr}}
 .steps div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px;counter-increment:s}
+section:not(.alt) .steps div{background:var(--card)}
 .steps div::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--acc2);color:#fff;font:700 14px var(--head);margin-bottom:10px}
 .steps h3{font-size:1.05rem;margin-bottom:6px}.steps p{margin:0;font-size:14.5px;color:var(--soft)}
 .warn{margin-top:18px;border:1px solid var(--acc);border-radius:12px;padding:14px 18px;font-size:14.5px;background:color-mix(in srgb,var(--acc) 12%,transparent)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.cols{grid-template-columns:1fr}}
+.cols>div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:18px}
+.cols h3{font-size:1.05rem;margin-bottom:8px;color:var(--acc2)}.cols ul{margin:0;padding-left:20px;font-size:14.5px;color:var(--soft)}.cols li{margin-bottom:6px}
+.refs{list-style:none;margin:0;padding:0;font-size:14.5px}.refs li{margin-bottom:14px}
 .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 .tools div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
 .tools a.card-link{display:block;text-decoration:none;color:inherit;transition:border-color .2s}
 .tools a.card-link:hover{border-color:var(--acc2)}
 .tools h3{font-size:1.05rem;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .tools h3 svg{width:16px;height:16px;color:var(--acc2);flex:none}.tools small{color:var(--acc2);font-weight:600}.tools p{margin:6px 0 0;font-size:14px;color:var(--soft)}
+.rate{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px}
+.qr{display:flex;gap:28px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:28px 32px}
+.qr .box{background:#fff;padding:12px;border-radius:12px;flex:none;line-height:0}
+.qr h3{font-size:1.3rem;margin-bottom:6px}.qr p{margin:0 0 14px;color:var(--soft);max-width:52ch}
+@media(max-width:640px){.qr{flex-direction:column;text-align:center}}
+.stars{display:flex;gap:4px;margin:6px 0 16px}
+.stars button{all:unset;cursor:pointer;font-size:38px;line-height:1;color:var(--line);padding:2px 4px;border-radius:6px;transition:color .15s,transform .15s}
+.stars button.on{color:var(--acc)}.stars button:hover{transform:scale(1.12)}
+.rate label{display:block;font-weight:600;margin-bottom:6px}
+.rate textarea{width:100%;min-height:110px;resize:vertical;font:400 15px/1.5 var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.rate textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+#rmsg{font-size:14px;color:var(--soft);margin:4px 0 0}
+.thanks{background:var(--tint);border-radius:10px;padding:16px 18px}
 .fac{display:flex;gap:24px;align-items:center;background:var(--ink);color:var(--bg);border-radius:16px;padding:32px}
 .fac .av{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;font:700 1.6rem var(--head);color:#14213D;flex:none;overflow:hidden}
 .fac .av img{width:100%;height:100%;object-fit:cover;display:block}
 .fac p{margin:6px 0 16px;opacity:.85;font-size:15px;max-width:56ch}.fac small{color:var(--acc)}
 @media(max-width:640px){.fac{flex-direction:column;text-align:center}}
+.pp{border:0;padding:0;margin:0 0 18px}.pp legend{font-weight:600;margin-bottom:6px;padding:0}
+.rate label.opt{display:inline-flex;gap:8px;align-items:center;font-weight:500;margin:0 18px 8px 0}
+.rate input[type=radio]{accent-color:var(--acc2);width:18px;height:18px}
+.rate input[type=text]{width:100%;max-width:260px;font:400 15px var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:18px}
+.tmr{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:6px 0 10px}section.alt .tmr{background:var(--bg)}
+.tt{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}.tt b{font-family:var(--head);font-size:1.15rem}
+.tc{font:700 clamp(3rem,12vw,5rem)/1 var(--head);font-variant-numeric:tabular-nums;color:var(--acc2);margin:10px 0}
+.tn{font-weight:600;margin-bottom:12px}
+.tb{display:flex;gap:4px;margin-bottom:14px}.tb div{background:var(--line);border-radius:6px;padding:6px 4px;font-size:12px;text-align:center;color:var(--soft);min-width:0}.tb .cur{background:var(--acc);color:#14213D;font-weight:600}.tb .done{background:var(--acc2);color:#fff}
 footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
+/* ===== Novidades 08/10/2026 (nomes de classe próprios para não colidir) ===== */
 /* ===== Atualização 08/10/2026: aprofundamentos ===== */
 :root{--g:#2E9E6B;--y:#D99A0B;--r:#D64545}
 .upd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:34px;padding:14px 18px;border:1px solid var(--acc);border-radius:14px;background:color-mix(in srgb,var(--acc) 12%,transparent)}
 .upd b{font-family:var(--head)}.upd a{font-size:14px;font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:99px;text-decoration:none}.upd a:hover{border-color:var(--acc2);color:var(--acc2)}
-.opt{display:inline-block;font:600 11px var(--body);letter-spacing:.06em;text-transform:uppercase;background:var(--acc);color:#14213D;padding:2px 9px;border-radius:99px;vertical-align:middle}
+.optb{display:inline-block;font:600 11px var(--body);letter-spacing:.06em;text-transform:uppercase;background:var(--acc);color:#14213D;padding:2px 9px;border-radius:99px;vertical-align:middle}
 .lead{font-size:1.05rem;color:var(--soft);max-width:66ch}
 .cardg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:6px 0 18px}
 .cardg>div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-section.alt .cardg>div{background:var(--bg)}
 .cardg h3{font-size:1.05rem;margin-bottom:6px}.cardg p{margin:0;font-size:14.5px;color:var(--soft)}
 .cardg .n{font:600 12px var(--body);color:var(--acc2);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:4px}
 details.dp{border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:10px}
-section.alt details.dp{background:var(--bg)}
 details.dp>summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;gap:10px;align-items:center;justify-content:space-between}
 details.dp>summary::-webkit-details-marker{display:none}
 details.dp>summary::after{content:"+";font:400 22px var(--body);color:var(--soft)}
@@ -130,12 +151,11 @@ details.dp ul,details.dp ol{margin:6px 0;padding-left:20px}details.dp li{margin-
 .ba div{border-radius:10px;padding:12px 14px;font-size:14px;border:1px solid var(--line);background:var(--card)}
 .ba b{display:block;font-family:var(--head);margin-bottom:4px}
 .ba .bad{border-color:var(--r)}.ba .good{border-color:var(--g)}
-.refs{display:grid;gap:8px;margin-top:8px}
-.ref{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;color:var(--ink)}
-section.alt .ref{background:var(--bg)}
-.ref:hover{border-color:var(--acc2)}.ref:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
-.ref small{flex:none;font:600 11px var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--acc2);border:1px solid var(--acc2);border-radius:99px;padding:2px 9px;margin-top:2px}
-.ref span{font-size:14.5px}.ref em{display:block;font-style:normal;font-size:13px;color:var(--soft)}
+.rfl{display:grid;gap:8px;margin-top:8px}
+.rfk{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;color:var(--ink)}
+.rfk:hover{border-color:var(--acc2)}.rfk:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.rfk small{flex:none;font:600 11px var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--acc2);border:1px solid var(--acc2);border-radius:99px;padding:2px 9px;margin-top:2px}
+.rfk span{font-size:14.5px}.rfk em{display:block;font-style:normal;font-size:13px;color:var(--soft)}
 .slides2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 6px}
 @media(max-width:760px){.slides2{grid-template-columns:1fr}}
 .sl{aspect-ratio:16/9;border-radius:10px;padding:14px 16px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;font-size:13px;overflow:hidden}
@@ -152,7 +172,6 @@ section.alt .ref{background:var(--bg)}
 .trk{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 18px}
 @media(max-width:760px){.trk{grid-template-columns:1fr}}
 .trk>div{border-radius:12px;padding:16px;background:var(--card);border-top:5px solid var(--acc2);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-section.alt .trk>div{background:var(--bg)}
 .trk>div:nth-child(2){border-top-color:var(--acc)}.trk>div:nth-child(3){border-top-color:#6B5AA0}
 .trk h3{font-size:1.05rem;margin-bottom:4px}.trk p{margin:0 0 6px;font-size:14px;color:var(--soft)}.trk li{font-size:14px;margin-bottom:4px}.trk ul{margin:0;padding-left:18px}
 .res{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:24px}
@@ -174,34 +193,72 @@ details.opt-sec>summary small{display:block;color:var(--soft);font-size:13.5px;m
 details.opt-sec>summary:focus-visible{outline:3px solid var(--acc);outline-offset:2px;border-radius:14px}
 details.opt-sec>.body{padding:0 20px 20px}
 details.opt-sec>.body>h3.bl:first-child{margin-top:4px}
-section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.alt details.opt-sec .trk>div,section.alt details.opt-sec .ref,section.alt details.opt-sec details.dp{background:var(--card)}
-.note{margin:14px 0;border:1px solid var(--acc);border-radius:12px;padding:12px 16px;font-size:14.5px;background:color-mix(in srgb,var(--acc) 12%,transparent)}
+.nt{margin:14px 0;border:1px solid var(--acc);border-radius:12px;padding:12px 16px;font-size:14.5px;background:color-mix(in srgb,var(--acc) 12%,transparent)}
+details.opt-sec{background:var(--card)}
+details.opt-sec .cardg>div,details.opt-sec .trk>div,details.opt-sec .rfk,details.opt-sec details.dp,details.opt-sec .ag,details.opt-sec .steps div{background:var(--bg)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<nav><div class="w"><b>Oficina IA · TRT-RS</b><div class="l"><a href="#p1">Encontro 1</a><a href="#insights">Insights</a><a href="#seguranca">Uso seguro</a><a href="#p2">Encontro 2</a><a href="#opcionais">Opcionais</a><a href="#fac">Facilitadora</a></div></div><div id="bar"></div></nav>
+<nav><div class="w"><b>Oficina IA · TRT-RS</b><div class="l"><a href="#crono">Cronograma</a><a href="#p1">Encontro 1</a><a href="#p2">Encontro 2</a><a href="#nb">Gemini Notebook</a><a href="#resp">Uso responsável</a><a href="#base">Base teórica</a><a href="#avalie">Avaliação</a><a href="#fac">Facilitadora</a></div></div><div id="bar"></div></nav>
 
 <header class="hero"><div class="w">
 <h1>IA e <span>metodologias ativas</span> na docência corporativa</h1>
-<p>Em dois encontros, você constrói um curso completo do zero, do diagnóstico da turma à avaliação, com agentes de IA como copilotos e o seu olhar pedagógico como critério final.</p>
+<p>Em dois encontros, você constrói um curso completo do zero, do diagnóstico da turma à avaliação, com assistentes de IA como copilotos e o seu olhar pedagógico como critério final.</p>
 <div class="meta"><span>Viviane Franco</span><span>TRT-RS</span><span>6h · 2 encontros síncronos</span></div>
 <div class="path">
 <div><h3>Encontro 1 · 3h</h3><p>Entender a turma, definir objetivos e desenhar o plano de aula.</p></div>
 <div class="mid"><b>Entre os encontros</b>3 entregas para trazer</div>
 <div><h3>Encontro 2 · 3h</h3><p>Avaliar, testar o plano com um público cético e refinar.</p></div>
 </div>
-<div class="upd"><b>Novo · atualizado em 08/10/2026</b><a href="#insights">Insights do Encontro 1</a><a href="#seguranca">O que posso colar na IA?</a><a href="#opcionais">Aprofundamentos opcionais</a><span class="cap" style="flex-basis:100%;margin:2px 0 0">O selo <span class="nw">Novo · 08/10</span> marca o que foi acrescentado hoje; o selo <span class="opt">Opcional</span> marca conteúdo extra, para quem quiser ir além.</span></div>
+<div class="upd"><b>Novo · atualizado em 08/10/2026</b><a href="#insights">Insights do Encontro 1</a><a href="#seguranca">O que posso colar na IA?</a><a href="#opcionais">Aprofundamentos opcionais</a><span class="cap" style="flex-basis:100%;margin:2px 0 0">O selo <span class="nw">Novo · 08/10</span> marca o que foi acrescentado hoje; o selo <span class="optb">Opcional</span> marca conteúdo extra, para quem quiser ir além.</span></div>
 </div></header>
 
-<section class="alt" id="p1"><div class="w">
-<div class="sh"><h2>Encontro 1: da turma ao plano de aula</h2><p>Você usa três agentes em sequência: entender quem aprende, definir o que deve aprender e organizar como.</p></div>
-<div class="goal"><b>Ao final deste encontro você será capaz de:</b><ul><li>Adaptar um tema técnico ao perfil de aprendizes adultos.</li><li>Escrever objetivos mensuráveis em diferentes níveis da Taxonomia de Bloom.</li><li>Montar um roteiro de oficina em 4 tempos.</li></ul></div>
+<section id="site" style="padding:36px 0"><div class="w"><div class="qr">
+<div class="box" id="qrc" role="img" aria-label="QR code para o site da formação"></div>
+<div><h3>Comece por aqui: acesse a página da oficina</h3><p>Este é o QRCode desta apresentação.</p></div>
+</div></div></section>
+<section class="alt" id="crono"><div class="w">
+<div class="sh"><h2>Esta oficina aplica o que ensina</h2><p>Cada encontro de 3h tem 15 minutos de intervalo e 165 minutos de atividade, organizados nos 4 tempos da metodologia ativa, com 40% em construção pelos participantes.</p></div>
+<div class="tw"><table>
+<thead><tr><th>Tempo</th><th>Encontro 1 · Da turma ao plano</th><th>Encontro 2 · Avaliar e testar</th></tr></thead>
+<tbody>
+<tr><td>Conexão<br>17 min</td><td>Acesso à página (5), autoavaliação pré (5), sondagem no chat: onde você já travou com IA (7).</td><td>Relato das entregas nas salas virtuais (10) e destaques em plenária (7).</td></tr>
+<tr><td>Conteúdo<br>50 min</td><td>Diagnóstico e criação do primeiro Gem (18), Taxonomia de Bloom (14), 4 tempos e Agente Plano de Aula (18).</td><td>Rubricas (16), Gemini Notebook e verificação de saídas (18), Agente Cético (16).</td></tr>
+<tr><td>Intervalo<br>15 min</td><td colspan="2">Pausa para descanso. Volte com a página da oficina aberta.</td></tr>
+<tr><td>Construção<br>66 min</td><td>Em salas virtuais: diagnóstico do seu tema (18), objetivos (18), plano de aula (23), ajustes (7).</td><td>Em salas virtuais: rubrica do seu plano (16), caça ao erro no seu caderno (20), Cético e ajuste do plano (30).</td></tr>
+<tr><td>Conclusão<br>32 min</td><td>Apresentação relâmpago dos planos (22) e combinados das 3 entregas (10).</td><td>Plano final compartilhado (20), autoavaliação pós e avaliação da oficina (8), próximos passos (4).</td></tr>
+</tbody></table></div>
+<div class="warn" style="background:var(--card)"><b>Dicas para trabalhar em grupo on-line</b>
+<ul style="margin:8px 0 0;padding-left:20px"><li>Use salas virtuais (breakout rooms) do Meet, se o seu perfil permitir, com <b>trios</b> em vez de duplas: se alguém cair, ninguém fica sozinho.</li><li>Cada sala tem um documento compartilhado e uma pessoa relatora que traz o resultado para a plenária.</li><li>Sem salas ou com turma pequena: trabalho individual, com troca de resultados no chat ou em um documento único.</li><li>Na conexão, use o chat: todos escrevem a resposta e enviam juntos na contagem 3, 2, 1.</li></ul></div>
+<p class="note" style="margin-top:16px">Vocabulário: nesta oficina, chamamos de <b>agente</b> um assistente de IA com instruções fixas (um prompt de sistema salvo, como um Gem do Gemini). Não são agentes autônomos: quem decide e revisa é você.</p>
+</div></section>
+
+<section id="auto" hidden><div class="w">
+<div class="sh"><h2>Autoavaliação: antes e depois</h2><p>Responda no início do Encontro 1 (pré) e no fim do Encontro 2 (pós). Serve para medir a evolução do grupo. Use o mesmo código nas duas vezes; ele não identifica você.</p></div>
+<div class="rate"><form id="ppf" onsubmit="return false">
+<fieldset class="pp"><legend>Momento</legend><label class="opt"><input type="radio" name="momento" value="pre">Pré (Encontro 1)</label><label class="opt"><input type="radio" name="momento" value="pos">Pós (Encontro 2)</label></fieldset>
+<label for="ppc">Código pessoal: dia do seu aniversário + 3 primeiras letras da sua cidade natal (ex.: 12por)</label>
+<input type="text" id="ppc" maxlength="12" autocomplete="off">
+<p class="cap">Escala: 1 = discordo totalmente · 5 = concordo totalmente</p>
+<div id="ppq"></div>
+<button type="button" class="btn t" id="pps">Enviar autoavaliação</button><p id="ppmsg" role="status"></p>
+</form></div></div></section>
+
+<section id="p1"><div class="w">
+<div class="sh"><h2>Encontro 1: da turma ao plano de aula</h2><p>Você usa três agentes em sequência encadeada: investiga o perfil e a sondagem da turma, define os objetivos com base nessas lacunas e organiza o plano de aula prático.</p></div>
+<div class="goal"><b>Ao final deste encontro você será capaz de:</b><ul><li>Investigar o perfil e desenhar uma sondagem ativa para descobrir as dores da turma.</li><li>Escrever objetivos mensuráveis alinhados ao diagnóstico usando a Taxonomia de Bloom.</li><li>Montar um roteiro de oficina em 4 tempos focado na resolução dos gargalos.</li></ul></div>
+
+<div class="warn" style="margin:0 0 26px;background:var(--card)"><b>Como criar um Gem (uma vez só, vale para todos os agentes)</b>
+<ol style="margin:8px 0 12px;padding-left:20px"><li>Abra o Gemini e, no menu lateral, entre em <b>Gems</b> e clique em <b>Novo Gem</b>.</li><li>Dê o nome do agente e cole as instruções copiadas abaixo.</li><li>Salve e inicie uma conversa com o Gem, colando o exemplo de demonstração.</li></ol>
+<a class="btn t" href="https://gemini.google.com/app" target="_blank" rel="noopener">Abrir Gemini</a></div>
+
 <h3 class="bl">Bloco 1 · Fundamentos e diagnóstico</h3><div id="a1"></div>
 <h3 class="bl">Bloco 2 · Engenharia de cursos</h3><div id="a2"></div>
+<h3 class="bl">Bloco 3 · Construção (66 min)</h3><p class="cap">Dê play e acompanhe as etapas. A construção acontece nas salas virtuais.</p><div class="tmr" data-title="Construção · Encontro 1" data-steps="Diagnóstico do seu tema:18;Objetivos:18;Plano de aula:23;Ajustes:7"></div>
 
-<h3 class="bl">Referência rápida: Taxonomia de Bloom</h3>
-<p class="cap">Quanto mais alto o degrau, mais complexa a tarefa cognitiva. Escolha o verbo do seu objetivo a partir daqui.</p>
+<h3 class="bl">Referência rápida: Taxonomia de Bloom (revisada)</h3>
+<p class="cap">Quanto mais alto o degrau, mais complexa a tarefa cognitiva (ANDERSON; KRATHWOHL, 2001). Escolha o verbo do seu objetivo a partir daqui.</p>
 <div class="bloom">
 <div style="background:#0F766E;width:100%"><b>Criar</b><span>elaborar, projetar, propor</span></div>
 <div style="background:#1B7F8C;width:92%"><b>Avaliar</b><span>julgar, justificar, criticar</span></div>
@@ -212,7 +269,7 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 </div>
 
 <h3 class="bl">Referência rápida: os 4 tempos da oficina</h3>
-<p class="cap">Repare: 40% do tempo é dos participantes fazendo. Em uma oficina de 3h, isso são 72 minutos de mão na massa.</p>
+<p class="cap">Adaptação dos "4 Cs" de Bowman (2009), com proporções 10/30/40/20. Em um encontro de 3h com 15 min de intervalo, 40% dos 165 min são 66 minutos de mão na massa dos participantes.</p>
 <div class="tempos">
 <div style="width:10%;background:#84568F"><b>Conexão</b><em>10%</em></div>
 <div style="width:30%;background:#2F6FA3"><b>Conteúdo</b><em>30%</em></div>
@@ -225,13 +282,13 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 <p>Marque conforme concluir. Seu progresso fica salvo neste navegador.</p>
 <label class="chk"><input type="checkbox"><div><b>Esboço do plano de curso</b><span>Estrutura de conteúdo gerada e refinada com IA durante o encontro 1.</span></div></label>
 <label class="chk"><input type="checkbox"><div><b>Roteiro de atividade ativa</b><span>Uma dinâmica alinhada a um nível específico da Taxonomia de Bloom.</span></div></label>
-<label class="chk"><input type="checkbox"><div><b>Base de conhecimento no Gemini Notebook (antigo NotebookLM)</b><span>Caderno criado a partir de um normativo público do TRT-RS (já publicado). Documentos internos ou com dados de pessoas: veja o <a href="#seguranca">semáforo de dados</a> antes de subir.</span></div></label>
+<label class="chk"><input type="checkbox"><div><b>Base de conhecimento no Gemini Notebook</b><span>Caderno criado a partir de um normativo ou documento público e vigente do TRT-RS.</span></div></label>
 <div class="prog"><i id="pf"></i></div><span class="cap" id="pt">0 de 3 concluídas</span>
 </div>
 </div></section>
 
 <!-- ============ INSIGHTS DO ENCONTRO 1 ============ -->
-<section id="insights"><div class="w">
+<section id="insights" style="border-top:1px solid var(--line)"><div class="w">
 <div class="sh"><h2>Insights do Encontro 1<span class="nw">Novo · 08/10</span></h2><p>O que ficou da nossa primeira conversa, com os resultados do pré-teste, cinco ideias para levar para o seu curso e algumas perguntas para tirar dúvidas.</p></div>
 
 <div class="res" id="pretest">
@@ -246,7 +303,7 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 <ul>
 <li><b>Bloom e plano de aula</b> eram os pontos mais frágeis, o que combina com o pedido de mais material sobre a taxonomia. Há uma indicação de leitura em <a href="#bloom">Aprofundamentos opcionais</a>.</li>
 <li><b>Conferir a resposta da IA na fonte</b> foi a competência mais confiante da turma. Vale manter esse hábito com o Gemini Notebook.</li>
-<li><b>Uso seguro</b> tem média mediana, mas poucos se sentem plenamente seguros. Por isso o semáforo de dados mais adiante.</li>
+<li><b>Uso seguro</b> tem média mediana, mas poucos se sentem plenamente seguros. Por isso o <a href="#seguranca">semáforo de dados</a>.</li>
 </ul>
 <p class="cap">Dados agregados e anônimos. Um participante enviou o formulário duas vezes e foi contado uma vez (último envio). É percepção de capacidade, não medida de desempenho. Quando houver o pós-teste, comparamos os dois momentos.</p>
 </div>
@@ -256,23 +313,84 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 <div><span class="n">Insight 2</span><h3>O verbo é o objetivo</h3><p>"Entender" não se observa; "classificar", "comparar" ou "elaborar" sim. Se você consegue ver o aluno fazendo, consegue avaliar. Para se aprofundar, veja a indicação de leitura em <a href="#bloom">Aprofundamentos opcionais</a>.</p></div>
 <div><span class="n">Insight 3</span><h3>A IA propõe, você decide</h3><p>Os agentes aceleram o rascunho, mas o critério pedagógico é seu. A própria Resolução CNJ 615/2025 trata a IA como apoio, com supervisão humana. Vale o mesmo para o seu plano de aula.</p></div>
 <div><span class="n">Insight 4</span><h3>Quem faz, aprende</h3><p>Os 40% de construção não são enfeite: é onde a experiência prévia dos servidores vira aprendizado. Se o seu roteiro tem mais fala do que prática, inverta.</p></div>
-<div><span class="n">Insight 5</span><h3>Dado público é a regra de bolso</h3><p>Antes de qualquer prompt: o que pode ser colado em uma IA? Montamos um semáforo com exemplos logo adiante.</p></div>
+<div><span class="n">Insight 5</span><h3>Dado público é a regra de bolso</h3><p>Antes de qualquer prompt: o que pode ser colado em uma IA? Montamos um semáforo com exemplos mais adiante, em <a href="#seguranca">O que posso colar em uma IA?</a>.</p></div>
 </div>
 
-<h3 class="bl">Perguntas para tirar dúvidas <span class="opt">Opcional</span></h3>
+<h3 class="bl">Perguntas para tirar dúvidas <span class="optb">Opcional</span></h3>
 <details class="dp"><summary>Posso pedir para a IA escrever todos os meus objetivos de aprendizagem?</summary><div class="in2">Pode pedir um rascunho, mas valide cada verbo: ele precisa descrever algo que o aluno fará e que você conseguirá observar. Teste simples: consigo imaginar a atividade ou a pergunta de prova que comprova este objetivo? Se não, reescreva.</div></details>
 <details class="dp"><summary>Preciso usar os seis níveis de Bloom em todo curso?</summary><div class="in2">Não. Os níveis são um vocabulário para calibrar a ambição. Um curso introdutório pode concentrar-se em Compreender e Aplicar; um curso para multiplicadores deve chegar a Avaliar e Criar. O erro comum é ficar só em Lembrar sem perceber.</div></details>
 <details class="dp"><summary>Os 4 tempos (10/30/40/20) são regra fixa?</summary><div class="in2">É uma referência de equilíbrio, não uma norma. O ponto central é que a construção (a prática dos participantes) tenha o maior peso. Ajuste as proporções ao tema, mas confira sempre quanto tempo os participantes fazem e quanto você fala.</div></details>
-<details class="dp"><summary>O Gemini Notebook (antigo NotebookLM) é seguro para qualquer documento?</summary><div class="in2">Ele ajuda a manter as respostas presas às suas fontes, mas isso trata de <em>qualidade da resposta</em>, não de <em>segurança dos dados</em>. O que você sobe continua sujeito às regras do semáforo abaixo. Para o curso, use normativos públicos.</div></details>
+<details class="dp"><summary>O Gemini Notebook (antigo NotebookLM) é seguro para qualquer documento?</summary><div class="in2">Ele ajuda a manter as respostas presas às suas fontes, mas isso trata de <em>qualidade da resposta</em>, não de <em>segurança dos dados</em>. O que você sobe continua sujeito às regras do semáforo de dados. Para o curso, use normativos públicos.</div></details>
+</div></section>
+
+<section class="alt" id="p2"><div class="w">
+<div class="sh"><h2>Encontro 2: avaliar e testar antes de ir ao ar</h2><p>Com o plano em mãos, você cria critérios de avaliação e submete o material a um "aluno" exigente.</p></div>
+<div class="goal"><b>Ao final deste encontro você será capaz de:</b><ul><li>Construir uma rubrica com critérios e níveis observáveis.</li><li>Testar um plano de aula com um leitor cético e corrigir suas falhas.</li><li>Verificar uma resposta da IA contra a fonte original e registrar os erros encontrados.</li></ul></div>
+<div id="a3"></div>
+<h3 class="bl">Construção (66 min)</h3><p class="cap">Dê play e acompanhe as etapas. A construção acontece nas salas virtuais.</p><div class="tmr" data-title="Construção · Encontro 2" data-steps="Rubrica do seu plano:16;Caça ao erro no seu caderno:20;Cético e ajuste do plano:30"></div>
+<h3 class="bl">Exemplo de rubrica</h3>
+<p class="cap">Formato que o Agente Rubricas gera: 3 critérios × 4 níveis. Exemplo para uma atividade de redação de despacho.</p>
+<div class="tw"><table>
+<thead><tr><th>Critério</th><th>Insatisfatório</th><th>Básico</th><th>Proficiente</th><th>Avançado</th></tr></thead>
+<tbody>
+<tr><td>Fundamentação</td><td>Não cita a norma aplicável</td><td>Cita a norma sem relacioná-la ao caso</td><td>Relaciona norma e caso com autonomia</td><td>Orienta colegas sobre a aplicação</td></tr>
+<tr><td>Clareza</td><td>Texto confuso ou ambíguo</td><td>Compreensível, com trechos truncados</td><td>Claro e objetivo</td><td>Serve de modelo para o setor</td></tr>
+<tr><td>Fluxo do tribunal</td><td>Ignora o procedimento</td><td>Segue o fluxo com hesitação</td><td>Segue o fluxo sem apoio</td><td>Propõe melhoria do fluxo</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="nb"><div class="w">
+<div class="sh"><h2>Uso seguro do Gemini Notebook</h2><p>Um caderno que responde com base nas suas fontes reduz o risco de invenção em comparação a um chat aberto, mas não o elimina. A conferência continua sendo sua.</p></div>
+<div class="goal"><b>Ao final desta prática você será capaz de:</b><ul>
+<li>Selecionar fontes oficiais e vigentes e montar um caderno com elas.</li>
+<li>Formular pedidos com restrição de fonte para obter respostas rastreáveis.</li>
+<li>Conferir citações e páginas no documento original e registrar divergências.</li>
+<li>Gerar resumo, FAQ e Audio Overview a partir de um normativo para a turma.</li>
+</ul></div>
+<div class="steps">
+<div><h3>Suba as fontes</h3><p>Crie um caderno e envie apenas manuais oficiais, portarias e resoluções públicas e vigentes do TRT-RS, do CSJT e do CNJ.</p></div>
+<div><h3>Peça com restrição</h3><p><em>"Com base EXCLUSIVAMENTE nas fontes anexadas, resuma os procedimentos padrão, citando página e documento."</em></p></div>
+<div><h3>Transforme e distribua</h3><p>Gere Audio Overviews (podcast) ou FAQs para a turma estudar entre os encontros.</p></div>
+</div>
+<div class="warn"><b>Antes de usar o resultado:</b> confira cada citação no documento original e não envie dados pessoais ou processos sigilosos a ferramentas de IA.</div>
+<p style="margin-top:22px"><a class="btn t" href="https://notebook.google.com/" target="_blank" rel="noopener">Abrir Gemini Notebook</a></p>
+</div></section>
+
+<section class="alt" id="resp"><div class="w">
+<div class="sh"><h2>Uso responsável: normas, verificação e inclusão</h2><p>O que fazer antes, durante e depois de usar IA para produzir material didático.</p></div>
+<div class="cols">
+<div><h3>Norma e proteção de dados</h3><ul>
+<li>A <b>Resolução CNJ nº 615/2025</b> estabelece diretrizes para desenvolvimento, utilização e governança de IA no Poder Judiciário, com classificação de risco e supervisão humana. Leia o texto vigente no portal de atos normativos do CNJ.</li>
+<li>A <b>LGPD (Lei 13.709/2018)</b> vale para qualquer dado pessoal que você cole em uma ferramenta.</li>
+<li>No TRT-RS, a ferramenta homologada é o <b>Gemini</b> (conta institucional). Em qualquer outra, só conteúdo público. Veja o <a href="#seguranca">semáforo de dados</a>.</li></ul></div>
+<div><h3>Acessibilidade do material</h3><ul>
+<li>Slides e documentos com títulos reais e contraste adequado.</li>
+<li>Texto alternativo em imagens e gráficos.</li>
+<li>Áudio e vídeo precisam de alternativa em texto. O Audio Overview não traz transcrição garantida: peça ao caderno um texto equivalente (prompts abaixo) e, para legenda fiel, passe o arquivo por uma ferramenta de transcrição e revise.</li>
+<li>Linguagem simples e exemplos que não excluam perfis de servidores.</li></ul></div>
+</div>
+<h3 class="bl">Prompts de acessibilidade</h3>
+<p class="cap">O texto equivalente é um novo texto gerado a partir das mesmas fontes, não a transcrição palavra por palavra do áudio. Revise antes de publicar.</p>
+<pre>Com base EXCLUSIVAMENTE nas fontes do caderno, escreva um texto corrido que cubra os mesmos pontos do Audio Overview, na mesma ordem, em linguagem simples, para servir de alternativa a quem não pode ouvir o áudio. Indique o documento de origem de cada ponto.</pre><button class="btn cp">Copiar prompt</button>
+<pre>Reescreva este resumo em linguagem simples: frases curtas, sem siglas sem explicação. Mantenha os termos técnicos obrigatórios, com uma definição de uma linha.</pre><button class="btn cp">Copiar prompt</button>
+<pre>Escreva um texto alternativo de até 2 frases para este gráfico ou imagem. Descreva a informação que ele transmite, não a aparência.</pre><button class="btn cp">Copiar prompt</button>
+<pre>Revise este material e liste problemas de acessibilidade: hierarquia de títulos, contraste, siglas sem explicação, links com texto "clique aqui" e imagens sem descrição. Sugira a correção de cada um.</pre><button class="btn cp">Copiar prompt</button>
+<h3 class="bl">Atividade: caça ao erro (20 min)</h3>
+<div class="steps">
+<div><h3>Gere</h3><p>Peça ao seu caderno do Gemini Notebook um resumo do normativo que você carregou (entrega 3).</p></div>
+<div><h3>Confira</h3><p>Compare cada afirmação com o documento original: número, data, artigo, prazo e citação.</p></div>
+<div><h3>Registre</h3><p>Anote os erros ou invenções encontrados e ajuste o prompt para evitá-los. Compartilhe um achado com a dupla.</p></div>
+</div>
+<p class="note" style="margin-top:16px">Autoria: o conteúdo gerado é rascunho. Quem assina o material é você, e você responde por ele. Declare o uso de IA quando a instituição exigir.</p>
 </div></section>
 
 <!-- ============ USO SEGURO DE IA ============ -->
-<section class="alt" id="seguranca"><div class="w">
+<section id="seguranca" style="border-bottom:1px solid var(--line)"><div class="w">
 <div class="sh"><h2>O que posso colar em uma IA?<span class="nw">Novo · 08/10</span></h2><p>Aqui "IA homologada" quer dizer uma ferramenta contratada, avaliada e governada pelo próprio tribunal. Fora dela, tudo o que você digita sai do ambiente do TRT.</p></div>
 
-<div class="note"><b>No TRT-RS, a IA homologada é o Gemini</b> (use-o com a sua conta institucional). Qualquer outra ferramenta, como ChatGPT, Claude, Perplexity, Gamma e ElevenLabs, deve ser tratada como não homologada: nelas, <b>só conteúdo verde</b>. Confirme com a Segurança da Informação se a homologação do Gemini cobre o Gemini Notebook (antigo NotebookLM). Até lá, use nele apenas normativos públicos.</div>
+<div class="nt"><b>No TRT-RS, a IA homologada é o Gemini</b> (use-o com a sua conta institucional). Qualquer outra ferramenta, como ChatGPT, Claude, Perplexity, Gamma e ElevenLabs, deve ser tratada como não homologada: nelas, <b>só conteúdo verde</b>. Confirme com a Segurança da Informação se a homologação do Gemini cobre o Gemini Notebook (antigo NotebookLM). Até lá, use nele apenas normativos públicos.</div>
 
-<div class="note"><b>Regra de bolso:</b> se você não colocaria o texto num cartaz no corredor do fórum, não cole numa IA que o tribunal não homologou. Na dúvida, trate como vermelho e consulte a Segurança da Informação ou o encarregado de dados (LGPD) do TRT-RS.</div>
+<div class="nt"><b>Regra de bolso:</b> se você não colocaria o texto num cartaz no corredor do fórum, não cole numa IA que o tribunal não homologou. Na dúvida, trate como vermelho e consulte a Segurança da Informação ou o encarregado de dados (LGPD) do TRT-RS.</div>
 
 <h3 class="bl">Semáforo de dados</h3>
 <div class="lights">
@@ -295,7 +413,7 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 <li>Senhas, tokens e links de acesso</li></ul></div>
 </div>
 
-<div class="note"><b>Homologada não é carta branca.</b> Mesmo no Gemini, cole só o necessário (princípio da necessidade da LGPD) e siga as orientações internas do tribunal sobre dados de processos e segredo de justiça.</div>
+<div class="nt"><b>Homologada não é carta branca.</b> Mesmo no Gemini, cole só o necessário (princípio da necessidade da LGPD) e siga as orientações internas do tribunal sobre dados de processos e segredo de justiça.</div>
 
 <h3 class="bl">Por que isso importa: o que pode acontecer</h3>
 <div class="cardg">
@@ -305,9 +423,9 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 <div><h3>4. Risco para as pessoas</h3><p>É o ponto mais importante: partes e testemunhas, muitas vezes vulneráveis, podem ter informações pessoais expostas. Um vazamento não se desfaz.</p></div>
 </div>
 
-<div class="note"><b>Panorama:</b> a Resolução CNJ 615/2025 admite o uso de IA generativa por magistrados e servidores como ferramenta de apoio, desde que respeitados padrões de segurança da informação, e prevê capacitação continuada (art. 19). Uma análise jurídica do tema relata ainda que a norma veda inserir dados sensíveis ou registros sigilosos em modelos externos sem anonimização prévia. Leia o texto oficial para confirmar o alcance exato. Levantamentos do CNJ citados na mesma análise indicam que o uso fora dos canais oficiais já é comum, o que torna o assunto urgente.</div>
+<div class="nt"><b>Panorama:</b> a Resolução CNJ 615/2025 admite o uso de IA generativa por magistrados e servidores como ferramenta de apoio, desde que respeitados padrões de segurança da informação, e prevê capacitação continuada (art. 19). Uma análise jurídica do tema relata ainda que a norma veda inserir dados sensíveis ou registros sigilosos em modelos externos sem anonimização prévia. Leia o texto oficial para confirmar o alcance exato. Levantamentos do CNJ citados na mesma análise indicam que o uso fora dos canais oficiais já é comum, o que torna o assunto urgente.</div>
 
-<h3 class="bl">Anonimizar não é só trocar o nome <span class="opt">Opcional</span></h3>
+<h3 class="bl">Anonimizar não é só trocar o nome <span class="optb">Opcional</span></h3>
 <details class="dp"><summary>Antes e depois, e o risco da reidentificação</summary><div class="in2">
 <p>Exemplo com dados fictícios, para treinar o olhar:</p>
 <div class="ba">
@@ -327,42 +445,49 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 <!-- OPCIONAL: acrescente aqui o contato do encarregado de dados (LGPD) do TRT-RS. -->
 
 <h3 class="bl">Normas e leituras</h3>
-<div class="refs">
-<a class="ref" href="https://atos.cnj.jus.br/files/original1555302025031467d4517244566.pdf" target="_blank" rel="noopener"><small>Norma</small><span>Resolução CNJ nº 615, de 11 de março de 2025. Diretrizes para desenvolvimento, utilização e governança de soluções com IA no Poder Judiciário. <em>Texto oficial (PDF)</em></span></a>
-<a class="ref" href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank" rel="noopener"><small>Lei</small><span>Lei nº 13.709/2018 (LGPD). Veja os arts. 5º (definições), 11 (dados sensíveis) e 52 (sanções). <em>Planalto</em></span></a>
-<a class="ref" href="https://www.trt9.jus.br/portal/arquivos/8918622" target="_blank" rel="noopener"><small>Nota técnica</small><span>Centro de Inteligência, TRT-9: Nota Técnica 16/2025, uso responsável de IA generativa, com base na Res. CNJ 615/2025 e na LGPD. <em>Exemplo de orientação de outro regional trabalhista</em></span></a>
-<a class="ref" href="https://justen.com.br/artigo_pdf/o-uso-da-inteligencia-artificial-pelos-tribunais-e-juizes-brasileiros-licoes-para-a-arbitragem/" target="_blank" rel="noopener"><small>Análise</small><span>O uso da inteligência artificial pelos tribunais e juízes brasileiros (informativo, fev/2026). Resume os relatórios do CNJ e a Resolução 615. <em>Fonte secundária: confira no texto da norma</em></span></a>
-<a class="ref" href="https://revista.trf3.jus.br/index.php/rtrf3/article/download/742/700" target="_blank" rel="noopener"><small>Artigo</small><span>Regulação da inteligência artificial no Judiciário brasileiro: análise do objeto e definições da Resolução CNJ nº 615/2025. <em>Revista do TRF3 (PDF)</em></span></a>
-<a class="ref" href="https://jurinews.com.br/brasil/trt-2-comeca-a-utilizar-ia-generativa-para-agilizar-producao-de-sentencas" target="_blank" rel="noopener"><small>Notícia</small><span>Reportagem que registra o Ato Conjunto TST.CSJT.ENAMAT.CEFAST nº 35/2025, sobre capacitação continuada em IA generativa na Justiça do Trabalho.</span></a>
+<div class="rfl">
+<a class="rfk" href="https://atos.cnj.jus.br/files/original1555302025031467d4517244566.pdf" target="_blank" rel="noopener"><small>Norma</small><span>Resolução CNJ nº 615, de 11 de março de 2025. Diretrizes para desenvolvimento, utilização e governança de soluções com IA no Poder Judiciário. <em>Texto oficial (PDF)</em></span></a>
+<a class="rfk" href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank" rel="noopener"><small>Lei</small><span>Lei nº 13.709/2018 (LGPD). Veja os arts. 5º (definições), 11 (dados sensíveis) e 52 (sanções). <em>Planalto</em></span></a>
+<a class="rfk" href="https://www.trt9.jus.br/portal/arquivos/8918622" target="_blank" rel="noopener"><small>Nota técnica</small><span>Centro de Inteligência, TRT-9: Nota Técnica 16/2025, uso responsável de IA generativa, com base na Res. CNJ 615/2025 e na LGPD. <em>Exemplo de orientação de outro regional trabalhista</em></span></a>
+<a class="rfk" href="https://justen.com.br/artigo_pdf/o-uso-da-inteligencia-artificial-pelos-tribunais-e-juizes-brasileiros-licoes-para-a-arbitragem/" target="_blank" rel="noopener"><small>Análise</small><span>O uso da inteligência artificial pelos tribunais e juízes brasileiros (informativo, fev/2026). Resume os relatórios do CNJ e a Resolução 615. <em>Fonte secundária: confira no texto da norma</em></span></a>
+<a class="rfk" href="https://revista.trf3.jus.br/index.php/rtrf3/article/download/742/700" target="_blank" rel="noopener"><small>Artigo</small><span>Regulação da inteligência artificial no Judiciário brasileiro: análise do objeto e definições da Resolução CNJ nº 615/2025. <em>Revista do TRF3 (PDF)</em></span></a>
+<a class="rfk" href="https://jurinews.com.br/brasil/trt-2-comeca-a-utilizar-ia-generativa-para-agilizar-producao-de-sentencas" target="_blank" rel="noopener"><small>Notícia</small><span>Reportagem que registra o Ato Conjunto TST.CSJT.ENAMAT.CEFAST nº 35/2025, sobre capacitação continuada em IA generativa na Justiça do Trabalho.</span></a>
 </div>
 </div></section>
 
-<section id="p2"><div class="w">
-<div class="sh"><h2>Encontro 2: avaliar e testar antes de ir ao ar</h2><p>Com o plano em mãos, você cria critérios de avaliação e submete o material a um "aluno" exigente.</p></div>
-<div class="goal"><b>Ao final deste encontro você será capaz de:</b><ul><li>Construir uma rubrica com critérios e níveis observáveis.</li><li>Testar um plano de aula com um leitor cético e corrigir suas falhas.</li></ul></div>
-<div id="a3"></div>
-<h3 class="bl">Exemplo de rubrica</h3>
-<p class="cap">Formato que o Agente Rubricas gera: 3 critérios × 4 níveis. Exemplo para uma atividade de redação de despacho.</p>
-<div class="tw"><table>
-<thead><tr><th>Critério</th><th>Insatisfatório</th><th>Básico</th><th>Proficiente</th><th>Avançado</th></tr></thead>
-<tbody>
-<tr><td>Fundamentação</td><td>Não cita a norma aplicável</td><td>Cita a norma sem relacioná-la ao caso</td><td>Relaciona norma e caso com autonomia</td><td>Orienta colegas sobre a aplicação</td></tr>
-<tr><td>Clareza</td><td>Texto confuso ou ambíguo</td><td>Compreensível, com trechos truncados</td><td>Claro e objetivo</td><td>Serve de modelo para o setor</td></tr>
-<tr><td>Fluxo do tribunal</td><td>Ignora o procedimento</td><td>Segue o fluxo com hesitação</td><td>Segue o fluxo sem apoio</td><td>Propõe melhoria do fluxo</td></tr>
-</tbody></table></div>
+<section><div class="w">
+<div class="sh"><h2>Para ir além do Google Workspace</h2><p>Ferramentas complementares, apresentadas como exemplos. Use-as apenas com conteúdo público e confirme antes se são autorizadas no seu órgão.</p></div>
+<div class="tools">
+<a class="card-link" href="https://claude.ai" target="_blank" rel="noopener"><div><h3>Claude.ai<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Raciocínio e escrita</small><p>Estudos de caso complexos, manuais com tom natural e simulações de diálogo.</p></div></a>
+<a class="card-link" href="https://www.perplexity.ai" target="_blank" rel="noopener"><div><h3>Perplexity<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Pesquisa com fontes</small><p>Busca na web com links de referência para embasar o conteúdo teórico.</p></div></a>
+<a class="card-link" href="https://gamma.app" target="_blank" rel="noopener"><div><h3>Gamma.app<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Slides e microsites</small><p>Transforma o plano de aula em texto em apresentação pronta.</p></div></a>
+<a class="card-link" href="https://elevenlabs.io" target="_blank" rel="noopener"><div><h3>ElevenLabs<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Voz sintética</small><p>Narração de tutoriais e vídeos de microlearning com entonação natural.</p></div></a>
+</div></div></section>
+
+<section class="alt" id="base"><div class="w">
+<div class="sh"><h2>Base teórica e leituras</h2><p>O desenho da oficina se apoia nestas referências, apresentadas conforme a ABNT NBR 6023.</p></div>
+<ul class="refs">
+<li>ANDERSON, Lorin W.; KRATHWOHL, David R. (ed.). <b>A taxonomy for learning, teaching, and assessing</b>: a revision of Bloom's taxonomy of educational objectives. New York: Longman, 2001.</li>
+<li>BONWELL, Charles C.; EISON, James A. <b>Active learning</b>: creating excitement in the classroom. Washington, DC: School of Education and Human Development, George Washington University, 1991. (ASHE-ERIC Higher Education Report, n. 1).</li>
+<li>BOWMAN, Sharon L. <b>Training from the back of the room!</b>: 65 ways to step aside and let them learn. San Francisco: Pfeiffer, 2009.</li>
+<li>BRASIL. Conselho Nacional de Justiça. <b>Resolução n. 615, de 2025</b>. Estabelece diretrizes para o desenvolvimento, utilização e governança de soluções desenvolvidas com recursos de inteligência artificial no Poder Judiciário. Brasília, DF: CNJ, 2025. Disponível em: https://atos.cnj.jus.br/. Acesso em: 8 out. 2026.</li>
+<li>KIRKPATRICK, Donald L.; KIRKPATRICK, James D. <b>Evaluating training programs</b>: the four levels. 3. ed. San Francisco: Berrett-Koehler, 2006.</li>
+<li>WIGGINS, Grant; MCTIGHE, Jay. <b>Understanding by design</b>. 2. ed. Alexandria: ASCD, 2005.</li>
+</ul>
 </div></section>
 
+
 <!-- ============ APROFUNDAMENTOS OPCIONAIS (recolhidos) ============ -->
-<section class="alt" id="opcionais"><div class="w">
+<section id="opcionais" style="border-bottom:1px solid var(--line)"><div class="w">
 <div class="sh"><h2>Aprofundamentos opcionais<span class="nw">Novo · 08/10</span></h2><p>Material extra para quem quiser ir além. Clique em cada item para abrir. Nada aqui é necessário para concluir a oficina.</p></div>
 
-<details class="opt-sec" id="bloom"><summary><span><b>Taxonomia de Bloom: indicação de leitura</b> <span class="opt">Opcional</span><small>Pedido da turma por material confiável</small></span></summary>
+<details class="opt-sec" id="bloom"><summary><span><b>Taxonomia de Bloom: indicação de leitura</b> <span class="optb">Opcional</span><small>Pedido da turma por material confiável</small></span></summary>
 <div class="body"><p class="lead2">Para se aprofundar na Taxonomia de Bloom, leia o artigo abaixo. É em português e de acesso aberto.</p>
-<div class="refs">
-<a class="ref" href="https://www.scielo.br/j/gp/a/bRkFgcJqbGCDp3HjQqFdqBm/?lang=pt" target="_blank" rel="noopener"><small>Artigo</small><span>Ferraz, A. P. C. M.; Belhot, R. V. (2010). Taxonomia de Bloom: revisão teórica e apresentação das adequações do instrumento para definição de objetivos instrucionais. <em>Gestão &amp; Produção</em>, v. 17, n. 2, p. 421-431. SciELO.</span></a>
+<div class="rfl">
+<a class="rfk" href="https://www.scielo.br/j/gp/a/bRkFgcJqbGCDp3HjQqFdqBm/?lang=pt" target="_blank" rel="noopener"><small>Artigo</small><span>Ferraz, A. P. C. M.; Belhot, R. V. (2010). Taxonomia de Bloom: revisão teórica e apresentação das adequações do instrumento para definição de objetivos instrucionais. <em>Gestão &amp; Produção</em>, v. 17, n. 2, p. 421-431. SciELO.</span></a>
 </div></div></details>
 
-<details class="opt-sec" id="design"><summary><span><b>Slides com a sua cara, sem precisar ser designer</b> <span class="opt">Opcional</span><small>Dicas para apresentações menos genéricas</small></span></summary>
+<details class="opt-sec" id="design"><summary><span><b>Slides com a sua cara, sem precisar ser designer</b> <span class="optb">Opcional</span><small>Dicas para apresentações menos genéricas</small></span></summary>
 <div class="body"><h3 class="bl">Genérico × personalizado</h3>
 <div class="slides2">
 <div><span class="tag2">Slide genérico</span><div class="sl gen"><h4>Certificado Digital</h4><ul><li>O que é certificado digital</li><li>Tipos de certificado</li><li>Vantagens</li><li>Como utilizar</li></ul></div></div>
@@ -389,14 +514,14 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 </div>
 <div id="a5" style="margin-top:20px"></div>
 
-<h3 class="bl">Dois testes finais <span class="opt">Opcional</span></h3>
+<h3 class="bl">Dois testes finais <span class="optb">Opcional</span></h3>
 <details class="dp"><summary>Teste dos 3 segundos e teste do colega</summary><div class="in2"><ul>
 <li><b>3 segundos:</b> mostre cada slide por três segundos e esconda. Se a pessoa não souber dizer a ideia central, há informação demais ou título fraco.</li>
 <li><b>Colega:</b> peça a alguém de outra unidade para apontar o primeiro slide que "parece de modelo". Reescreva o primeiro; os demais costumam seguir.</li>
 <li><b>Exercício:</b> pegue o slide mais genérico do seu curso e refaça com as sete decisões acima. Compare os dois lado a lado.</li>
 </ul></div></details></div></details>
 
-<details class="opt-sec" id="personalizacao"><summary><span><b>Como personalizar um curso</b> <span class="opt">Opcional</span><small>Extra mencionado na aula de hoje</small></span></summary>
+<details class="opt-sec" id="personalizacao"><summary><span><b>Como personalizar um curso</b> <span class="optb">Opcional</span><small>Extra mencionado na aula de hoje</small></span></summary>
 <div class="body"><h3 class="bl">Cinco alavancas</h3>
 <div class="cardg">
 <div><span class="n">Alavanca 1</span><h3>Diagnóstico que vira trilha</h3><p>Use o pré-teste para separar quem já domina o básico de quem precisa começar do início. Mesma meta, caminhos diferentes.</p></div>
@@ -412,11 +537,11 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 <div><h3>Trilha Prática</h3><p>Para quem já usa no dia a dia.</p><ul><li>Caso com problema aberto</li><li>Atividade em grupo com rubrica</li><li>Meta: Aplicar e Analisar</li></ul></div>
 <div><h3>Trilha Multiplicador</h3><p>Para quem vai ensinar os colegas.</p><ul><li>Desafio de criar material</li><li>Revisão de pares e Agente Desafiador</li><li>Meta: Avaliar e Criar</li></ul></div>
 </div>
-<div class="note"><b>E na nossa turma?</b> Usando a média individual do pré-teste e um corte meu, apenas ilustrativo (até 2,0; de 2,1 a 3,5; acima de 3,5), seriam 4 participantes na trilha Fundamentos, 11 na Prática e 3 no Multiplicador. As maiores lacunas coletivas, Bloom e plano de aula, seriam o núcleo comum.</div>
-<div class="note"><b>Equilíbrio:</b> mantenha um núcleo único (objetivos e avaliação final iguais para todos) e personalize os caminhos. Assim a turma continua comparável e o seu trabalho de preparo continua viável.</div>
+<div class="nt"><b>E na nossa turma?</b> Usando a média individual do pré-teste e um corte meu, apenas ilustrativo (até 2,0; de 2,1 a 3,5; acima de 3,5), seriam 4 participantes na trilha Fundamentos, 11 na Prática e 3 no Multiplicador. As maiores lacunas coletivas, Bloom e plano de aula, seriam o núcleo comum.</div>
+<div class="nt"><b>Equilíbrio:</b> mantenha um núcleo único (objetivos e avaliação final iguais para todos) e personalize os caminhos. Assim a turma continua comparável e o seu trabalho de preparo continua viável.</div>
 <div id="a6"></div>
 
-<h3 class="bl">Para ir mais fundo <span class="opt">Opcional</span></h3>
+<h3 class="bl">Para ir mais fundo <span class="optb">Opcional</span></h3>
 <details class="dp"><summary>Cinco princípios de Merrill: um roteiro para qualquer curso</summary><div class="in2">
 <p>M. David Merrill sintetizou, a partir de várias teorias de design instrucional, cinco princípios que favorecem a aprendizagem quando aplicados juntos:</p>
 <ol>
@@ -430,76 +555,62 @@ section.alt details.opt-sec .cardg>div,section.alt details.opt-sec .ag,section.a
 <details class="dp"><summary>Desenho Universal para a Aprendizagem (UDL)</summary><div class="in2">Quadro do CAST para planejar cursos acessíveis desde o início, organizado em três eixos: múltiplas formas de <b>engajamento</b>, de <b>representação</b> do conteúdo e de <b>ação e expressão</b> do aprendiz. A versão 3.0 das diretrizes foi publicada em 2024. É uma boa lista de verificação para a alavanca 4.</div></details>
 
 <h3 class="bl">Leituras</h3>
-<div class="refs">
-<a class="ref" href="https://open.byu.edu/lidtfoundations/using_the_first_principles_of_instruction" target="_blank" rel="noopener"><small>Texto</small><span>Merrill, M. D. Using the First Principles of Instruction to make instruction effective, efficient, and engaging. <em>Escrito pelo próprio autor (BYU, acesso aberto, em inglês). Referência: Merrill (2002), Educational Technology Research and Development, 50(3), 43-59</em></span></a>
-<a class="ref" href="https://udlguidelines.cast.org/" target="_blank" rel="noopener"><small>Diretrizes</small><span>CAST. Universal Design for Learning Guidelines 3.0. <em>Site oficial, em inglês, com resumo de uma página</em></span></a>
-<div class="ref" style="cursor:default"><small>Livro</small><span>Knowles, M.; Holton, E.; Swanson, R. <em>The Adult Learner</em>. Referência clássica sobre aprendizagem de adultos, base do nosso Agente Andragógico.</span></div>
+<div class="rfl">
+<a class="rfk" href="https://open.byu.edu/lidtfoundations/using_the_first_principles_of_instruction" target="_blank" rel="noopener"><small>Texto</small><span>Merrill, M. D. Using the First Principles of Instruction to make instruction effective, efficient, and engaging. <em>Escrito pelo próprio autor (BYU, acesso aberto, em inglês). Referência: Merrill (2002), Educational Technology Research and Development, 50(3), 43-59</em></span></a>
+<a class="rfk" href="https://udlguidelines.cast.org/" target="_blank" rel="noopener"><small>Diretrizes</small><span>CAST. Universal Design for Learning Guidelines 3.0. <em>Site oficial, em inglês, com resumo de uma página</em></span></a>
+<div class="rfk" style="cursor:default"><small>Livro</small><span>Knowles, M.; Holton, E.; Swanson, R. <em>The Adult Learner</em>. Referência clássica sobre aprendizagem de adultos, base do nosso Agente Andragógico.</span></div>
 </div></div></details>
 </div></section>
 
-<section id="nb"><div class="w">
-<div class="sh"><h2>Uso seguro do Gemini Notebook</h2><p>O antigo NotebookLM, renomeado em julho de 2026. Um caderno que responde só com base nas suas fontes reduz bastante o risco de invenção, mas não o elimina.</p></div>
-<div class="steps">
-<div><h3>Suba as fontes</h3><p>Crie um caderno e envie apenas manuais oficiais, portarias e resoluções vigentes do TRT-RS e do CSJT.</p></div>
-<div><h3>Peça com restrição</h3><p><em>"Com base EXCLUSIVAMENTE nas fontes anexadas, resuma os procedimentos padrão, citando página e documento."</em></p></div>
-<div><h3>Transforme e distribua</h3><p>Gere Audio Overviews (podcast) ou FAQs para os alunos estudarem entre os encontros.</p></div>
+<section id="avalie"><div class="w">
+<div class="sh"><h2>Avalie esta formação</h2><p>Sua opinião é anônima e ajuda a melhorar as próximas turmas. Nenhum nome ou identificação é solicitado.</p></div>
+<div class="rate" id="rate">
+<form id="rf" onsubmit="return false">
+<label id="sl">Como você avalia a oficina?</label>
+<div class="stars" id="stars" role="radiogroup" aria-labelledby="sl"></div>
+<label for="rc">Comentários, sugestões ou o que mais gostou (opcional)</label>
+<textarea id="rc" maxlength="1000" placeholder="Escreva aqui com liberdade."></textarea>
+<button type="button" class="btn t" id="rs">Enviar avaliação</button>
+<p id="rmsg" role="status"></p>
+</form>
 </div>
-<div class="warn"><span class="nw">Novo · 08/10</span> <b>Antes de usar o resultado:</b> confira cada citação no documento original. E antes de subir qualquer arquivo, consulte o <a href="#seguranca">semáforo de dados</a>: use normativos públicos e nunca dados pessoais ou processos sigilosos em ferramentas não homologadas pelo tribunal.</div>
-<p style="margin-top:22px"><a class="btn t" href="https://notebooklm.google.com/" target="_blank" rel="noopener">Abrir Gemini Notebook</a></p>
 </div></section>
 
-<section class="alt"><div class="w">
-<div class="sh"><h2>Para ir além do Google Workspace</h2><p>Ferramentas complementares apresentadas como bônus. Cada uma resolve uma etapa do design de materiais.</p></div>
-<div class="tools">
-<a class="card-link" href="https://claude.ai" target="_blank" rel="noopener"><div><h3>Claude.ai<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Raciocínio e escrita</small><p>Estudos de caso complexos, manuais com tom natural e simulações de diálogo.</p></div></a>
-<a class="card-link" href="https://www.perplexity.ai" target="_blank" rel="noopener"><div><h3>Perplexity<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Pesquisa com fontes</small><p>Busca na web com links de referência para embasar o conteúdo teórico.</p></div></a>
-<a class="card-link" href="https://gamma.app" target="_blank" rel="noopener"><div><h3>Gamma.app<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Slides e microsites</small><p>Transforma o plano de aula em texto em apresentação pronta.</p></div></a>
-<a class="card-link" href="https://elevenlabs.io" target="_blank" rel="noopener"><div><h3>ElevenLabs<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></h3><small>Voz sintética</small><p>Narração de tutoriais e vídeos de microlearning com entonação natural.</p></div></a>
-</div></div></section>
-
-<section id="fac"><div class="w"><div class="fac">
-<!-- FOTO DA FACILITADORA: troque o div.av abaixo por
-     <div class="av"><img src="URL_OU_ARQUIVO_DA_FOTO.jpg" alt="Viviane Franco"></div>
-     (imagem quadrada, mínimo 168x168px, ideal ~300x300px) -->
-<div class="av">VF</div>
+<section class="alt" id="fac"><div class="w"><div class="fac">
+<div class="av"><img src="viviane_franco.jpg" alt="Viviane Franco"></div>
 <div>
 <h3>Viviane Franco</h3><small>Designer instrucional · FGV</small>
-<p>Professora com formação em Letras, dedica-se à integração da IA na educação corporativa, unindo metodologias ativas, Python e AI Studio para apoiar instrutores e melhorar a aprendizagem.</p>
-<a class="btn" href="#" onclick="alert('Link do LinkedIn a ser adicionado');return false">LinkedIn</a><a class="btn t" href="https://wa.me/5521979234890" target="_blank" rel="noopener">WhatsApp (21) 97923-4890</a>
+<p>Professora com formação em Letras pela UERJ e mestranda em Informática pela UNIRIO. Desenha cursos em que a IA atua como copiloto do design instrucional e apoia educadores e instituições a revolucionarem a educação com uso de IA e outras tecnologias.</p>
+<!-- Quando tiver, acrescente aqui resultados concretos (nº de docentes formados, instituições, depoimentos autorizados) e um e-mail profissional:
+<a class="btn" href="mailto:SEU_EMAIL_PROFISSIONAL">E-mail</a> -->
+<a class="btn" href="https://www.linkedin.com/in/viviane-francos/" target="_blank" rel="noopener">LinkedIn</a>
 </div></div></div></section>
 <footer>Material de apoio · Oficina de 6h · TRT-RS</footer>
 
 <script>
 const G="https://gemini.google.com/app";
 const AG=[
-{s:"a1",i:"🧭",t:"Agente Andragógico",d:"Adequa conteúdos técnicos aos pilares de Knowles.",w:"Quando você tem um tema técnico e precisa torná-lo relevante para adultos experientes.",r:"Qual experiência prévia da sua turma você vai usar como ponto de partida?",p:`Você é o Agente de Adequação Andragógica do TRT-RS, fundamentado nos princípios de Malcolm Knowles.
+{s:"a1",i:"🔎",t:"Agente Diagnóstico de Turma",d:"Mapeia o perfil e cria estratégias de sondagem antes da aula.",w:"Antes de planejar: para estruturar perguntas e entender a realidade de quem vai aprender.",r:"Como você pode descobrir o nível real da turma logo nos primeiros minutos da aula?",p:`Você é o Agente Especialista em Diagnóstico de Turma e Levantamento de Necessidades do TRT-RS.
 
-Sua missão é atuar como assistente permanente para instrutores e magistrados. Ao receber qualquer tema ou conteúdo bruto de treinamento:
-1. Proponha estratégias que garantam autonomia ao participante.
-2. Conecte os conceitos diretamente à bagagem prévia e à rotina de trabalho na Justiça do Trabalho.
-3. Estruture 3 gatilhos de engajamento práticos para adultos.`,
-demo:`Preciso apresentar aos servidores o uso do certificado digital ICP-Brasil no PJe. Muitos assinam documentos em papel há décadas e estão resistentes à mudança.`},
-{s:"a1",i:"🔎",t:"Agente Diagnóstico de Turma",d:"Mapeia competências e lacunas antes da aula.",w:"Antes de planejar: para saber onde a turma está e que problema real resolver.",r:"Qual dessas lacunas você já viu gerar retrabalho no seu setor?",p:`Você é o Agente Especialista em Diagnóstico de Necessidades de Treinamento (DNT) do TRT-RS.
-
-Sempre que o usuário apresentar um tema de curso:
-1. Mapeie 3 Hard Skills e 2 Soft Skills prioritárias.
-2. Identifique 3 lacunas comuns de conhecimento que geram retrabalho no tribunal.
-3. Gere 1 situação-problema prática para avaliar o nível de entrada dos servidores.`,
+Sempre que o usuário apresentar um tema de curso e o público-alvo (ex: servidores de secretaria):
+1. Mapeie o perfil provável de autonomia e os vícios ou resistências comuns desse grupo com o tema.
+2. Levante 3 hipóteses de gargalos operacionais ou pontos de falha que geram retrabalho no tribunal.
+3. Crie uma pergunta disparadora ou microatividade rápida de sondagem para o professor aplicar no início da aula, permitindo que os próprios participantes revelem suas maiores lacunas em tempo real.`,
 demo:`Tema: uso do certificado digital ICP-Brasil no PJe. Turma: servidores da Secretaria de Audiências, a maioria já usa o PJe no dia a dia mas nunca configurou um certificado digital.`},
-{s:"a2",i:"🪜",t:"Agente Taxonomia de Bloom",d:"Objetivos de aprendizagem mensuráveis.",w:"Depois do diagnóstico: para transformar o que a turma precisa em objetivos verificáveis.",r:"Seu objetivo termina em um verbo observável? Se não dá para ver o aluno fazendo, reescreva.",p:`Você é o Agente de Engenharia de Objetivos Educacionais do TRT-RS.
+{s:"a2",i:"🪜",t:"Agente Taxonomia de Bloom",d:"Objetivos de aprendizagem mensuráveis ancorados no diagnóstico.",w:"Depois do diagnóstico: para transformar as dores e lacunas mapeadas em metas verificáveis.",r:"Seu objetivo termina em um verbo observável? Se não dá para ver o participante fazendo, reescreva.",p:`Você é o Agente de Engenharia de Objetivos Educacionais do TRT-RS.
 
-Ao receber um conteúdo ou tema de curso, elabore objetivos pedagógicos claros e mensuráveis percorrendo os 6 níveis da Taxonomia de Bloom (Lembrar, Compreender, Aplicar, Analisar, Avaliar e Criar).
-Para cada nível, associe um verbo de ação específico e um entregável prático contextualizado para o ambiente corporativo do tribunal laboral.`,
-demo:`Tema: uso do certificado digital ICP-Brasil para assinatura de documentos no PJe.`},
-{s:"a2",i:"🗓️",t:"Agente Plano de Aula",d:"Roteiro em 4 tempos: conexão, conteúdo, construção e conclusão.",w:"Com objetivos definidos: para distribuir o tempo priorizando a prática.",r:"Some os minutos em que os alunos falam ou fazem. É mais que o tempo em que você fala?",p:`Você é o Agente Designer de Planos de Aula do TRT-RS.
+Ao receber o resultado do Diagnóstico de Turma (perfil, gargalos e lacunas), elabore objetivos pedagógicos claros e mensuráveis percorrendo os 6 níveis da Taxonomia de Bloom (Lembrar, Compreender, Aplicar, Analisar, Avaliar e Criar).
+Os objetivos devem focar estritamente em resolver os gargalos apontados no diagnóstico. Para cada nível, associe um verbo de ação específico e um entregável prático contextualizado para o ambiente corporativo do tribunal laboral.`,
+demo:`Diagnóstico anterior: servidores sabem o fluxo básico do PJe, mas erram a configuração do ICP-Brasil por desconhecerem os erros comuns de drivers. Objetivos focados em Aplicar e Analisar.`},
+{s:"a2",i:"🗓️",t:"Agente Plano de Aula",d:"Roteiro em 4 tempos alinhado aos objetivos e lacunas diagnosticadas.",w:"Com objetivos definidos: para estruturar o tempo priorizando a prática e a resolução dos gargalos.",r:"Some os minutos em que a turma fala ou faz. É mais que o tempo em que você fala?",p:`Você é o Agente Designer de Planos de Aula do TRT-RS.
 
-Ao receber a duração e o tema de uma oficina, estruture o roteiro seguindo a metodologia ativa em 4 momentos obrigatórios:
-1. Conexão (resgate da experiência prévia dos servidores, 10% do tempo)
-2. Conteúdo Essencial (teoria objetiva e direta, 30% do tempo)
-3. Construção (atividade mão na massa em duplas ou grupos, 40% do tempo)
-4. Conclusão e Aplicação Prática no Tribunal (20% do tempo).`,
-demo:`Duração: 90 minutos. Tema: uso do certificado digital ICP-Brasil para assinatura de documentos no PJe.`},
-{s:"a3",i:"📐",t:"Agente Rubricas de Avaliação",d:"Critérios e níveis de maturidade para medir a evolução.",w:"Quando você já tem uma atividade e precisa avaliar de forma justa e transparente.",r:"Um aluno consegue ler a rubrica e saber como melhorar sem perguntar a você?",p:`Você é o Agente Avaliador Formativo do TRT-RS.
+Ao receber a duração, o tema, os objetivos (Taxonomia de Bloom) e as lacunas do diagnóstico, estruture o roteiro seguindo a metodologia ativa em 4 momentos obrigatórios:
+1. Conexão (resgate da experiência prévia e aplicação da sondagem diagnóstica, 10% do tempo)
+2. Conteúdo Essencial (teoria objetiva e direta para sanar os objetivos, 30% do tempo)
+3. Construção (atividade mão na massa em duplas, grupos ou salas virtuais focada em resolver o problema real, 40% do tempo)
+4. Conclusão e Aplicação Prática no Tribunal (validação e fechamento, 20% do tempo).`,
+demo:`Duração: 90 minutos. Tema: uso do certificado digital ICP-Brasil para assinatura de documentos no PJe. Alinhado ao diagnóstico de lacunas de configuração.`},
+{s:"a3",i:"📐",t:"Agente Rubricas de Avaliação",d:"Critérios e níveis de maturidade para medir a evolução.",w:"Quando você já tem uma atividade e precisa avaliar de forma justa e transparente.",r:"Um participante consegue ler a rubrica e saber como melhorar sem perguntar a você?",p:`Você é o Agente Avaliador Formativo do TRT-RS.
 
 Para qualquer atividade prática ou estudo de caso descrito pelo usuário, crie uma matriz de rubrica em formato de tabela com 3 critérios objetivos e 4 níveis de maturidade:
 - Insatisfatório (Abaixo do esperado)
@@ -507,14 +618,16 @@ Para qualquer atividade prática ou estudo de caso descrito pelo usuário, crie 
 - Proficiente (Aplica com autonomia no fluxo do TRT-RS)
 - Avançado (Capaz de orientar e multiplicar conhecimento).`,
 demo:`Atividade: o servidor deve instalar o certificado digital, configurá-lo no navegador e assinar um documento de teste no PJe.`},
-{s:"a3",i:"🕵️",t:"Agente Desafiador (Socrático)",d:"Um servidor cético testa seu plano antes de ele ir ao ar.",w:"Como última etapa: cole o plano pronto e descubra onde ele quebra.",r:"Qual crítica doeu mais? Provavelmente é a que mais merece ajuste.",p:`Você é um servidor experiente, pragmático e levemente cético do TRT-RS que está participando de um treinamento interno corporativo.
+{s:"a3",i:"🕵️",t:"Agente Cético (Red Team)",d:"Um servidor cético testa seu plano antes de ele ir ao ar.",w:"Como última etapa: cole o plano pronto e descubra onde ele quebra.",r:"Qual crítica doeu mais? Provavelmente é a que mais merece ajuste.",p:`Você é um servidor experiente, pragmático e levemente cético do TRT-RS que está participando de um treinamento interno corporativo.
 
 O usuário compartilhará um plano de aula ou descrição de atividade. Sua tarefa como "Red Teamer" é:
-1. Encontrar 2 pontos onde o aluno pode perder o interesse, achar "teórico demais" ou desconectado da prática.
+1. Encontrar 2 pontos onde o participante pode perder o interesse, achar "teórico demais" ou desconectado da prática.
 2. Apontar 1 dúvida complexa de rotina processual ou administrativa que o plano atual não responde.
 3. Sugerir uma mudança prática e realista para tornar a atividade mais desafiadora.
+4. Fechar com 2 perguntas provocativas que o professor deveria saber responder antes de aplicar o plano.
 
 Forneça o feedback de forma construtiva, simulando as dúvidas reais da sala de aula.`,
+demoNote:"Este plano é propositalmente fraco: a Construção é individual (o Agente Plano de Aula pede atividade em grupo), a Conexão não usa a sondagem diagnóstica e o fechamento é um quiz. O objetivo é ver o Agente Cético encontrar essas falhas. Não é uma saída típica do Agente Plano de Aula.",
 demo:`[Cole aqui o plano de aula gerado pelo Agente Plano de Aula sobre certificado digital ICP-Brasil. Sem o plano em mãos, use este resumo:]
 
 Conexão (9min): pergunta sobre experiências prévias com assinatura em papel.
@@ -547,10 +660,11 @@ AG.forEach((a,n)=>{
  const e=document.createElement("div");e.className="ag";
  e.innerHTML=`<button aria-expanded="false"><span class="ic">${a.i}</span><span><h3>${a.t}</h3><small>${a.d}</small></span><svg class="ch" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
  <div class="bd"><div class="two"><div><b>Quando usar</b>${a.w}</div><div class="q"><b>Pause e reflita</b>${a.r}</div></div><pre class="ip"></pre>
- <button class="btn ic1">Copiar instruções</button><a class="btn t" href="${G}" target="_blank" rel="noopener">Abrir Gemini</a>
- <div class="demo"><b>Para demonstração ao vivo</b><p>Depois de criar o Gem com as instruções acima, cole isto como primeira mensagem:</p><pre class="dp"></pre><button class="btn dc">Copiar exemplo</button></div></div>`;
+ <button class="btn ic1">Copiar instruções</button>
+ <div class="demo"><b>Para demonstração</b><p class="dn">Depois de criar o Gem com as instruções acima, cole isto como primeira mensagem:</p><pre class="dp"></pre><button class="btn dc">Copiar exemplo</button></div></div>`;
  e.querySelector(".ip").textContent=a.p;
  e.querySelector(".dp").textContent=a.demo;
+ if(a.demoNote){e.querySelector(".dn").innerHTML="<b style='display:inline'>Atenção:</b> "+a.demoNote+" Depois de criar o Gem, cole isto como primeira mensagem:"}
  const h=e.querySelector(":scope>button");
  h.onclick=()=>{const o=e.classList.toggle("open");h.setAttribute("aria-expanded",o)};
  const c=e.querySelector(".ic1");
@@ -560,18 +674,87 @@ AG.forEach((a,n)=>{
  document.getElementById(a.s).appendChild(e);
  if(n===0){e.classList.add("open");h.setAttribute("aria-expanded",true)}
 });
-// abre o bloco recolhido quando o link aponta para ele
-function openHash(){const t=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1)));if(t&&t.tagName==="DETAILS"){t.open=true}}
-addEventListener("hashchange",openHash);openHash();
-document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;const t=document.getElementById(a.getAttribute("href").slice(1));if(t&&t.tagName==="DETAILS")t.open=true});
-// checklist
 const cs=[...document.querySelectorAll(".chk input")];
 function up(){const k=cs.filter(x=>x.checked).length;pf.style.width=k/3*100+"%";pt.textContent=k===3?"Tudo pronto para o Encontro 2 🎉":k+" de 3 concluídas";
  try{localStorage.setItem("oficina-chk",JSON.stringify(cs.map(x=>x.checked)))}catch(e){}}
 try{const s=JSON.parse(localStorage.getItem("oficina-chk")||"[]");cs.forEach((x,i)=>x.checked=!!s[i])}catch(e){}
 cs.forEach(x=>x.onchange=up);up();
-// barra de leitura
 addEventListener("scroll",()=>{const d=document.documentElement;bar.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight||1)*100)+"%"},{passive:true});
+
+const FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSfdgoWKCGBspIzToBMbhwCiF15kpNkNtFb5vnGlpM6faouXPw/formResponse";
+const ENTRY_NOTA="entry.1328668465";
+const ENTRY_COMENTARIO="entry.912479846";
+let nota=0;
+const stars=document.getElementById("stars"),rmsg=document.getElementById("rmsg"),rate=document.getElementById("rate");
+for(let i=1;i<=5;i++){const b=document.createElement("button");b.type="button";b.textContent="★";b.setAttribute("role","radio");b.setAttribute("aria-checked","false");b.setAttribute("aria-label",i+(i===1?" estrela":" estrelas"));
+ b.onclick=()=>{nota=i;[...stars.children].forEach((s,k)=>{s.classList.toggle("on",k<i);s.setAttribute("aria-checked",k===i-1)})};stars.appendChild(b)}
+function thanks(){rate.innerHTML='<div class="thanks"><b>Obrigada pela sua avaliação! 💙</b><br>Seu retorno foi registrado de forma anônima.</div>'}
+try{if(localStorage.getItem("oficina-avaliou"))thanks()}catch(e){}
+const rs=document.getElementById("rs");
+if(rs)rs.onclick=async()=>{
+ if(!nota){rmsg.textContent="Escolha de 1 a 5 estrelas antes de enviar.";return}
+ if(!FORM_URL||!ENTRY_NOTA){rmsg.textContent="Avaliação ainda não configurada.";return}
+ rs.disabled=true;rmsg.textContent="Enviando…";
+ const d=new URLSearchParams();d.append(ENTRY_NOTA,nota);
+ if(ENTRY_COMENTARIO)d.append(ENTRY_COMENTARIO,document.getElementById("rc").value.trim().slice(0,1000));
+ try{
+  await fetch(FORM_URL,{method:"POST",mode:"no-cors",body:d});
+  try{localStorage.setItem("oficina-avaliou","1")}catch(e){}
+  thanks();
+ }catch(e){rs.disabled=false;rmsg.textContent="Não foi possível enviar. Verifique sua conexão e tente novamente."}
+};
+
+// autoavaliação pré/pós: preencha após criar o Google Formulário
+const PP={url:"https://docs.google.com/forms/d/e/1FAIpQLSdtRhNf1UAVq5VHF69PPU86Ak6rru-SbdLkK41GueOkVY_-4g/formResponse",momento:"entry.1204729804",codigo:"entry.825606448",q:["entry.845032021","entry.809832522","entry.1809443788","entry.986802893","entry.1178830434","entry.59388840"],val:{pre:"Pre (Encontro 1)",pos:"Pos (Encontro 2)"}};
+const PPQ=["Sinto-me capaz de escrever instruções (prompts) claras para que a IA me ajude a conhecer o perfil e as dificuldades de uma turma.","Sinto-me capaz de redigir objetivos de aprendizagem mensuráveis, com verbos observáveis, usando a Taxonomia de Bloom.","Sinto-me capaz de montar um plano de aula em 4 tempos com uma atividade ativa para a turma.","Sinto-me capaz de criar uma rubrica de avaliação com critérios e níveis claros.","Sinto-me capaz de verificar se uma resposta de IA está correta, comparando com a fonte oficial.","Sinto-me capaz de usar IA de forma segura e responsável na minha atividade docente."];
+if(PP.url&&PP.momento&&PP.q.every(Boolean)){
+ document.getElementById("auto").hidden=false;
+ if(!PP.codigo){document.getElementById("ppc").hidden=true;document.querySelector("label[for=ppc]").hidden=true;document.querySelector("#auto .sh p").textContent="Responda no início do Encontro 1 (pré) e no fim do Encontro 2 (pós). Serve para medir a evolução do grupo. Nenhum dado pessoal é pedido."}
+ const box=document.getElementById("ppq");
+ PPQ.forEach((t,i)=>{const f=document.createElement("fieldset");f.className="pp";f.innerHTML="<legend>"+(i+1)+". "+t+"</legend>"+[1,2,3,4,5].map(v=>'<label class="opt"><input type="radio" name="q'+i+'" value="'+v+'">'+v+'</label>').join("");box.appendChild(f)});
+ const pm=document.getElementById("ppmsg"),pb=document.getElementById("pps");
+ pb.onclick=async()=>{
+  const mo=document.querySelector('input[name=momento]:checked'),cod=document.getElementById("ppc").value.trim();
+  const as=PPQ.map((_,i)=>document.querySelector('input[name=q'+i+']:checked'));
+  if(!mo||(PP.codigo&&!cod)||as.some(x=>!x)){pm.textContent="Escolha o momento"+(PP.codigo?", informe o código":"")+" e responda os 6 itens.";return}
+  pb.disabled=true;pm.textContent="Enviando…";
+  const d=new URLSearchParams();d.append(PP.momento,PP.val[mo.value]);if(PP.codigo)d.append(PP.codigo,cod);as.forEach((x,i)=>d.append(PP.q[i],x.value));
+  try{await fetch(PP.url,{method:"POST",mode:"no-cors",body:d});pm.textContent="Obrigada! Resposta enviada ("+PP.val[mo.value]+").";pb.disabled=false;document.querySelectorAll("#ppq input").forEach(x=>x.checked=false)}
+  catch(e){pb.disabled=false;pm.textContent="Não foi possível enviar. Tente novamente."}
+ };
+}
+document.querySelectorAll(".cp").forEach(b=>b.onclick=()=>{navigator.clipboard.writeText(b.previousElementSibling.textContent).then(()=>{b.textContent="✓ Copiado";setTimeout(()=>b.textContent="Copiar prompt",1800)}).catch(()=>{b.textContent="Selecione o texto e copie"})});
+
+// abre o bloco recolhido quando o link aponta para ele
+function openHash(){const t=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1)));if(t&&t.tagName==="DETAILS"){t.open=true}}
+addEventListener("hashchange",openHash);openHash();
+document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;const t=document.getElementById(a.getAttribute("href").slice(1));if(t&&t.tagName==="DETAILS")t.open=true});
+
+// temporizadores da construção
+document.querySelectorAll(".tmr").forEach(el=>{
+ const st=el.dataset.steps.split(";").map(x=>{const a=x.split(":");return{n:a[0],m:+a[1]}});
+ const tot=st.reduce((a,x)=>a+x.m,0);
+ el.innerHTML='<div class="tt"><b>'+el.dataset.title+'</b><span class="cap">'+st.length+' etapas · '+tot+' min</span></div><div class="tc" aria-hidden="true"></div><div class="tn" role="status"></div><div class="tb"></div><button class="btn t tp">▶ Iniciar</button><button class="btn ts">Pular etapa</button><button class="btn tr">Reiniciar</button>';
+ const bar=el.querySelector(".tb"),nm=el.querySelector(".tn"),cl=el.querySelector(".tc"),bp=el.querySelector(".tp");
+ st.forEach(x=>{const d=document.createElement("div");d.style.flex=x.m;d.textContent=x.m+" min";d.title=x.n;bar.appendChild(d)});
+ let i=0,rem=st[0].m*60,end=0,run=false,iv=null;
+ const f=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+ function paint(){cl.textContent=f(Math.max(0,rem));[...bar.children].forEach((d,k)=>d.className=k<i?"done":k===i?"cur":"");const t=i>=st.length?"Construção concluída.":"Etapa "+(i+1)+" de "+st.length+": "+st[i].n;if(nm.textContent!==t)nm.textContent=t}
+ function beep(){try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=880;g.gain.value=.15;o.start();o.stop(c.currentTime+.4)}catch(e){}}
+ function stop(){clearInterval(iv);run=false;bp.textContent="▶ Iniciar"}
+ function next(){i++;if(i>=st.length){stop();rem=0;paint();return}rem=st[i].m*60;end=Date.now()+rem*1000;paint()}
+ function tick(){rem=Math.round((end-Date.now())/1000);if(rem<=0){beep();next();return}paint()}
+ bp.onclick=()=>{if(run){stop();bp.textContent="▶ Continuar";return}
+  if(i>=st.length){i=0;rem=st[0].m*60}
+  run=true;end=Date.now()+rem*1000;iv=setInterval(tick,250);bp.textContent="⏸ Pausar";paint()};
+ el.querySelector(".ts").onclick=()=>{if(i<st.length){const w=run;next();if(!w&&i<st.length)rem=st[i].m*60}};
+ el.querySelector(".tr").onclick=()=>{stop();i=0;rem=st[0].m*60;paint()};
+ paint();
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+try{new QRCode(document.getElementById("qrc"),{text:"https://vivianefranco.github.io/formacao_trt_4/",width:168,height:168,colorDark:"#14213D",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}catch(e){document.getElementById("qrc").textContent=""}
 </script>
 </body>
 </html>
