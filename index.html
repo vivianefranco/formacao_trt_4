@@ -111,6 +111,11 @@ section:not(.alt) .steps div{background:var(--card)}
 .rate label.opt{display:inline-flex;gap:8px;align-items:center;font-weight:500;margin:0 18px 8px 0}
 .rate input[type=radio]{accent-color:var(--acc2);width:18px;height:18px}
 .rate input[type=text]{width:100%;max-width:260px;font:400 15px var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:18px}
+.tmr{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:6px 0 10px}section.alt .tmr{background:var(--bg)}
+.tt{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}.tt b{font-family:var(--head);font-size:1.15rem}
+.tc{font:700 clamp(3rem,12vw,5rem)/1 var(--head);font-variant-numeric:tabular-nums;color:var(--acc2);margin:10px 0}
+.tn{font-weight:600;margin-bottom:12px}
+.tb{display:flex;gap:4px;margin-bottom:14px}.tb div{background:var(--line);border-radius:6px;padding:6px 4px;font-size:12px;text-align:center;color:var(--soft);min-width:0}.tb .cur{background:var(--acc);color:#14213D;font-weight:600}.tb .done{background:var(--acc2);color:#fff}
 footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -130,18 +135,18 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 
 <section id="site" style="padding:36px 0"><div class="w"><div class="qr">
 <div class="box" id="qrc" role="img" aria-label="QR code para o site da formação"></div>
-<div><h3>Comece por aqui: acesse a página da oficina</h3><p>Aponte a câmera do celular para o QR code ou clique no botão. Deixe esta página aberta durante os dois encontros.</p>
-<a class="btn t" href="https://vivianefranco.github.io/formacao_trt_4/" target="_blank" rel="noopener">Abrir a página</a></div>
+<div><h3>Comece por aqui: acesse a página da oficina</h3><p>Este é o QRCode desta apresentação.</p></div>
 </div></div></section>
 <section class="alt" id="crono"><div class="w">
-<div class="sh"><h2>Esta oficina aplica o que ensina</h2><p>Cada encontro de 3h segue os 4 tempos da metodologia ativa, com 40% do tempo em construção pelos participantes.</p></div>
+<div class="sh"><h2>Esta oficina aplica o que ensina</h2><p>Cada encontro de 3h tem 15 minutos de intervalo e 165 minutos de atividade, organizados nos 4 tempos da metodologia ativa, com 40% em construção pelos participantes.</p></div>
 <div class="tw"><table>
 <thead><tr><th>Tempo</th><th>Encontro 1 · Da turma ao plano</th><th>Encontro 2 · Avaliar e testar</th></tr></thead>
 <tbody>
-<tr><td>Conexão<br>18 min</td><td>Acesso à página (5), autoavaliação pré (5), sondagem no chat: onde você já travou com IA (8).</td><td>Relato das entregas nas salas virtuais (10) e destaques em plenária (8).</td></tr>
-<tr><td>Conteúdo<br>54 min</td><td>Diagnóstico e criação do primeiro Gem (20), Taxonomia de Bloom (15), 4 tempos e Agente Plano de Aula (19).</td><td>Rubricas (18), Gemini Notebook e verificação de saídas (20), Agente Cético (16).</td></tr>
-<tr><td>Construção<br>72 min</td><td>Em salas virtuais: diagnóstico do seu tema (20), objetivos (20), plano de aula (25), ajustes (7).</td><td>Em salas virtuais: rubrica do seu plano (20), caça ao erro no seu caderno (20), Cético e ajuste do plano (32).</td></tr>
-<tr><td>Conclusão<br>36 min</td><td>Apresentação relâmpago dos planos (24) e combinados das 3 entregas (12).</td><td>Plano final compartilhado (20), autoavaliação pós e avaliação da oficina (10), próximos passos (6).</td></tr>
+<tr><td>Conexão<br>17 min</td><td>Acesso à página (5), autoavaliação pré (5), sondagem no chat: onde você já travou com IA (7).</td><td>Relato das entregas nas salas virtuais (10) e destaques em plenária (7).</td></tr>
+<tr><td>Conteúdo<br>50 min</td><td>Diagnóstico e criação do primeiro Gem (18), Taxonomia de Bloom (14), 4 tempos e Agente Plano de Aula (18).</td><td>Rubricas (16), Gemini Notebook e verificação de saídas (18), Agente Cético (16).</td></tr>
+<tr><td>Intervalo<br>15 min</td><td colspan="2">Pausa para descanso. Volte com a página da oficina aberta.</td></tr>
+<tr><td>Construção<br>66 min</td><td>Em salas virtuais: diagnóstico do seu tema (18), objetivos (18), plano de aula (23), ajustes (7).</td><td>Em salas virtuais: rubrica do seu plano (16), caça ao erro no seu caderno (20), Cético e ajuste do plano (30).</td></tr>
+<tr><td>Conclusão<br>32 min</td><td>Apresentação relâmpago dos planos (22) e combinados das 3 entregas (10).</td><td>Plano final compartilhado (20), autoavaliação pós e avaliação da oficina (8), próximos passos (4).</td></tr>
 </tbody></table></div>
 <div class="warn" style="background:var(--card)"><b>Dicas para trabalhar em grupo on-line</b>
 <ul style="margin:8px 0 0;padding-left:20px"><li>Use salas virtuais (breakout rooms) do Meet, se o seu perfil permitir, com <b>trios</b> em vez de duplas: se alguém cair, ninguém fica sozinho.</li><li>Cada sala tem um documento compartilhado e uma pessoa relatora que traz o resultado para a plenária.</li><li>Sem salas ou com turma pequena: trabalho individual, com troca de resultados no chat ou em um documento único.</li><li>Na conexão, use o chat: todos escrevem a resposta e enviam juntos na contagem 3, 2, 1.</li></ul></div>
@@ -169,6 +174,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 
 <h3 class="bl">Bloco 1 · Fundamentos e diagnóstico</h3><div id="a1"></div>
 <h3 class="bl">Bloco 2 · Engenharia de cursos</h3><div id="a2"></div>
+<h3 class="bl">Bloco 3 · Construção (66 min)</h3><p class="cap">Dê play e acompanhe as etapas. A construção acontece nas salas virtuais.</p><div class="tmr" data-title="Construção · Encontro 1" data-steps="Diagnóstico do seu tema:18;Objetivos:18;Plano de aula:23;Ajustes:7"></div>
 
 <h3 class="bl">Referência rápida: Taxonomia de Bloom (revisada)</h3>
 <p class="cap">Quanto mais alto o degrau, mais complexa a tarefa cognitiva (ANDERSON; KRATHWOHL, 2001). Escolha o verbo do seu objetivo a partir daqui.</p>
@@ -182,7 +188,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 </div>
 
 <h3 class="bl">Referência rápida: os 4 tempos da oficina</h3>
-<p class="cap">Adaptação dos "4 Cs" de Bowman (2009), com proporções 10/30/40/20. Em uma oficina de 3h, 40% são 72 minutos de mão na massa dos participantes.</p>
+<p class="cap">Adaptação dos "4 Cs" de Bowman (2009), com proporções 10/30/40/20. Em um encontro de 3h com 15 min de intervalo, 40% dos 165 min são 66 minutos de mão na massa dos participantes.</p>
 <div class="tempos">
 <div style="width:10%;background:#84568F"><b>Conexão</b><em>10%</em></div>
 <div style="width:30%;background:#2F6FA3"><b>Conteúdo</b><em>30%</em></div>
@@ -204,6 +210,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <div class="sh"><h2>Encontro 2: avaliar e testar antes de ir ao ar</h2><p>Com o plano em mãos, você cria critérios de avaliação e submete o material a um "aluno" exigente.</p></div>
 <div class="goal"><b>Ao final deste encontro você será capaz de:</b><ul><li>Construir uma rubrica com critérios e níveis observáveis.</li><li>Testar um plano de aula com um leitor cético e corrigir suas falhas.</li><li>Verificar uma resposta da IA contra a fonte original e registrar os erros encontrados.</li></ul></div>
 <div id="a3"></div>
+<h3 class="bl">Construção (66 min)</h3><p class="cap">Dê play e acompanhe as etapas. A construção acontece nas salas virtuais.</p><div class="tmr" data-title="Construção · Encontro 2" data-steps="Rubrica do seu plano:16;Caça ao erro no seu caderno:20;Cético e ajuste do plano:30"></div>
 <h3 class="bl">Exemplo de rubrica</h3>
 <p class="cap">Formato que o Agente Rubricas gera: 3 critérios × 4 níveis. Exemplo para uma atividade de redação de despacho.</p>
 <div class="tw"><table>
@@ -300,7 +307,7 @@ footer{text-align:center;color:var(--soft);font-size:13px;padding:30px 0}
 <div class="av"><img src="viviane_franco.jpg" alt="Viviane Franco"></div>
 <div>
 <h3>Viviane Franco</h3><small>Designer instrucional · FGV</small>
-<p>Professora com formação em Letras e mestranda em Informática. Desenha cursos e oficinas em que a IA atua como copiloto do design instrucional, do diagnóstico da turma à rubrica de avaliação, combinando metodologias ativas, Python e AI Studio.</p>
+<p>Professora com formação em Letras pela UERJ e mestranda em Informática pela UNIRIO. Desenha cursos em que a IA atua como copiloto do design instrucional e apoia educadores e instituições a revolucionarem a educação com uso de IA e outras tecnologias.</p>
 <!-- Quando tiver, acrescente aqui resultados concretos (nº de docentes formados, instituições, depoimentos autorizados) e um e-mail profissional:
 <a class="btn" href="mailto:SEU_EMAIL_PROFISSIONAL">E-mail</a> -->
 <a class="btn" href="https://www.linkedin.com/in/viviane-francos/" target="_blank" rel="noopener">LinkedIn</a>
@@ -423,6 +430,28 @@ if(PP.url&&PP.momento&&PP.q.every(Boolean)){
  };
 }
 document.querySelectorAll(".cp").forEach(b=>b.onclick=()=>{navigator.clipboard.writeText(b.previousElementSibling.textContent).then(()=>{b.textContent="✓ Copiado";setTimeout(()=>b.textContent="Copiar prompt",1800)}).catch(()=>{b.textContent="Selecione o texto e copie"})});
+
+// temporizadores da construção
+document.querySelectorAll(".tmr").forEach(el=>{
+ const st=el.dataset.steps.split(";").map(x=>{const a=x.split(":");return{n:a[0],m:+a[1]}});
+ const tot=st.reduce((a,x)=>a+x.m,0);
+ el.innerHTML='<div class="tt"><b>'+el.dataset.title+'</b><span class="cap">'+st.length+' etapas · '+tot+' min</span></div><div class="tc" aria-hidden="true"></div><div class="tn" role="status"></div><div class="tb"></div><button class="btn t tp">▶ Iniciar</button><button class="btn ts">Pular etapa</button><button class="btn tr">Reiniciar</button>';
+ const bar=el.querySelector(".tb"),nm=el.querySelector(".tn"),cl=el.querySelector(".tc"),bp=el.querySelector(".tp");
+ st.forEach(x=>{const d=document.createElement("div");d.style.flex=x.m;d.textContent=x.m+" min";d.title=x.n;bar.appendChild(d)});
+ let i=0,rem=st[0].m*60,end=0,run=false,iv=null;
+ const f=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+ function paint(){cl.textContent=f(Math.max(0,rem));[...bar.children].forEach((d,k)=>d.className=k<i?"done":k===i?"cur":"");const t=i>=st.length?"Construção concluída.":"Etapa "+(i+1)+" de "+st.length+": "+st[i].n;if(nm.textContent!==t)nm.textContent=t}
+ function beep(){try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=880;g.gain.value=.15;o.start();o.stop(c.currentTime+.4)}catch(e){}}
+ function stop(){clearInterval(iv);run=false;bp.textContent="▶ Iniciar"}
+ function next(){i++;if(i>=st.length){stop();rem=0;paint();return}rem=st[i].m*60;end=Date.now()+rem*1000;paint()}
+ function tick(){rem=Math.round((end-Date.now())/1000);if(rem<=0){beep();next();return}paint()}
+ bp.onclick=()=>{if(run){stop();bp.textContent="▶ Continuar";return}
+  if(i>=st.length){i=0;rem=st[0].m*60}
+  run=true;end=Date.now()+rem*1000;iv=setInterval(tick,250);bp.textContent="⏸ Pausar";paint()};
+ el.querySelector(".ts").onclick=()=>{if(i<st.length){const w=run;next();if(!w&&i<st.length)rem=st[i].m*60}};
+ el.querySelector(".tr").onclick=()=>{stop();i=0;rem=st[0].m*60;paint()};
+ paint();
+});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
